@@ -12,7 +12,7 @@ lvim.keys.normal_mode = {
   ["s"] = "",
   ["f"] = "",
   ["g"] = "",
-
+  ["\\"] = "$",
   ["<C-s>"] = ":w<cr>",
   -- Better window movement
   ["<C-h>"] = "<C-w>h",
