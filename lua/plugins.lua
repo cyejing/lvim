@@ -16,4 +16,5 @@ lvim.plugins = {
             require("plugin-config.autosave").setup()
         end,
     },
+    { "simrat39/rust-tools.nvim" },
 }

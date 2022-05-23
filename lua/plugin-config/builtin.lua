@@ -29,7 +29,6 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
-lvim.builtin.lualine.options.theme = "tokyonight"
 lvim.builtin.lualine.sections.lualine_c = {
     {
         "lsp_progress",
@@ -37,3 +36,4 @@ lvim.builtin.lualine.sections.lualine_c = {
     },
 }
 lvim.builtin.lualine.sections.lualine_z = { "progress" }
+
