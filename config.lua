@@ -1,5 +1,6 @@
 require("basic")
 require("keybindings")
+require("which-key-m")
 require("plugins")
 require("autocmd")
 require("lsp")
@@ -11,4 +12,4 @@ lvim.colorscheme = "onedarker"
 -- vim.o.background = "dark"
 -- vim.g.tokyonight_style = "storm"
 -- to disable icons and use a minimalist setup, uncomment the following
- lvim.use_icons = false
+lvim.use_icons = false
