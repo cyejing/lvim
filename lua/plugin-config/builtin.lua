@@ -1,6 +1,3 @@
-require("plugin-config.bufferline")
-require("plugin-config.nvim-tree")
-require("plugin-config.dashboard")
 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
@@ -29,10 +26,4 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
-lvim.builtin.lualine.sections.lualine_c = {
-    {
-        "lsp_progress",
-        spinner_symbols = { " ", " ", " ", " ", " ", " " },
-    },
-}
 lvim.builtin.lualine.sections.lualine_z = { "progress" }

@@ -5,6 +5,15 @@ require("plugins")
 require("autocmd")
 require("lsp")
 
+
+require("plugin-config.builtin")
+require("plugin-config.bufferline")
+require("plugin-config.nvim-tree")
+require("plugin-config.dashboard")
+require("plugin-config.telescope")
+require("plugin-config.cmp")
+require("plugin-config.fidget")
+
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = false
