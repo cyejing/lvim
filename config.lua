@@ -1,6 +1,6 @@
 require("basic")
 require("keybindings")
-require("which-key-m")
+require("which-keys")
 require("plugins")
 require("autocmd")
 require("lsp")

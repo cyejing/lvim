@@ -9,6 +9,7 @@ lvim.plugins = {
     -- lualine --
     { "arkav/lualine-lsp-progress" },
 
+    { "nvim-telescope/telescope-project.nvim" },
     -- utils --
     {
         "Pocco81/AutoSave.nvim",

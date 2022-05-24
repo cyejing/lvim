@@ -1,6 +1,6 @@
-
 require("plugin-config.bufferline")
 require("plugin-config.nvim-tree")
+require("plugin-config.dashboard")
 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
@@ -36,4 +36,3 @@ lvim.builtin.lualine.sections.lualine_c = {
     },
 }
 lvim.builtin.lualine.sections.lualine_z = { "progress" }
-

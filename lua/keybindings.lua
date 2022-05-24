@@ -46,9 +46,9 @@ lvim.keys.normal_mode = {
 lvim.keys.insert_mode = {
     ["kk"] = "<ESC>",
     -- 'jk' for quitting insert mode
-    ["jk"] = "<ESC>",
+    ["jk"] = "jk",
     -- 'kj' for quitting insert mode
-    ["kj"] = "<ESC>",
+    ["kj"] = "kj",
     -- 'jj' for quitting insert mode
     ["jj"] = "<ESC>",
     -- Move current line / block with Alt-j/k ala vscode.
@@ -74,7 +74,7 @@ lvim.keys.visual_mode = {
     -- Better indenting
     ["<"] = "<gv",
     [">"] = ">gv",
-    
+
     ["<C-j>"] = "5j",
     ["<C-k>"] = "5k",
 
@@ -130,3 +130,7 @@ lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Project
 --   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
 --   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
 -- }
+
+
+
+
