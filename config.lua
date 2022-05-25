@@ -12,7 +12,7 @@ require("builtin.nvim-tree")
 require("builtin.dashboard")
 require("builtin.telescope")
 require("builtin.cmp")
-require("builtin.fidget")
+require("plugin-config.fidget")
 
 -- general
 lvim.log.level = "warn"

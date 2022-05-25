@@ -3,6 +3,7 @@ mappings["p"] = { "<CMD>Telescope projects<CR>", "Projects" }
 mappings["r"] = { "<CMD>Telescope oldfiles<CR>", "Recently files" }
 mappings["o"] = { "<CMD>:NvimTreeFindFile<CR>", "Location Exporter" }
 mappings["h"] = { "<CMD>edit ~/.cache/lvim/project_nvim/project_history<CR>", "Edit Projects" }
+mappings["h"] = { "<CMD>SymbolsOutline<CR>", "SymbolsOutline" }
 mappings["c"] = { "<CMD>Bdelete!<CR>", "Close Buffer" }
 
 mappings["/"] = { "<CMD>lua require('Comment.api').toggle_current_linewise()<CR>", "Comment" }

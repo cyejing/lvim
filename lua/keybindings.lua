@@ -25,6 +25,10 @@ lvim.keys.normal_mode = {
     ["<A-Left>"] = ":vertical resize -2<CR>",
     ["<A-Right>"] = ":vertical resize +2<CR>",
 
+    -- goto preview
+    ["gv"] = "<cmd>lua require('goto-preview').goto_preview_definition()<CR>",
+
+
     -- Tab switch buffer
     -- ["<S-L>"] = ":BufferLineCycleNext<CR>",
     -- ["<S-H>"] = ":BufferLineCyclePrev<CR>",
