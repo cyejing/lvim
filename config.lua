@@ -6,19 +6,19 @@ require("autocmd")
 require("lsp")
 
 
-require("plugin-config.builtin")
-require("plugin-config.bufferline")
-require("plugin-config.nvim-tree")
-require("plugin-config.dashboard")
-require("plugin-config.telescope")
-require("plugin-config.cmp")
-require("plugin-config.fidget")
+require("builtin.less")
+require("builtin.bufferline")
+require("builtin.nvim-tree")
+require("builtin.dashboard")
+require("builtin.telescope")
+require("builtin.cmp")
+require("builtin.fidget")
 
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = false
 lvim.colorscheme = "onedarker"
--- vim.o.background = "dark"
--- vim.g.tokyonight_style = "storm"
+vim.o.background = "dark"
+vim.g.tokyonight_style = "storm"
 -- to disable icons and use a minimalist setup, uncomment the following
 lvim.use_icons = false

@@ -29,12 +29,12 @@ lvim.keys.normal_mode = {
     -- ["<S-L>"] = ":BufferLineCycleNext<CR>",
     -- ["<S-H>"] = ":BufferLineCyclePrev<CR>",
     -- Navigate buffers
-    ["<Tab>"] = ":bnext<CR>",
-    ["<S-Tab>"] = ":bprevious<CR>",
+    --["<Tab>"] = ":bnext<CR>",
+    --["<S-Tab>"] = ":bprevious<CR>",
 
     -- Move current line / block with Alt-j/k a la vscode.
-    ["<A-j>"] = ":m .+1<CR>==",
-    ["<A-k>"] = ":m .-2<CR>==",
+    --["<A-j>"] = ":m .+1<CR>==",
+    --["<A-k>"] = ":m .-2<CR>==",
 
     -- QuickFix
     ["]q"] = ":cnext<CR>",
@@ -120,7 +120,7 @@ lvim.keys.command_mode = {
 -- }
 
 -- Use which-key to add extra bindings with the leader-key prefix
-lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+--lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 -- lvim.builtin.which_key.mappings["t"] = {
 --   name = "+Trouble",
 --   r = { "<cmd>Trouble lsp_references<cr>", "References" },

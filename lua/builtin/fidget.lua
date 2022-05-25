@@ -12,9 +12,7 @@ fidget.setup({
     completed = "Completed", -- message shown when task completes
   },
   sources = {
-    ["null-ls"] = {
-      ignore = true,
-    },
+
   },
 })
 

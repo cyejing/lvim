@@ -18,7 +18,6 @@ lvim.plugins = {
     -- plus
     { "onsails/lspkind-nvim" },
     { "tami5/lspsaga.nvim" },
-    { "simrat39/rust-tools.nvim" },
     { "ur4ltz/surround.nvim" },
     { "j-hui/fidget.nvim" },
     -- utils
@@ -27,5 +26,14 @@ lvim.plugins = {
         config = function()
             require("plugin-config.autosave").setup()
         end,
+    },
+
+    --lsp
+    {
+        "simrat39/rust-tools.nvim",
+        config = function()
+            require("plugin-config.rust-tools").setup()
+        end,
+        ft = { "rust", "rs" },
     },
 }

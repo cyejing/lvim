@@ -12,12 +12,22 @@ lvim.builtin.alpha.dashboard.section.buttons = {
 lvim.builtin.alpha.dashboard.section.header = {
     type = "text",
     val = {
+        "                                                        ",
+        "                                                        ",
+        "                                                        ",
+        "                                                        ",
+        "                                                        ",
         " ██████╗██╗   ██╗███████╗     ██╗██╗███╗   ██╗ ██████╗  ",
         "██╔════╝╚██╗ ██╔╝██╔════╝     ██║██║████╗  ██║██╔════╝  ",
         "██║      ╚████╔╝ █████╗       ██║██║██╔██╗ ██║██║  ███╗ ",
         "██║       ╚██╔╝  ██╔══╝  ██   ██║██║██║╚██╗██║██║   ██║ ",
         "╚██████╗   ██║   ███████╗╚█████╔╝██║██║ ╚████║╚██████╔╝ ",
         " ╚═════╝   ╚═╝   ╚══════╝ ╚════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝  ",
+        "                                                        ",
+        "                                                        ",
+        "                                                        ",
+        "                                                        ",
+        "                                                        ",
     },
     opts = {
         position = "center",
@@ -28,7 +38,17 @@ lvim.builtin.alpha.dashboard.section.header = {
 lvim.builtin.alpha.dashboard.section.footer = {
     type = "text",
     val = {
-        "let's go",
+        "                                                         ",
+        "                                                         ",
+        "                                                         ",
+        "                                                         ",
+        "                                                         ",
+        "                        let's go                         ",
+        "                                                         ",
+        "                                                         ",
+        "                                                         ",
+        "                                                         ",
+        "                                                         ",
     },
     opts = {
         position = "center",
