@@ -19,7 +19,20 @@ lvim.plugins = {
     { "onsails/lspkind-nvim" },
     { "tami5/lspsaga.nvim" },
     { "ur4ltz/surround.nvim" },
-    { "j-hui/fidget.nvim" },
+    { "j-hui/fidget.nvim",
+      config = function()
+          require("fidget").setup({
+              text = {
+                  spinner = "zip", -- animation shown when tasks are ongoing
+                  done = "✔", -- character shown when all tasks are complete
+                  commenced = "Started", -- message shown when task starts
+                  completed = "Completed", -- message shown when task completes
+              },
+              sources = {
+
+              },
+          })
+      end },
     -- utils
     {
         "Pocco81/AutoSave.nvim",
@@ -37,21 +50,7 @@ lvim.plugins = {
         ft = { "rust", "rs" },
     },
     {
-        "rmagatti/goto-preview", -- preview
-        config = function()
-            require('goto-preview').setup {
-                width = 100; -- Width of the floating window
-                height = 150; -- Height of the floating window
-                default_mappings = false; -- Bind default mappings
-                debug = false; -- Print debug information
-                opacity = nil; -- 0-100 opacity level of the floating window where 100 is fully transparent.
-                resizing_mappings = true;
-                post_open_hook = nil -- A function taking two arguments, a buffer and a window to be ran as a hook.
-            }
-        end
-    },
-    {
-        "ray-x/lsp_signature.nvim",-- signature tip
+        "ray-x/lsp_signature.nvim", -- signature tip
         event = "BufRead",
         config = function()
             require "lsp_signature".setup()
@@ -60,9 +59,9 @@ lvim.plugins = {
     {
         "simrat39/symbols-outline.nvim", -- symbols
         config = function()
-            vim.g.symbols_outline= {
-                auto_preview=false,
-                auto_close=true
+            vim.g.symbols_outline = {
+                auto_preview = false,
+                auto_close = true
             }
         end
     },
@@ -78,7 +77,7 @@ lvim.plugins = {
         end,
     },
     {
-        "nacro90/numb.nvim",-- peek num
+        "nacro90/numb.nvim", -- peek num
         event = "BufRead",
         config = function()
             require("numb").setup {
@@ -88,7 +87,7 @@ lvim.plugins = {
         end,
     },
     {
-        "kevinhwang91/nvim-bqf",  -- Better quickfix window
+        "kevinhwang91/nvim-bqf", -- Better quickfix window
         event = { "BufRead", "BufNew" },
         config = function()
             require("bqf").setup({
@@ -113,11 +112,11 @@ lvim.plugins = {
             })
         end,
     },
-    {
-        "windwp/nvim-spectre", -- search replace
-        event = "BufRead",
-        config = function()
-            require("spectre").setup()
-        end,
-    },
+    --{
+    --    "windwp/nvim-spectre", -- search replace
+    --    event = "BufRead",
+    --    config = function()
+    --        require("spectre").setup()
+    --    end,
+    --},
 }

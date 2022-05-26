@@ -5,7 +5,6 @@ mappings["o"] = { "<CMD>:NvimTreeFindFile<CR>", "Location Exporter" }
 mappings["h"] = { "<CMD>edit ~/.cache/lvim/project_nvim/project_history<CR>", "Edit Projects" }
 mappings["h"] = { "<CMD>SymbolsOutline<CR>", "SymbolsOutline" }
 mappings["c"] = { "<CMD>Bdelete!<CR>", "Close Buffer" }
-
 mappings["/"] = { "<CMD>lua require('Comment.api').toggle_current_linewise()<CR>", "Comment" }
 
 mappings["P"] = {
@@ -17,3 +16,13 @@ mappings["P"] = {
     S = { "<cmd>PackerStatus<cr>", "Status" },
     u = { "<cmd>PackerUpdate<cr>", "Update" },
 }
+
+local bmn = lvim.lsp.buffer_mappings.normal_mode
+bmn["K"] = { vim.lsp.buf.hover, "Show hover" }
+bmn["gD"] = { vim.lsp.buf.declaration, "Goto declaration" }
+bmn["gs"] = { vim.lsp.buf.signature_help, "show signature help" }
+bmn["gd"] = { "<cmd>:vsp<cr>:Telescope lsp_definitions<CR>", "Goto Definition" }
+bmn["gr"] = { "<cmd>Telescope lsp_references<CR>", "Goto references" }
+bmn["gi"] = { "<cmd>Telescope lsp_implementations<CR>", "Goto Implementation" }
+bmn["gh"] = { "<cmd>Telescope lsp_document_symbols<CR>", "Document Symbols" }
+bmn["gw"] = { "<cmd>Telescope lsp_workspace_symbols<CR>", "Workspace Symbols" }

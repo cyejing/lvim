@@ -8,9 +8,12 @@ lvim.keys.normal_mode = {
     ["g"] = "",
     ["\\"] = "$",
     ["r"] = "<C-r>",
+
     -- move
-    ["<C-j>"] = "5j",
-    ["<C-k>"] = "5k",
+    ["<C-J>"] = "10j",
+    ["<C-K>"] = "10k",
+    -- ["<C-d>"] = "15j",
+    -- ["<C-u>"] = "15k",
 
     -- Better window movement
     ["<C-Left>"] = "<C-w>h",
@@ -18,15 +21,18 @@ lvim.keys.normal_mode = {
     ["<C-Up>"] = "<C-w>k",
     ["<C-Right>"] = "<C-w>l",
     ["<C-n>"] = "<C-w>w",
+    ["<S-n>"] = "<C-w>W",
+    ["<C-c>"] = "<C-w>c",
 
     -- Resize with arrows
-    ["<A-Up>"] = ":resize -2<CR>",
-    ["<A-Down>"] = ":resize +2<CR>",
-    ["<A-Left>"] = ":vertical resize -2<CR>",
-    ["<A-Right>"] = ":vertical resize +2<CR>",
+    ["<S-Up>"] = ":resize -2<CR>",
+    ["<S-Down>"] = ":resize +2<CR>",
+    ["<S-Left>"] = ":vertical resize -2<CR>",
+    ["<S-Right>"] = ":vertical resize +2<CR>",
 
-    -- goto preview
-    ["gv"] = "<cmd>lua require('goto-preview').goto_preview_definition()<CR>",
+    -- lsp
+    --["gv"] = "<cmd>lua require('goto-preview').goto_preview_definition()<CR>",
+    --["gi"] = "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>",
 
 
     -- Tab switch buffer
@@ -55,6 +61,9 @@ lvim.keys.insert_mode = {
     ["kj"] = "kj",
     -- 'jj' for quitting insert mode
     ["jj"] = "<ESC>",
+
+    ["<C-a>"] = "<HOME>";
+    ["<C-e>"] = "<END>";
     -- Move current line / block with Alt-j/k ala vscode.
     ["<A-j>"] = "<Esc>:m .+1<CR>==gi",
     -- Move current line / block with Alt-j/k ala vscode.
@@ -79,8 +88,8 @@ lvim.keys.visual_mode = {
     ["<"] = "<gv",
     [">"] = ">gv",
 
-    ["<C-j>"] = "5j",
-    ["<C-k>"] = "5k",
+    ["<C-j>"] = "10j",
+    ["<C-k>"] = "10k",
 
     -- ["p"] = '"0p',
     -- ["P"] = '"0P',
@@ -134,7 +143,3 @@ lvim.keys.command_mode = {
 --   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
 --   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
 -- }
-
-
-
-

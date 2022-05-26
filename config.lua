@@ -1,6 +1,4 @@
 require("basic")
-require("keybindings")
-require("which-keys")
 require("plugins")
 require("autocmd")
 require("lsp")
@@ -13,6 +11,9 @@ require("builtin.dashboard")
 require("builtin.telescope")
 require("builtin.cmp")
 require("plugin-config.fidget")
+
+require("keybindings")
+require("which-keys")
 
 -- general
 lvim.log.level = "warn"
