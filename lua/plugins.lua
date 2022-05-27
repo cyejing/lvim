@@ -15,25 +15,37 @@ lvim.plugins = {
     { "hrsh7th/cmp-vsnip" },
     { "hrsh7th/cmp-cmdline" }, -- { name = 'cmdline' }
     { "hrsh7th/cmp-nvim-lsp-signature-help" }, -- { name = 'nvim_lsp_signature_help' }
-    -- plus
-    { "onsails/lspkind-nvim" },
-    { "tami5/lspsaga.nvim" },
-    { "ur4ltz/surround.nvim" },
-    { "j-hui/fidget.nvim",
-      config = function()
-          require("fidget").setup({
-              text = {
-                  spinner = "zip", -- animation shown when tasks are ongoing
-                  done = "✔", -- character shown when all tasks are complete
-                  commenced = "Started", -- message shown when task starts
-                  completed = "Completed", -- message shown when task completes
-              },
-              sources = {
 
-              },
-          })
-      end },
-    -- utils
+    -- plus
+    -- { "ur4ltz/surround.nvim" },
+    { "j-hui/fidget.nvim",
+        config = function()
+            require("fidget").setup({
+                text = {
+                    spinner = "zip", -- animation shown when tasks are ongoing
+                    done = "✔", -- character shown when all tasks are complete
+                    commenced = "Started", -- message shown when task starts
+                    completed = "Completed", -- message shown when task completes
+                },
+                sources = {
+
+                },
+            })
+        end
+    },
+    {
+        "ethanholz/nvim-lastplace",
+        event = "BufRead",
+        config = function()
+            require("nvim-lastplace").setup({
+                lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
+                lastplace_ignore_filetype = {
+                    "gitcommit", "gitrebase", "svn", "hgcommit",
+                },
+                lastplace_open_folds = true,
+            })
+        end,
+    },
     {
         "Pocco81/AutoSave.nvim",
         config = function()
@@ -65,6 +77,10 @@ lvim.plugins = {
             }
         end
     },
+    {
+        "folke/trouble.nvim",
+        cmd = "TroubleToggle",
+    },
 
     -- Navigation
     {
@@ -86,32 +102,12 @@ lvim.plugins = {
             }
         end,
     },
+    -- git
     {
-        "kevinhwang91/nvim-bqf", -- Better quickfix window
-        event = { "BufRead", "BufNew" },
-        config = function()
-            require("bqf").setup({
-                auto_enable = true,
-                preview = {
-                    win_height = 12,
-                    win_vheight = 12,
-                    delay_syntax = 80,
-                    border_chars = { "┃", "┃", "━", "━", "┏", "┓", "┗", "┛", "█" },
-                },
-                func_map = {
-                    vsplit = "",
-                    ptogglemode = "z,",
-                    stoggleup = "",
-                },
-                filter = {
-                    fzf = {
-                        action_for = { ["ctrl-s"] = "split" },
-                        extra_opts = { "--bind", "ctrl-o:toggle-all", "--prompt", "> " },
-                    },
-                },
-            })
-        end,
+        "sindrets/diffview.nvim",
+        event = "BufRead",
     },
+    -- search
     --{
     --    "windwp/nvim-spectre", -- search replace
     --    event = "BufRead",

@@ -10,7 +10,6 @@ require("builtin.nvim-tree")
 require("builtin.dashboard")
 require("builtin.telescope")
 require("builtin.cmp")
-require("plugin-config.fidget")
 
 require("keybindings")
 require("which-keys")

@@ -20,10 +20,10 @@ lvim.keys.normal_mode = {
     ["<C-Down>"] = "<C-w>j",
     ["<C-Up>"] = "<C-w>k",
     ["<C-Right>"] = "<C-w>l",
-    ["<C-n>"] = "<C-w>w",
-    ["<S-n>"] = "<C-w>W",
+    ["<C-H>"] = "<C-w>W",
+    ["<C-L>"] = "<C-w>w",
     ["<C-c>"] = "<C-w>c",
-    ["<C-b>"] = ":Bdelete!<CR>",
+    ["<C-c>b"] = ":Bdelete!<CR>",
 
     -- Resize with arrows
     ["<S-Up>"] = ":resize -2<CR>",
@@ -32,25 +32,26 @@ lvim.keys.normal_mode = {
     ["<S-Right>"] = ":vertical resize +2<CR>",
 
     -- lsp
+    ["<C-n>"] = "<CMD>lua require('Comment.api').toggle_current_linewise()<CR>j",
     --["gv"] = "<cmd>lua require('goto-preview').goto_preview_definition()<CR>",
     --["gi"] = "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>",
 
 
     -- Tab switch buffer
-    -- ["<S-L>"] = ":BufferLineCycleNext<CR>",
-    -- ["<S-H>"] = ":BufferLineCyclePrev<CR>",
+    ["<S-L>"] = ":BufferLineCycleNext<CR>",
+    ["<S-H>"] = ":BufferLineCyclePrev<CR>",
     -- Navigate buffers
     --["<Tab>"] = ":bnext<CR>",
     --["<S-Tab>"] = ":bprevious<CR>",
 
     -- Move current line / block with Alt-j/k a la vscode.
-    --["<A-j>"] = ":m .+1<CR>==",
-    --["<A-k>"] = ":m .-2<CR>==",
+    ["<A-j>"] = ":m .+1<CR>==",
+    ["<A-k>"] = ":m .-2<CR>==",
 
     -- QuickFix
     ["]q"] = ":cnext<CR>",
     ["[q"] = ":cprev<CR>",
-    ["<C-q>"] = ":call QuickFixToggle()<CR>",
+    ["<C-q>"] = "<CMD>TroubleToggle<CR>",
 
 }
 
@@ -63,8 +64,14 @@ lvim.keys.insert_mode = {
     -- 'jj' for quitting insert mode
     ["jj"] = "<ESC>",
 
-    ["<C-a>"] = "<HOME>";
-    ["<C-e>"] = "<END>";
+    ["<C-a>"] = "<HOME>",
+    ["<C-e>"] = "<END>",
+
+    -- code
+    ["<C-\\>"] = "<ESC>v<CMD>:lua vim.lsp.buf.range_formatting()<CR><ESC>A",
+
+
+
     -- Move current line / block with Alt-j/k ala vscode.
     ["<A-j>"] = "<Esc>:m .+1<CR>==gi",
     -- Move current line / block with Alt-j/k ala vscode.
@@ -117,30 +124,30 @@ lvim.keys.command_mode = {
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
--- local _, actions = pcall(require, "telescope.actions")
--- lvim.builtin.telescope.defaults.mappings = {
---   -- for input mode
---   i = {
---     ["<C-j>"] = actions.move_selection_next,
---     ["<C-k>"] = actions.move_selection_previous,
---     ["<C-n>"] = actions.cycle_history_next,
---     ["<C-p>"] = actions.cycle_history_prev,
---   },
---   -- for normal mode
---   n = {
---     ["<C-j>"] = actions.move_selection_next,
---     ["<C-k>"] = actions.move_selection_previous,
---   },
--- }
+local _, actions = pcall(require, "telescope.actions")
+lvim.builtin.telescope.defaults.mappings = {
+  -- for input mode
+  i = {
+    ["<C-j>"] = actions.move_selection_next,
+    ["<C-k>"] = actions.move_selection_previous,
+    ["<C-n>"] = actions.cycle_history_next,
+    ["<C-p>"] = actions.cycle_history_prev,
+  },
+  -- for normal mode
+  n = {
+    ["<C-j>"] = actions.move_selection_next,
+    ["<C-k>"] = actions.move_selection_previous,
+  },
+}
 
 -- Use which-key to add extra bindings with the leader-key prefix
---lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
--- lvim.builtin.which_key.mappings["t"] = {
---   name = "+Trouble",
---   r = { "<cmd>Trouble lsp_references<cr>", "References" },
---   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
---   d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
---   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
---   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
---   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
--- }
+lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+lvim.builtin.which_key.mappings["t"] = {
+  name = "+Trouble",
+  r = { "<cmd>Trouble lsp_references<cr>", "References" },
+  f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
+  d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
+  q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+  l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+  w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
+}
