@@ -23,6 +23,7 @@ lvim.keys.normal_mode = {
     ["<C-n>"] = "<C-w>w",
     ["<S-n>"] = "<C-w>W",
     ["<C-c>"] = "<C-w>c",
+    ["<C-b>"] = ":Bdelete!<CR>",
 
     -- Resize with arrows
     ["<S-Up>"] = ":resize -2<CR>",

@@ -1,11 +1,12 @@
 local mappings = lvim.builtin.which_key.mappings
 mappings["p"] = { "<CMD>Telescope projects<CR>", "Projects" }
 mappings["r"] = { "<CMD>Telescope oldfiles<CR>", "Recently files" }
-mappings["o"] = { "<CMD>:NvimTreeFindFile<CR>", "Location Exporter" }
+-- mappings["o"] = { "<CMD>:NvimTreeFindFile<CR>", "Location Exporter" }
 mappings["h"] = { "<CMD>edit ~/.cache/lvim/project_nvim/project_history<CR>", "Edit Projects" }
 mappings["h"] = { "<CMD>SymbolsOutline<CR>", "SymbolsOutline" }
-mappings["c"] = { "<CMD>Bdelete!<CR>", "Close Buffer" }
+mappings["c"] = { "<CMD>only<CR>", "Close All Windows" }
 mappings["/"] = { "<CMD>lua require('Comment.api').toggle_current_linewise()<CR>", "Comment" }
+mappings["bc"] = { "<CMD>:BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", "Close All Buffer" }
 
 mappings["P"] = {
     name = "Packer",
@@ -27,3 +28,6 @@ bmn["gr"] = { "<cmd>Telescope lsp_references<CR>", "Goto references" }
 bmn["gi"] = { "<cmd>Telescope lsp_implementations<CR>", "Goto Implementation" }
 bmn["gh"] = { "<cmd>Telescope lsp_document_symbols<CR>", "Document Symbols" }
 bmn["gw"] = { "<cmd>Telescope lsp_workspace_symbols<CR>", "Workspace Symbols" }
+
+local bmv = lvim.lsp.buffer_mappings.visual_mode
+bmv["gf"] = { "<cmd>:lua vim.lsp.buf.range_formatting()<CR>", "Format range" }
