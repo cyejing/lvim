@@ -138,13 +138,12 @@ lvim.plugins = {
             })
         end,
     },
-    {
-        'dinhhuy258/vim-local-history',
-    },
+    { 'dinhhuy258/vim-local-history' },
+    { 'gaborvecsei/memento.nvim' },
     -- git
     -- {
-        -- "sindrets/diffview.nvim",
-        -- event = "BufRead",
+    -- "sindrets/diffview.nvim",
+    -- event = "BufRead",
     -- },
     -- search
     --{

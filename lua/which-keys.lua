@@ -7,6 +7,8 @@ mappings["h"] = { "<CMD>SymbolsOutline<CR>", "SymbolsOutline" }
 mappings["c"] = { "<CMD>only<CR>", "Close All Windows" }
 -- mappings["q"] = { vim.diagnostic.setloclist, "Quickfix" }
 mappings["bc"] = { "<CMD>:BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", "Close All Buffer" }
+mappings["bh"] = {"<CMD>LocalHistoryToggle<CR>","Toggle Local History"}
+mappings["bl"] = {"<CMD>lua require('memento').toggle()<CR>","Toggle Buffers History"}
 
 mappings["P"] = {
     name = "Packer",
@@ -62,17 +64,17 @@ local bmn = lvim.lsp.buffer_mappings.normal_mode
 
 -- lsp
 bmn["ga"] = { "<CMD>CodeActionMenu<CR>", "Code Action" }
-bmn["K"] = { "<CMD>Lspsaga hover_doc<CR>", "Lsp Hover Doc" }
-bmn["gR"] = { "<CMD>Lspsaga rename<CR>", "Lsp Rename" }
-bmn["gf"] = { "<CMD>Lspsaga lsp_finder<CR>", "Lsp Finder" }
+-- bmn["K"] = { "<CMD>Lspsaga hover_doc<CR>", "Lsp Hover Doc" }
+-- bmn["gR"] = { "<CMD>Lspsaga rename<CR>", "Lsp Rename" }
+-- bmn["gf"] = { "<CMD>Lspsaga lsp_finder<CR>", "Lsp Finder" }
 -- bmn["gx"] = { "<CMD>Lspsaga code_action<CR>", "Lsp Code Action" }
-bmn["gl"] = { "<CMD>Lspsaga show_line_diagnostics<CR>", "Lsp Show Line diagnostics" }
-bmn["gj"] = { "<CMD>Lspsaga diagnostic_jump_next<CR>", "Lsp Diagnostic jump next" }
-bmn["gk"] = { "<CMD>Lspsaga diagnostic_jump_prev<CR>", "Lsp Diagnostic jump prev" }
-bmn["gs"] = { "<CMD>Lspsaga signature_help<CR>", "Lsp Signature Help" }
--- bmn["K"] = { vim.lsp.buf.hover, "Show hover" }
--- bmn["gD"] = { vim.lsp.buf.declaration, "Goto declaration" }
--- bmn["gs"] = { vim.lsp.buf.signature_help, "show signature help" }
+-- bmn["gl"] = { "<CMD>Lspsaga show_line_diagnostics<CR>", "Lsp Show Line diagnostics" }
+-- bmn["gj"] = { "<CMD>Lspsaga diagnostic_jump_next<CR>", "Lsp Diagnostic jump next" }
+-- bmn["gk"] = { "<CMD>Lspsaga diagnostic_jump_prev<CR>", "Lsp Diagnostic jump prev" }
+-- bmn["gs"] = { "<CMD>Lspsaga signature_help<CR>", "Lsp Signature Help" }
+bmn["K"] = { vim.lsp.buf.hover, "Show hover" }
+bmn["gD"] = { vim.lsp.buf.declaration, "Goto declaration" }
+bmn["gs"] = { vim.lsp.buf.signature_help, "show signature help" }
 bmn["gb"] = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Telescope Buffer Diagnostics" }
 bmn["gq"] = { "<CMD>Telescope diagnostics theme=get_ivy<CR>", "Telescope Diagnostics" }
 bmn["gd"] = { "<cmd>Telescope lsp_definitions<CR>", "Telescope Definition" }
@@ -111,12 +113,12 @@ lvim.builtin.telescope.defaults.mappings = {
 
 -- Use which-key to add extra bindings with the leader-key prefix
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
-lvim.builtin.which_key.mappings["t"] = {
-    name = "+Trouble",
-    r = { "<cmd>Trouble lsp_references<cr>", "References" },
-    f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-    d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
-    q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-    l = { "<cmd>Trouble loclist<cr>", "LocationList" },
-    w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
-}
+-- lvim.builtin.which_key.mappings["t"] = {
+    -- name = "+Trouble",
+    -- r = { "<cmd>Trouble lsp_references<cr>", "References" },
+    -- f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
+    -- d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
+    -- q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+    -- l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+    -- w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
+-- }
