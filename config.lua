@@ -3,13 +3,6 @@ require("plugins")
 require("autocmd")
 require("lsp")
 
-require("builtin.less")
-require("builtin.bufferline")
-require("builtin.nvim-tree")
-require("builtin.dashboard")
-require("builtin.telescope")
-require("builtin.cmp")
-
 require("keybindings")
 require("which-keys")
 

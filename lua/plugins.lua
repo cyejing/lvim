@@ -2,8 +2,6 @@
 lvim.plugins = {
     --  UI
     { "folke/tokyonight.nvim" },
-    -- lualine
-    { "arkav/lualine-lsp-progress" },
     -- telescope
     { "nvim-telescope/telescope-project.nvim" },
     { "nvim-telescope/telescope-ui-select.nvim" },
@@ -18,21 +16,15 @@ lvim.plugins = {
 
     --lsp
     {
-        "tami5/lspsaga.nvim",
-        config = function()
-            require 'lspsaga'.setup()
-        end,
-    },
-    {
-        'weilbith/nvim-code-action-menu',
-        cmd = 'CodeActionMenu',
-    },
-    {
         "simrat39/rust-tools.nvim",
         config = function()
             require("plugin-config.rust-tools").setup()
         end,
         ft = { "rust", "rs" },
+    },
+    {
+        'weilbith/nvim-code-action-menu',
+        cmd = 'CodeActionMenu',
     },
     {
         "ray-x/lsp_signature.nvim", -- signature tip
@@ -116,12 +108,11 @@ lvim.plugins = {
             require("plugin-config.autosave").setup()
         end,
     },
-    {
-        "folke/trouble.nvim",
-        cmd = "TroubleToggle",
-    },
-
-    {
+    -- {
+    -- "folke/trouble.nvim",
+    -- cmd = "TroubleToggle",
+    -- },
+    { -- quickfix plus
         "kevinhwang91/nvim-bqf",
         event = { "BufRead", "BufNew" },
         config = function()

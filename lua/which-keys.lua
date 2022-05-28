@@ -81,7 +81,7 @@ bmn["gr"] = { "<cmd>Telescope lsp_references theme=get_ivy<CR>", "Telescope refe
 bmn["gi"] = { "<cmd>Telescope lsp_implementations theme=get_ivy<CR>", "Telescope Implementation" }
 bmn["gh"] = { "<cmd>Telescope lsp_document_symbols theme=get_dropdown layout_config={width=0.8}<CR>", "Telescope Document Symbols" }
 bmn["gw"] = { "<cmd>Telescope lsp_workspace_symbols theme=get_dropdown layout_config={width=0.8}<CR>", "Telescope Workspace Symbols" }
---  code
+-- search
 
 local bmv = lvim.lsp.buffer_mappings.visual_mode
 bmv["gf"] = { "<cmd>:lua vim.lsp.buf.range_formatting()<CR>", "Format range" }

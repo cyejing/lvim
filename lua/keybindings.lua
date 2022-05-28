@@ -31,10 +31,10 @@ lvim.keys.normal_mode = {
     ["<S-Left>"] = ":vertical resize -2<CR>",
     ["<S-Right>"] = ":vertical resize +2<CR>",
 
+
+    -- vim-surround : -yss insert, cs replace, ds delete, ysiw insert word
     -- lsp
     ["<C-n>"] = "<CMD>lua require('Comment.api').toggle_current_linewise()<CR>j",
-    --["gv"] = "<cmd>lua require('goto-preview').goto_preview_definition()<CR>",
-    --["gi"] = "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>",
 
 
     -- Tab switch buffer
