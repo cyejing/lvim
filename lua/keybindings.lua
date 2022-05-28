@@ -96,6 +96,7 @@ lvim.keys.visual_mode = {
     -- Better indenting
     ["<"] = "<gv",
     [">"] = ">gv",
+    ["\\"] = "$",
 
     ["<C-j>"] = "10j",
     ["<C-k>"] = "10k",

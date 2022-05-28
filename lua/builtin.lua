@@ -1,6 +1,7 @@
 require("builtin.bufferline")
 require("builtin.dashboard")
 require("builtin.cmp")
+require("builtin.gitsigns")
 
 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
@@ -14,8 +15,9 @@ lvim.builtin.terminal.active = true
 lvim.builtin.project.patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" }
 lvim.builtin.project.exclude_dirs = { ".local" }
 
-lvim.builtin.comment.toggler.block= "gcb"
+lvim.builtin.comment.toggler.block = "gcb"
 
+-- treesitter
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
     "bash",
@@ -34,11 +36,13 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
+-- lualine
 lvim.builtin.lualine.options.theme = "auto"
 lvim.builtin.lualine.options.globalstatus = true
 lvim.builtin.lualine.sections.lualine_a = { "mode" }
 lvim.builtin.lualine.sections.lualine_z = { "progress", "location" }
 
+-- nvimtree
 local nvim_tree_setup = lvim.builtin.nvimtree.setup
 nvim_tree_setup.disable_netrw = true
 nvim_tree_setup.git.enable = false
@@ -48,15 +52,22 @@ nvim_tree_setup.filters.dotfiles = true
 nvim_tree_setup.actions.open_file.resize_window = true
 nvim_tree_setup.actions.open_file.quit_on_open = true
 
+-- gitsigns
+lvim.builtin.gitsigns.opts.signs = {
+    add = { hl = "GitSignsAdd", text = "A|", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+    change = { hl = "GitSignsChange", text = "M|", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+    delete = { hl = "GitSignsDelete", text = "D_", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+    topdelete = { hl = "GitSignsDelete", text = "D‾", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+    changedelete = { hl = "GitSignsChange", text = "D~", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+}
+lvim.builtin.gitsigns.opts.numhl = false
+lvim.builtin.gitsigns.opts.linehl = false
+lvim.builtin.gitsigns.opts.word_diff = true
 
--- lvim.builtin.gitsigns.opts.signs
-
+-- telescope
 pcall(function()
     require("telescope").load_extension "env"
 end)
 pcall(function()
     require("telescope").load_extension "ui-select"
 end)
-
-
-

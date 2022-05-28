@@ -138,12 +138,14 @@ lvim.plugins = {
             })
         end,
     },
-
-    -- git
     {
-        "sindrets/diffview.nvim",
-        event = "BufRead",
+        'dinhhuy258/vim-local-history',
     },
+    -- git
+    -- {
+        -- "sindrets/diffview.nvim",
+        -- event = "BufRead",
+    -- },
     -- search
     --{
     --    "windwp/nvim-spectre", -- search replace

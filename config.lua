@@ -2,7 +2,7 @@ require("basic")
 require("plugins")
 require("autocmd")
 require("lsp")
-
+require("builtin")
 require("keybindings")
 require("which-keys")
 
