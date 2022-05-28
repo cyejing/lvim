@@ -18,6 +18,41 @@ mappings["P"] = {
     u = { "<cmd>PackerUpdate<cr>", "Update" },
 }
 
+mappings["l"] = {
+    name = "LSP",
+    a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+    d = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Buffer Diagnostics" },
+    w = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
+    f = { require("lvim.lsp.utils").format, "Format" },
+    i = { "<cmd>LspInfo<cr>", "Info" },
+    I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
+    j = {
+        vim.diagnostic.goto_next,
+        "Next Diagnostic",
+    },
+    k = {
+        vim.diagnostic.goto_prev,
+        "Prev Diagnostic",
+    },
+    l = { vim.lsp.codelens.run, "CodeLens Action" },
+    p = {
+        name = "Peek",
+        d = { "<cmd>lua require('lvim.lsp.peek').Peek('definition')<cr>", "Definition" },
+        t = { "<cmd>lua require('lvim.lsp.peek').Peek('typeDefinition')<cr>", "Type Definition" },
+        i = { "<cmd>lua require('lvim.lsp.peek').Peek('implementation')<cr>", "Implementation" },
+    },
+    q = { "<CMD>Telescope diagnostics<CR>", "Diagnostics" },
+    r = { vim.lsp.buf.rename, "Rename" },
+    s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+    S = {
+        "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+        "Workspace Symbols",
+    },
+    e = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
+}
+
+
+
 local bmn = lvim.lsp.buffer_mappings.normal_mode
 -- windows
 -- bmn["]w"] = {"<C-w>w","Next Window"}
@@ -26,22 +61,62 @@ local bmn = lvim.lsp.buffer_mappings.normal_mode
 -- bmn["[b"] = {"<CMD>BufferLineCyclePrev<CR>","Prev Buffer"}
 
 -- lsp
-bmn["K"] = { vim.lsp.buf.hover, "Show hover" }
-bmn["gD"] = { vim.lsp.buf.declaration, "Goto declaration" }
-bmn["gs"] = { vim.lsp.buf.signature_help, "show signature help" }
-bmn["gd"] = { "<cmd>Telescope lsp_definitions<CR>", "Goto Definition" }
-bmn["gv"] = { "<cmd>:vsp<cr>:Telescope lsp_definitions<CR>", "Goto Definition" }
-bmn["gr"] = { "<cmd>Telescope lsp_references<CR>", "Goto references" }
-bmn["gi"] = { "<cmd>Telescope lsp_implementations<CR>", "Goto Implementation" }
-bmn["gh"] = { "<cmd>Telescope lsp_document_symbols<CR>", "Document Symbols" }
-bmn["gw"] = { "<cmd>Telescope lsp_workspace_symbols<CR>", "Workspace Symbols" }
+bmn["ga"] = { "<CMD>CodeActionMenu<CR>", "Code Action" }
+bmn["K"] = { "<CMD>Lspsaga hover_doc<CR>", "Lsp Hover Doc" }
+bmn["gR"] = { "<CMD>Lspsaga rename<CR>", "Lsp Rename" }
+bmn["gf"] = { "<CMD>Lspsaga lsp_finder<CR>", "Lsp Finder" }
+-- bmn["gx"] = { "<CMD>Lspsaga code_action<CR>", "Lsp Code Action" }
+bmn["gl"] = { "<CMD>Lspsaga show_line_diagnostics<CR>", "Lsp Show Line diagnostics" }
+bmn["gj"] = { "<CMD>Lspsaga diagnostic_jump_next<CR>", "Lsp Diagnostic jump next" }
+bmn["gk"] = { "<CMD>Lspsaga diagnostic_jump_prev<CR>", "Lsp Diagnostic jump prev" }
+bmn["gs"] = { "<CMD>Lspsaga signature_help<CR>", "Lsp Signature Help" }
+-- bmn["K"] = { vim.lsp.buf.hover, "Show hover" }
+-- bmn["gD"] = { vim.lsp.buf.declaration, "Goto declaration" }
+-- bmn["gs"] = { vim.lsp.buf.signature_help, "show signature help" }
+bmn["gb"] = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Telescope Buffer Diagnostics" }
+bmn["gq"] = { "<CMD>Telescope diagnostics theme=get_ivy<CR>", "Telescope Diagnostics" }
+bmn["gd"] = { "<cmd>Telescope lsp_definitions<CR>", "Telescope Definition" }
+bmn["gv"] = { "<cmd>:vsp<cr>:Telescope lsp_definitions<CR>", "Telescope Definition" }
+bmn["gr"] = { "<cmd>Telescope lsp_references theme=get_ivy<CR>", "Telescope references" }
+bmn["gi"] = { "<cmd>Telescope lsp_implementations theme=get_ivy<CR>", "Telescope Implementation" }
+bmn["gh"] = { "<cmd>Telescope lsp_document_symbols theme=get_dropdown layout_config={width=0.8}<CR>", "Telescope Document Symbols" }
+bmn["gw"] = { "<cmd>Telescope lsp_workspace_symbols theme=get_dropdown layout_config={width=0.8}<CR>", "Telescope Workspace Symbols" }
 --  code
 
 local bmv = lvim.lsp.buffer_mappings.visual_mode
 bmv["gf"] = { "<cmd>:lua vim.lsp.buf.range_formatting()<CR>", "Format range" }
 
 
+-- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
+-- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
+local _, actions = pcall(require, "telescope.actions")
+lvim.builtin.telescope.defaults.mappings = {
+    -- for input mode
+    i = {
+        ["<C-c>"] = actions.close,
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+        ["<C-n>"] = actions.cycle_history_next,
+        ["<C-p>"] = actions.cycle_history_prev,
+        ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
+        ["<CR>"] = actions.select_default,
+    },
+    -- for normal mode
+    n = {
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+        ["<C-c>"] = actions.close,
+    },
+}
 
-
-
-
+-- Use which-key to add extra bindings with the leader-key prefix
+-- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+lvim.builtin.which_key.mappings["t"] = {
+    name = "+Trouble",
+    r = { "<cmd>Trouble lsp_references<cr>", "References" },
+    f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
+    d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
+    q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+    l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+    w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
+}

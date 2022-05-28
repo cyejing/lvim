@@ -16,8 +16,72 @@ lvim.plugins = {
     { "hrsh7th/cmp-cmdline" }, -- { name = 'cmdline' }
     { "hrsh7th/cmp-nvim-lsp-signature-help" }, -- { name = 'nvim_lsp_signature_help' }
 
+    --lsp
+    {
+        "tami5/lspsaga.nvim",
+        config = function()
+            require 'lspsaga'.setup()
+        end,
+    },
+    {
+        'weilbith/nvim-code-action-menu',
+        cmd = 'CodeActionMenu',
+    },
+    {
+        "simrat39/rust-tools.nvim",
+        config = function()
+            require("plugin-config.rust-tools").setup()
+        end,
+        ft = { "rust", "rs" },
+    },
+    {
+        "ray-x/lsp_signature.nvim", -- signature tip
+        event = "BufRead",
+        config = function()
+            require "lsp_signature".setup()
+        end
+    },
+    {
+        "simrat39/symbols-outline.nvim", -- symbols
+        config = function()
+            vim.g.symbols_outline = {
+                auto_preview = false,
+                auto_close = true
+            }
+        end
+    },
+
+    -- Navigation
+    {
+        "phaazon/hop.nvim", -- jump char
+        event = "BufRead",
+        config = function()
+            require("hop").setup()
+            vim.api.nvim_set_keymap("n", "s", ":HopChar2<cr>", { silent = true })
+            vim.api.nvim_set_keymap("n", "S", ":HopWord<cr>", { silent = true })
+        end,
+    },
+    {
+        "nacro90/numb.nvim", -- peek num
+        event = "BufRead",
+        config = function()
+            require("numb").setup {
+                show_numbers = true, -- Enable 'number' for the window while peeking
+                show_cursorline = true, -- Enable 'cursorline' for the window while peeking
+            }
+        end,
+    },
+
+
     -- plus
-    -- { "ur4ltz/surround.nvim" },
+    {
+        "tpope/vim-surround",
+        -- yss insert, cs replace, ds delete, ysiw insert word
+        -- make sure to change the value of `timeoutlen` if it's not triggering correctly, see https://github.com/tpope/vim-surround/issues/117
+        -- setup = function()
+        --  vim.o.timeoutlen = 500
+        -- end
+    },
     { "j-hui/fidget.nvim",
         config = function()
             require("fidget").setup({
@@ -52,56 +116,38 @@ lvim.plugins = {
             require("plugin-config.autosave").setup()
         end,
     },
-
-    --lsp
-    {
-        "simrat39/rust-tools.nvim",
-        config = function()
-            require("plugin-config.rust-tools").setup()
-        end,
-        ft = { "rust", "rs" },
-    },
-    {
-        "ray-x/lsp_signature.nvim", -- signature tip
-        event = "BufRead",
-        config = function()
-            require "lsp_signature".setup()
-        end
-    },
-    {
-        "simrat39/symbols-outline.nvim", -- symbols
-        config = function()
-            vim.g.symbols_outline = {
-                auto_preview = false,
-                auto_close = true
-            }
-        end
-    },
     {
         "folke/trouble.nvim",
         cmd = "TroubleToggle",
     },
 
-    -- Navigation
     {
-        "phaazon/hop.nvim", -- jump char
-        event = "BufRead",
+        "kevinhwang91/nvim-bqf",
+        event = { "BufRead", "BufNew" },
         config = function()
-            require("hop").setup()
-            vim.api.nvim_set_keymap("n", "s", ":HopChar2<cr>", { silent = true })
-            vim.api.nvim_set_keymap("n", "S", ":HopWord<cr>", { silent = true })
+            require("bqf").setup({
+                auto_enable = true,
+                preview = {
+                    win_height = 12,
+                    win_vheight = 12,
+                    delay_syntax = 80,
+                    border_chars = { "┃", "┃", "━", "━", "┏", "┓", "┗", "┛", "█" },
+                },
+                func_map = {
+                    vsplit = "",
+                    ptogglemode = "z,",
+                    stoggleup = "",
+                },
+                filter = {
+                    fzf = {
+                        action_for = { ["ctrl-s"] = "split" },
+                        extra_opts = { "--bind", "ctrl-o:toggle-all", "--prompt", "> " },
+                    },
+                },
+            })
         end,
     },
-    {
-        "nacro90/numb.nvim", -- peek num
-        event = "BufRead",
-        config = function()
-            require("numb").setup {
-                show_numbers = true, -- Enable 'number' for the window while peeking
-                show_cursorline = true, -- Enable 'cursorline' for the window while peeking
-            }
-        end,
-    },
+
     -- git
     {
         "sindrets/diffview.nvim",

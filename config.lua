@@ -3,7 +3,6 @@ require("plugins")
 require("autocmd")
 require("lsp")
 
-
 require("builtin.less")
 require("builtin.bufferline")
 require("builtin.nvim-tree")

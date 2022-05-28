@@ -7,7 +7,11 @@ lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 
 lvim.builtin.project.patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" }
-lvim.builtin.project.exclude_dirs = { "~/.local" }
+lvim.builtin.project.exclude_dirs = { ".local" }
+
+lvim.builtin.comment.toggler.block= "gcb"
+
+
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
