@@ -83,5 +83,4 @@ vim.o.showmode = false
 ---- 配置剪切板
 vim.opt.clipboard = "unnamedplus"
 
-vim.g.local_history_width = 35
-vim.g.local_history_new_change_delay = 60
+
