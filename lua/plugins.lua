@@ -118,10 +118,11 @@ lvim.plugins = {
         config = function()
             require("bqf").setup({
                 auto_enable = true,
+                auto_resize_height = true,
                 preview = {
-                    win_height = 12,
-                    win_vheight = 12,
-                    delay_syntax = 80,
+                    win_height = 50,
+                    win_vheight = 50,
+                    delay_syntax = 50,
                     border_chars = { "┃", "┃", "━", "━", "┏", "┓", "┗", "┛", "█" },
                 },
                 func_map = {

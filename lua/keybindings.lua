@@ -68,6 +68,7 @@ lvim.keys.insert_mode = {
 
     ["<C-a>"] = "<HOME>",
     ["<C-e>"] = "<END>",
+    ["<C-b>"] = "<ESC>ea<C-W>",
 
     -- code
     ["<C-\\>"] = "<ESC>v<CMD>:lua vim.lsp.buf.range_formatting()<CR><ESC>A",

@@ -1,5 +1,5 @@
 local mappings = lvim.builtin.which_key.mappings
-mappings["p"] = { "<CMD>Telescope projects<CR>", "Projects" }
+mappings["p"] = { "<CMD>Telescope projects layout_config={width=0.6}<CR>", "Projects" }
 mappings["r"] = { "<CMD>Telescope oldfiles<CR>", "Recently files" }
 -- mappings["o"] = { "<CMD>:NvimTreeFindFile<CR>", "Location Exporter" }
 mappings["h"] = { "<CMD>edit ~/.cache/lvim/project_nvim/project_history<CR>", "Edit Projects" }
@@ -44,8 +44,8 @@ mappings["P"] = {
 mappings["l"] = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-    d = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Buffer Diagnostics" },
-    w = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
+    d = { "<cmd>Telescope diagnostics bufnr=0 theme=get_dropdown layout_config={width=0.95}<cr>", "Buffer Diagnostics" },
+    w = { "<cmd>Telescope diagnostics theme=get_dropdown layout_config={width=0.95}<cr>", "Diagnostics" },
     f = { require("lvim.lsp.utils").format, "Format" },
     i = { "<cmd>LspInfo<cr>", "Info" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
@@ -96,14 +96,14 @@ bmn["ga"] = { "<CMD>CodeActionMenu<CR>", "Code Action" }
 bmn["K"] = { vim.lsp.buf.hover, "Show hover" }
 bmn["gD"] = { vim.lsp.buf.declaration, "Goto declaration" }
 bmn["gs"] = { vim.lsp.buf.signature_help, "show signature help" }
-bmn["gb"] = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Telescope Buffer Diagnostics" }
-bmn["gq"] = { "<CMD>Telescope diagnostics theme=get_ivy<CR>", "Telescope Diagnostics" }
+bmn["gb"] = { "<cmd>Telescope diagnostics bufnr=0 theme=get_dropdown layout_config={width=0.95}<cr>", "Telescope Buffer Diagnostics" }
+bmn["gq"] = { "<CMD>Telescope diagnostics<CR> theme=get_dropdown layout_config={width=0.95}", "Telescope Diagnostics" }
 bmn["gd"] = { "<cmd>Telescope lsp_definitions<CR>", "Telescope Definition" }
 bmn["gv"] = { "<cmd>:vsp<cr>:Telescope lsp_definitions<CR>", "Telescope Definition" }
-bmn["gr"] = { "<cmd>Telescope lsp_references theme=get_ivy<CR>", "Telescope references" }
-bmn["gi"] = { "<cmd>Telescope lsp_implementations theme=get_ivy<CR>", "Telescope Implementation" }
-bmn["gh"] = { "<cmd>Telescope lsp_document_symbols theme=get_dropdown layout_config={width=0.8}<CR>", "Telescope Document Symbols" }
-bmn["gw"] = { "<cmd>Telescope lsp_workspace_symbols theme=get_dropdown layout_config={width=0.8}<CR>", "Telescope Workspace Symbols" }
+bmn["gr"] = { "<cmd>Telescope lsp_references<CR>", "Telescope references" }
+bmn["gi"] = { "<cmd>Telescope lsp_implementations<CR>", "Telescope Implementation" }
+bmn["gh"] = { "<cmd>Telescope lsp_document_symbols<CR>", "Telescope Document Symbols" }
+bmn["gw"] = { "<cmd>Telescope lsp_workspace_symbols<CR>", "Telescope Workspace Symbols" }
 -- search
 
 local bmv = lvim.lsp.buffer_mappings.visual_mode
@@ -114,10 +114,10 @@ local wk = require("which-key")
 wk.register({
     f = {
         name = "file", -- optional group name
-        p = { "<cmd>Telescope projects<cr>", "Open Projects" },
+        p = { "<cmd>Telescope projects layout_config={width=0.6}<cr>", "Open Projects" },
         f = { "<cmd>Telescope git_files<cr>", "Find File" }, -- create a binding with label
-        t = { "<cmd>Telescope live_grep theme=get_ivy<cr>", "Find All Text" },
-        s = { "<cmd>Telescope grep_string theme=get_ivy<cr>", "Find Cursor Text" },
+        t = { "<cmd>Telescope live_grep<cr>", "Find All Text" },
+        s = { "<cmd>Telescope grep_string<cr>", "Find Cursor Text" },
         b = { "<cmd>Telescope buffers<cr>", "Find Buffers" },
         c = { "<cmd>Telescope git_status<cr>", "Find Git Change" },
         j = { "<cmd>Telescope jumplist<cr>", "Find jumplist" },
