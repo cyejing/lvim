@@ -10,10 +10,13 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 
 lvim.builtin.terminal.active = true
+
 lvim.builtin.project.patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" }
 lvim.builtin.project.exclude_dirs = { ".local" }
 
 lvim.builtin.comment.toggler.block = "gcb"
+
+lvim.builtin.dap.active = true
 -- treesitter
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = { "bash", "c", "javascript", "json", "lua", "python", "typescript", "tsx", "css", "rust", "java", "yaml", }

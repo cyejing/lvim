@@ -6,9 +6,30 @@ mappings["h"] = { "<CMD>edit ~/.cache/lvim/project_nvim/project_history<CR>", "E
 mappings["h"] = { "<CMD>SymbolsOutline<CR>", "SymbolsOutline" }
 mappings["c"] = { "<CMD>only<CR>", "Close All Windows" }
 -- mappings["q"] = { vim.diagnostic.setloclist, "Quickfix" }
-mappings["bc"] = { "<CMD>:BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", "Close All Buffer" }
-mappings["bh"] = {"<CMD>LocalHistoryToggle<CR>","Toggle Local History"}
-mappings["bl"] = {"<CMD>lua require('memento').toggle()<CR>","Toggle Buffers History"}
+
+mappings["b"] = {
+    name = "Buffers",
+    j = { "<cmd>BufferLinePick<cr>", "Jump" },
+    f = { "<cmd>Telescope buffers<cr>", "Find" },
+    c = { "<CMD>:BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", "Close All Buffer" },
+    b = { "<cmd>BufferLineCyclePrev<cr>", "Previous" },
+    -- w = { "<cmd>BufferWipeout<cr>", "Wipeout" }, -- TODO: implement this for bufferline
+    e = {
+        "<cmd>BufferLinePickClose<cr>",
+        "Pick which buffer to close",
+    },
+    h = { "<CMD>LocalHistoryToggle<CR>", "Toggle Local History" },
+    l = { "<CMD>lua require('memento').toggle()<CR>", "Toggle Buffers History" },
+    D = {
+        "<cmd>BufferLineSortByDirectory<cr>",
+        "Sort by directory",
+    },
+    L = {
+        "<cmd>BufferLineSortByExtension<cr>",
+        "Sort by language",
+    },
+}
+
 
 mappings["P"] = {
     name = "Packer",
@@ -114,11 +135,11 @@ lvim.builtin.telescope.defaults.mappings = {
 -- Use which-key to add extra bindings with the leader-key prefix
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 -- lvim.builtin.which_key.mappings["t"] = {
-    -- name = "+Trouble",
-    -- r = { "<cmd>Trouble lsp_references<cr>", "References" },
-    -- f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-    -- d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
-    -- q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-    -- l = { "<cmd>Trouble loclist<cr>", "LocationList" },
-    -- w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
+-- name = "+Trouble",
+-- r = { "<cmd>Trouble lsp_references<cr>", "References" },
+-- f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
+-- d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
+-- q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+-- l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+-- w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
 -- }
