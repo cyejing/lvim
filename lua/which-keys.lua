@@ -110,6 +110,19 @@ local bmv = lvim.lsp.buffer_mappings.visual_mode
 bmv["gf"] = { "<cmd>:lua vim.lsp.buf.range_formatting()<CR>", "Format range" }
 
 
+local wk = require("which-key")
+wk.register({
+    f = {
+        name = "file", -- optional group name
+        p = { "<cmd>Telescope projects<cr>", "Open Projects" },
+        f = { "<cmd>Telescope git_files<cr>", "Find File" }, -- create a binding with label
+        t = { "<cmd>Telescope live_grep theme=get_ivy<cr>", "Find All Text" },
+        s = { "<cmd>Telescope grep_string theme=get_ivy<cr>", "Find Cursor Text" },
+        b = { "<cmd>Telescope buffers<cr>", "Find Buffers" },
+        c = { "<cmd>Telescope git_status<cr>", "Find Git Change" },
+        j = { "<cmd>Telescope jumplist<cr>", "Find jumplist" },
+    },
+})
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
 local _, actions = pcall(require, "telescope.actions")

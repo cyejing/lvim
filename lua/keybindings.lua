@@ -22,8 +22,9 @@ lvim.keys.normal_mode = {
     ["<C-Right>"] = "<C-w>l",
     ["<C-H>"] = "<C-w>W",
     ["<C-L>"] = "<C-w>w",
-    ["<C-c>"] = "<C-w>c",
-    ["<C-c>b"] = ":Bdelete!<CR>",
+    ["<C-C>"] = "<C-w>c",
+    ["<C-C>b"] = ":Bdelete!<CR>",
+    ["<S-X>"] = ":Bdelete!<CR>",
 
     -- Resize with arrows
     ["<S-Up>"] = ":resize -2<CR>",
@@ -122,6 +123,5 @@ lvim.keys.command_mode = {
     ["<C-k>"] = { 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true } },
 }
 
-
-
-
+--fix who bind?
+vim.keymap.set('i', "C", "C")
