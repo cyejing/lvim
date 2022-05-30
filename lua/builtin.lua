@@ -41,7 +41,7 @@ nvim_tree_setup.view.hide_root_folder = false
 nvim_tree_setup.view.width = 36
 nvim_tree_setup.filters.dotfiles = true
 nvim_tree_setup.actions.open_file.resize_window = true
-nvim_tree_setup.actions.open_file.quit_on_open = true
+nvim_tree_setup.actions.open_file.quit_on_open = false
 
 -- gitsigns
 lvim.builtin.gitsigns.opts.signs = {
