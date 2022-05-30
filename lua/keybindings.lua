@@ -103,6 +103,7 @@ lvim.keys.visual_mode = {
     ["<C-j>"] = "10j",
     ["<C-k>"] = "10k",
 
+    ["<C-N>"] = "<ESC><CMD>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>"
     -- ["p"] = '"0p',
     -- ["P"] = '"0P',
 }

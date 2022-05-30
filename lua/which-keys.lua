@@ -113,7 +113,7 @@ bmv["gf"] = { "<cmd>:lua vim.lsp.buf.range_formatting()<CR>", "Format range" }
 
 local wk = require("which-key")
 wk.register({
-    f = {
+    s = {
         name = "file", -- optional group name
         p = { "<cmd>Telescope projects layout_config={width=0.6}<cr>", "Open Projects" },
         f = { "<cmd>Telescope git_files<cr>", "Find File" }, -- create a binding with label

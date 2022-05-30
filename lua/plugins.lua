@@ -49,8 +49,8 @@ lvim.plugins = {
         event = "BufRead",
         config = function()
             require("hop").setup()
-            vim.api.nvim_set_keymap("n", "s", ":HopChar1<cr>", { silent = true })
-            vim.api.nvim_set_keymap("n", "S", ":HopWord<cr>", { silent = true })
+            vim.api.nvim_set_keymap("n", "f", ":HopChar1<cr>", { silent = true })
+            vim.api.nvim_set_keymap("n", "F", ":HopWord<cr>", { silent = true })
         end,
     },
     {
@@ -66,14 +66,14 @@ lvim.plugins = {
 
 
     -- plus
-    {
-        "tpope/vim-surround",
-        -- yss insert, cs replace, ds delete, ysiw insert word
-        -- make sure to change the value of `timeoutlen` if it's not triggering correctly, see https://github.com/tpope/vim-surround/issues/117
-        -- setup = function()
-        --  vim.o.timeoutlen = 500
-        -- end
-    },
+    -- {
+    -- "tpope/vim-surround",
+    --     -- yss insert, cs replace, ds delete, ysiw insert word
+    --     -- make sure to change the value of `timeoutlen` if it's not triggering correctly, see https://github.com/tpope/vim-surround/issues/117
+    --     -- setup = function()
+    --     --  vim.o.timeoutlen = 500
+    --     -- end
+    -- },
     { "j-hui/fidget.nvim",
         config = function()
             require("fidget").setup({
