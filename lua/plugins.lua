@@ -141,10 +141,10 @@ lvim.plugins = {
     },
     { 'dinhhuy258/vim-local-history' },
     -- git
-    -- {
-    -- "sindrets/diffview.nvim",
-    -- event = "BufRead",
-    -- },
+    {
+        "sindrets/diffview.nvim",
+        event = "BufRead",
+    },
     -- search
     --{
     --    "windwp/nvim-spectre", -- search replace
