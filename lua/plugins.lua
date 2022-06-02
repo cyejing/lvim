@@ -120,8 +120,8 @@ lvim.plugins = {
                 auto_enable = true,
                 auto_resize_height = true,
                 preview = {
-                    win_height = 50,
-                    win_vheight = 50,
+                    win_height = 999,
+                    win_vheight = 999,
                     delay_syntax = 50,
                     border_chars = { "┃", "┃", "━", "━", "┏", "┓", "┗", "┛", "█" },
                 },
@@ -145,6 +145,12 @@ lvim.plugins = {
         "sindrets/diffview.nvim",
         event = "BufRead",
     },
+    -- {
+        -- 'beauwilliams/focus.nvim',
+        -- config = function()
+            -- require("focus").setup()
+        -- end,
+    -- }
     -- search
     --{
     --    "windwp/nvim-spectre", -- search replace

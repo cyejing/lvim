@@ -1,0 +1,32 @@
+# To run this file execute:
+# docker build -f Dockerfile.remote . -t Lunarvim:remote
+
+FROM ubuntu:latest
+
+# Build argument to point to correct branch on GitHub
+ARG LV_BRANCH=rolling
+
+# Set environment correctly
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PATH="/root/.local/bin:/root/.cargo/bin:/root/.npm-global/bin${PATH}"
+
+# Install dependencies and LunarVim
+RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list && \
+  apt update && \
+  apt -y install sudo curl build-essential git fzf python3-dev python3-pip cargo && \
+  curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
+  apt update && \
+  apt -y install nodejs && \
+  apt clean && rm -rf /var/lib/apt/lists/* /tmp/*
+
+COPY install-neovim-from-release install-neovim-from-release
+COPY install.sh install.sh
+
+RUN bash install-neovim-from-release
+RUN bash install.sh --no-install-dependencies
+
+
+# Setup LVIM to run on startup
+CMD ["/bin/bash"]
+
+# vim: ft=dockerfile:

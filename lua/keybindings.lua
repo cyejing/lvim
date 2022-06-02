@@ -66,9 +66,12 @@ lvim.keys.insert_mode = {
     -- 'jj' for quitting insert mode
     ["jj"] = "<ESC>",
 
-    ["<C-a>"] = "<HOME>",
-    ["<C-e>"] = "<END>",
-    ["<C-b>"] = "<ESC>ea<C-W>",
+    ["<C-A>"] = "<ESC>I",
+    ["<C-E>"] = "<ESC>A",
+    ["<C-J>"] = "<Down>",
+    ["<C-K>"] = "<Up>",
+    ["<C-L>"] = "<Right>",
+    ["<C-B>"] = "<ESC>ea<C-W>",
 
     -- code
     ["<C-\\>"] = "<ESC>v<CMD>:lua vim.lsp.buf.range_formatting()<CR><ESC>A",
