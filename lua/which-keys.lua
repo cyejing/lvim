@@ -96,7 +96,8 @@ bmn["ga"] = { "<CMD>CodeActionMenu<CR>", "Code Action" }
 -- bmn["gs"] = { "<CMD>Lspsaga signature_help<CR>", "Lsp Signature Help" }
 bmn["K"] = { vim.lsp.buf.hover, "Show hover" }
 bmn["gD"] = { vim.lsp.buf.declaration, "Goto declaration" }
-bmn["gs"] = { vim.lsp.buf.signature_help, "show signature help" }
+bmn["gs"] = { vim.lsp.buf.signature_help, "Show signature help" }
+bmn["gf"] = { vim.lsp.buf.formatting, "Format" }
 bmn["gb"] = { "<cmd>Telescope diagnostics bufnr=0 theme=get_dropdown layout_config={width=0.95}<cr>", "Telescope Buffer Diagnostics" }
 bmn["gq"] = { "<CMD>Telescope diagnostics<CR> theme=get_dropdown layout_config={width=0.95}", "Telescope Diagnostics" }
 bmn["gd"] = { "<cmd>Telescope lsp_definitions<CR>", "Telescope Definition" }
@@ -132,12 +133,12 @@ lvim.builtin.nvimtree.setup.view.mappings.list = {
     { key = "h", action = "close_node" },
     { key = "v", action = "vsplit" },
     { key = "C", action = "cd" },
-    { key = "sf", action = "telescope_find_files", action_cb = function ()
+    { key = "sf", action = "telescope_find_files", action_cb = function()
         require("lvim.core.nvimtree").start_telescope "find_files"
-    end},
-    { key = "st", action = "telescope_live_grep", action_cb = function ()
+    end },
+    { key = "st", action = "telescope_live_grep", action_cb = function()
         require("lvim.core.nvimtree").start_telescope "live_grep"
-    end},
+    end },
 }
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
