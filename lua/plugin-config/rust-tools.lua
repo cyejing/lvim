@@ -15,9 +15,24 @@ M.setup = function()
             cmd_env = requested_server._default_options.cmd_env,
             on_attach = require("lvim.lsp").common_on_attach,
             on_init = require("lvim.lsp").common_on_init,
+            standalone = true,
+            settings = {
+                ["rust-analyzer"] = {
+                    cargo = { features = 'all' },
+                    checkOnSave = {
+                        allTargets = true,
+                    }
+                }
+            }
+        },
+        dap = {
+            adapter = {
+                type = "executable",
+                command = "lldb-vscode",
+                name = "rt_lldb",
+            },
         },
     })
 end
 
 return M
-
