@@ -23,8 +23,7 @@ lvim.keys.normal_mode = {
     ["<C-H>"] = "<C-w>W",
     ["<C-L>"] = "<C-w>w",
     ["<C-C>"] = "<C-w>c",
-    ["<C-C>b"] = ":Bdelete!<CR>",
-    ["<S-X>"] = ":Bdelete!<CR>",
+    ["<C-X>"] = ":Bdelete!<CR>",
 
     -- Resize with arrows
     ["<S-Up>"] = ":resize -2<CR>",
@@ -32,11 +31,9 @@ lvim.keys.normal_mode = {
     ["<S-Left>"] = ":vertical resize -2<CR>",
     ["<S-Right>"] = ":vertical resize +2<CR>",
 
-
     -- vim-surround : -yss insert, cs replace, ds delete, ysiw insert word
     -- lsp
     ["<C-n>"] = "<CMD>lua require('Comment.api').toggle_current_linewise()<CR>j",
-
 
     -- Tab switch buffer
     ["<S-L>"] = ":BufferLineCycleNext<CR>",
@@ -72,6 +69,7 @@ lvim.keys.insert_mode = {
     ["<C-K>"] = "<Up>",
     ["<C-L>"] = "<Right>",
     ["<C-B>"] = "<ESC>ea<C-W>",
+    ["<C-P>"] = "<ESC>pa",
 
     -- code
     ["<C-\\>"] = "<ESC>v<CMD>:lua vim.lsp.buf.range_formatting()<CR><ESC>A",
