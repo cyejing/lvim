@@ -7,6 +7,10 @@ M.setup = function()
         tools = {
             autoSetHints = true,
             hover_with_actions = true,
+            inlay_hints = {
+                show_parameter_hints = true,
+                show_variable_name = true,
+            },
             runnables = {
                 use_telescope = true,
             },
