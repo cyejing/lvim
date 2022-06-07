@@ -59,6 +59,10 @@ lvim.builtin.gitsigns.opts.word_diff = false
 lvim.builtin.telescope.defaults.layout_strategy = "horizontal"
 lvim.builtin.telescope.defaults.layout_config.width = 0.95
 
+lvim.builtin.terminal.execs = {
+    { "gitui", "<leader>gg", "Gitui", "float" },
+}
+
 -- lvim.builtin.telescope.defaults.layout_config.preview_cutoff = 75
 pcall(function()
     require("telescope").load_extension "env"
