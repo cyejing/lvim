@@ -2,6 +2,8 @@
 lvim.plugins = {
     --  UI
     { "folke/tokyonight.nvim" },
+    { "sainnhe/everforest" },
+    { "marko-cerovac/material.nvim" },
     -- telescope
     { "nvim-telescope/telescope-project.nvim" },
     { "nvim-telescope/telescope-ui-select.nvim" },
@@ -146,10 +148,10 @@ lvim.plugins = {
         event = "BufRead",
     },
     -- {
-        -- 'beauwilliams/focus.nvim',
-        -- config = function()
-            -- require("focus").setup()
-        -- end,
+    -- 'beauwilliams/focus.nvim',
+    -- config = function()
+    -- require("focus").setup()
+    -- end,
     -- }
     -- search
     --{
