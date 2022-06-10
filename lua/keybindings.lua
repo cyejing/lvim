@@ -62,6 +62,7 @@ lvim.keys.insert_mode = {
     ["kj"] = "kj",
     -- 'jj' for quitting insert mode
     ["jj"] = "<ESC>",
+    ["<C-Q>"] = "<ESC>",
 
     ["<C-A>"] = "<ESC>I",
     ["<C-E>"] = "<ESC>A",

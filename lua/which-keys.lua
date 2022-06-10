@@ -154,7 +154,7 @@ lvim.builtin.nvimtree.setup.view.mappings.list = {
     { key = "C", action = "cd" },
     { key = "<C-k>", action = "" },
     { key = "f", action = "" },
-    { key = "<C-u>", action = "toggle_file_info" },
+    { key = "<C-p>", action = "toggle_file_info" },
     { key = "sf", action = "telescope_find_files", action_cb = function()
         require("lvim.core.nvimtree").start_telescope "find_files"
     end },
