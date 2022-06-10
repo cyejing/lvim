@@ -89,7 +89,7 @@ lvim.keys.insert_mode = {
 
 lvim.keys.term_mode = {
     -- Terminal window navigation
-    ["<ESC>"] = "<C-\\><C-N>",
+    -- ["<ESC>"] = "<C-\\><C-N>",
     ["<C-[>"] = "<C-\\><C-N>",
     ["<C-h>"] = "<C-\\><C-N><C-w>h",
     ["<C-j>"] = "<C-\\><C-N><C-w>j",

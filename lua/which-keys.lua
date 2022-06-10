@@ -76,6 +76,19 @@ mappings["l"] = {
     e = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
 }
 
+mappings["r"] = {
+    name = "Rust",
+    r = { "<CMD>RustRunnables<CR>", "RustRunnables" },
+    d = { "<CMD>RustDebuggables<CR>", "RustDebuggables" },
+    m = { "<CMD>RustExpandMacro<CR>", "RustExpandMacro" },
+    h = { "<CMD>RustHoverActions<CR>", "RustHoverActions" },
+    j = { "<CMD>RustMoveItemDown<CR>", "RustMoveItemDown" },
+    k = { "<CMD>RustMoveItemUp<CR>", "RustMoveItemUp" },
+    p = { "<CMD>RustParentModule<CR>", "RustParentModule" },
+    w = { "<CMD>RustReloadWorkspace<CR>", "RustReloadWorkspace" },
+
+}
+
 
 
 local bmn = lvim.lsp.buffer_mappings.normal_mode
@@ -104,9 +117,14 @@ bmn["gq"] = { "<CMD>Telescope diagnostics<CR> theme=get_dropdown layout_config={
 bmn["gd"] = { "<cmd>Telescope lsp_definitions<CR>", "Telescope Definition" }
 bmn["gv"] = { "<cmd>:vertical resize +80<cr>:vsp<cr>:Telescope lsp_definitions<cr>:vertical resize 120<cr>", "Telescope Definition" }
 bmn["gr"] = { "<cmd>Telescope lsp_references<CR>", "Telescope references" }
+-- bmn["gc"] = { "<cmd>Telescope lsp_incomming_calls<CR>", "Telescope incoming calls" }
 bmn["gi"] = { "<cmd>Telescope lsp_implementations<CR>", "Telescope Implementation" }
 bmn["gh"] = { "<cmd>Telescope lsp_document_symbols<CR>", "Telescope Document Symbols" }
 bmn["gw"] = { "<cmd>Telescope lsp_workspace_symbols<CR>", "Telescope Workspace Symbols" }
+bmn["gj"] = { vim.diagnostic.goto_next, "Next Diagnostic" }
+bmn["gk"] = { vim.diagnostic.goto_prev, "Prev Diagnostic" }
+
+
 -- search
 
 local bmv = lvim.lsp.buffer_mappings.visual_mode
@@ -134,6 +152,9 @@ lvim.builtin.nvimtree.setup.view.mappings.list = {
     { key = "h", action = "close_node" },
     { key = "v", action = "vsplit" },
     { key = "C", action = "cd" },
+    { key = "<C-k>", action = "" },
+    { key = "f", action = "" },
+    { key = "<C-u>", action = "toggle_file_info" },
     { key = "sf", action = "telescope_find_files", action_cb = function()
         require("lvim.core.nvimtree").start_telescope "find_files"
     end },

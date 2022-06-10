@@ -1,6 +1,7 @@
 -- Additional Plugins
 lvim.plugins = {
     --  UI
+    { "navarasu/onedark.nvim" },
     { "folke/tokyonight.nvim" },
     { "sainnhe/everforest" },
     { "marko-cerovac/material.nvim" },
@@ -43,6 +44,13 @@ lvim.plugins = {
                 auto_close = true
             }
         end
+    },
+    {
+        'saecki/crates.nvim',
+        tag = 'v0.2.1',
+        config = function()
+            require('crates').setup()
+        end,
     },
 
     -- Navigation
@@ -110,10 +118,6 @@ lvim.plugins = {
             require("plugin-config.autosave").setup()
         end,
     },
-    -- {
-    -- "folke/trouble.nvim",
-    -- cmd = "TroubleToggle",
-    -- },
     { -- quickfix plus
         "kevinhwang91/nvim-bqf",
         event = { "BufRead", "BufNew" },
