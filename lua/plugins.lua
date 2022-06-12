@@ -122,27 +122,7 @@ lvim.plugins = {
         "kevinhwang91/nvim-bqf",
         event = { "BufRead", "BufNew" },
         config = function()
-            require("bqf").setup({
-                auto_enable = true,
-                auto_resize_height = true,
-                preview = {
-                    win_height = 999,
-                    win_vheight = 999,
-                    delay_syntax = 50,
-                    border_chars = { "┃", "┃", "━", "━", "┏", "┓", "┗", "┛", "█" },
-                },
-                func_map = {
-                    vsplit = "",
-                    ptogglemode = "z,",
-                    stoggleup = "",
-                },
-                filter = {
-                    fzf = {
-                        action_for = { ["ctrl-s"] = "split" },
-                        extra_opts = { "--bind", "ctrl-o:toggle-all", "--prompt", "> " },
-                    },
-                },
-            })
+            require("plugin-config.nvim-bqf").setup()
         end,
     },
     { 'dinhhuy258/vim-local-history' },
@@ -152,6 +132,41 @@ lvim.plugins = {
         "sindrets/diffview.nvim",
         event = "BufRead",
     },
+
+    -- rest
+    {
+        "NTBBloodbath/rest.nvim",
+        config = function()
+            require("rest-nvim").setup({
+                -- Open request results in a horizontal split
+                result_split_horizontal = false,
+                -- Keep the http file buffer above|left when split horizontal|vertical
+                result_split_in_place = false,
+                -- Skip SSL verification, useful for unknown certificates
+                skip_ssl_verification = false,
+                -- Highlight request on run
+                highlight = {
+                    enabled = true,
+                    timeout = 150,
+                },
+                result = {
+                    -- toggle showing URL, HTTP info, headers at top the of result window
+                    show_url = true,
+                    show_http_info = true,
+                    show_headers = true,
+                },
+                -- Jump to request line on run
+                jump_to_request = false,
+                env_file = '.env',
+                custom_dynamic_variables = {},
+                yank_dry_run = true,
+            })
+        end
+    },
+    -- sql
+    {
+        "nanotee/sqls.nvim",
+    }
     -- {
     -- 'beauwilliams/focus.nvim',
     -- config = function()

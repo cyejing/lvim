@@ -10,6 +10,7 @@ options.offsets = {
     },
 }
 options.diagnostics = "nvim_lsp"
+
 --lvim.builtin.bufferline.options = {
 --    mode = "buffers", -- set to "tabs" to only show tabpages instead
 --    numbers = "ordinal", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }):string,

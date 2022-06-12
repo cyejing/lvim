@@ -81,11 +81,15 @@ mappings["r"] = {
     r = { "<CMD>RustRunnables<CR>", "RustRunnables" },
     d = { "<CMD>RustDebuggables<CR>", "RustDebuggables" },
     m = { "<CMD>RustExpandMacro<CR>", "RustExpandMacro" },
-    h = { "<CMD>RustHoverActions<CR>", "RustHoverActions" },
+    -- h = { "<CMD>RustHoverActions<CR>", "RustHoverActions" },
     j = { "<CMD>RustMoveItemDown<CR>", "RustMoveItemDown" },
     k = { "<CMD>RustMoveItemUp<CR>", "RustMoveItemUp" },
     p = { "<CMD>RustParentModule<CR>", "RustParentModule" },
     w = { "<CMD>RustReloadWorkspace<CR>", "RustReloadWorkspace" },
+
+    h = { "<Plug>RestNvim" ,"Rest Run"},
+    c = { "<Plug>RestNvimPreview" ,"Rest Perview"},
+    t = { "<Plug>RestNvimLast" ,"Rest Run Last"},
 
 }
 
@@ -113,9 +117,10 @@ bmn["gD"] = { vim.lsp.buf.declaration, "Goto declaration" }
 bmn["gs"] = { vim.lsp.buf.signature_help, "Show signature help" }
 bmn["gf"] = { vim.lsp.buf.formatting, "Format" }
 bmn["gb"] = { "<cmd>Telescope diagnostics bufnr=0 theme=get_dropdown layout_config={width=0.95}<cr>", "Telescope Buffer Diagnostics" }
-bmn["gq"] = { "<CMD>Telescope diagnostics<CR> theme=get_dropdown layout_config={width=0.95}", "Telescope Diagnostics" }
-bmn["gd"] = { "<cmd>Telescope lsp_definitions<CR>", "Telescope Definition" }
-bmn["gv"] = { "<cmd>:vertical resize +80<cr>:vsp<cr>:Telescope lsp_definitions<cr>:vertical resize 120<cr>", "Telescope Definition" }
+bmn["gq"] = { "<cmd>Telescope diagnostics<CR> theme=get_dropdown layout_config={width=0.95}", "Telescope Diagnostics" }
+bmn["gd"] = { "<cmd>Telescope lsp_definitions<CR>", "Goto Definition" }
+bmn["gv"] = { "<cmd>:vertical resize +80<cr>:vsp<cr>:Telescope lsp_definitions<cr>:vertical resize 120<cr>", "Goto Definition Split" }
+bmn["go"] = { "<C-W>c<cmd>:vertical resize 120<cr>" , "Goto Back Window"}
 bmn["gr"] = { "<cmd>Telescope lsp_references<CR>", "Telescope references" }
 -- bmn["gc"] = { "<cmd>Telescope lsp_incomming_calls<CR>", "Telescope incoming calls" }
 bmn["gi"] = { "<cmd>Telescope lsp_implementations<CR>", "Telescope Implementation" }

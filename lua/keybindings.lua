@@ -30,6 +30,7 @@ lvim.keys.normal_mode = {
     ["<S-Down>"] = ":resize +2<CR>",
     ["<S-Left>"] = ":vertical resize -2<CR>",
     ["<S-Right>"] = ":vertical resize +2<CR>",
+    -- ["<C-P>"] = ":vertical resize 120<CR>",
 
     -- vim-surround : -yss insert, cs replace, ds delete, ysiw insert word
     -- lsp
@@ -91,7 +92,8 @@ lvim.keys.insert_mode = {
 lvim.keys.term_mode = {
     -- Terminal window navigation
     -- ["<ESC>"] = "<C-\\><C-N>",
-    ["<C-[>"] = "<C-\\><C-N>",
+    -- ["<C-[>"] = "<C-\\><C-N>",
+    ["<C-Q>"] = "<C-\\><C-N>",
     ["<C-h>"] = "<C-\\><C-N><C-w>h",
     ["<C-j>"] = "<C-\\><C-N><C-w>j",
     ["<C-k>"] = "<C-\\><C-N><C-w>k",

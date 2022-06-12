@@ -20,14 +20,14 @@ M.setup = function()
             on_attach = require("lvim.lsp").common_on_attach,
             on_init = require("lvim.lsp").common_on_init,
             standalone = true,
-            settings = {
-                ["rust-analyzer"] = {
-                    cargo = { features = 'all' },
-                    checkOnSave = {
-                        allTargets = true,
-                    }
-                }
-            }
+            -- settings = {
+                -- ["rust-analyzer"] = {
+                    -- cargo = { features = 'all' },
+                    -- checkOnSave = {
+                        -- allTargets = true,
+                    -- }
+                -- }
+            -- }
         },
         dap = {
             adapter = {

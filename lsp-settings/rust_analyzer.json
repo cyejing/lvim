@@ -1,0 +1,11 @@
+{
+    "rust-analyzer": {
+        "cargo": {
+            "features": "all"
+        },
+        "checkOnSave": {
+            "command": "clippy",
+            "allTargets": true
+        }
+    }
+}
