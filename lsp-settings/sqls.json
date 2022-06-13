@@ -2,9 +2,9 @@
     "sqls": {
         "connections": [
             {
-                "alias": "local",
+                "alias": "snitch-test",
                 "driver": "mysql",
-                "dataSourceName": "root:root@tcp(127.0.0.1:3306)/world"
+                "dataSourceName": "didi_cQQP:6CCT2do1U@tcp(10.179.238.192:4859)/im_dichat"
             }
         ]
     }

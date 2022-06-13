@@ -166,7 +166,7 @@ lvim.plugins = {
     -- sql
     {
         "nanotee/sqls.nvim",
-    }
+    },
     -- {
     -- 'beauwilliams/focus.nvim',
     -- config = function()

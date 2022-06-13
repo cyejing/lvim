@@ -87,11 +87,13 @@ mappings["r"] = {
     p = { "<CMD>RustParentModule<CR>", "RustParentModule" },
     w = { "<CMD>RustReloadWorkspace<CR>", "RustReloadWorkspace" },
 
-    h = { "<Plug>RestNvim" ,"Rest Run"},
-    c = { "<Plug>RestNvimPreview" ,"Rest Perview"},
-    t = { "<Plug>RestNvimLast" ,"Rest Run Last"},
+    h = { "<Plug>RestNvim", "Rest Run" },
+    c = { "<Plug>RestNvimPreview", "Rest Perview" },
+    t = { "<Plug>RestNvimLast", "Rest Run Last" },
 
 }
+
+
 
 
 
@@ -120,7 +122,7 @@ bmn["gb"] = { "<cmd>Telescope diagnostics bufnr=0 theme=get_dropdown layout_conf
 bmn["gq"] = { "<cmd>Telescope diagnostics<CR> theme=get_dropdown layout_config={width=0.95}", "Telescope Diagnostics" }
 bmn["gd"] = { "<cmd>Telescope lsp_definitions<CR>", "Goto Definition" }
 bmn["gv"] = { "<cmd>:vertical resize +80<cr>:vsp<cr>:Telescope lsp_definitions<cr>:vertical resize 120<cr>", "Goto Definition Split" }
-bmn["go"] = { "<C-W>c<cmd>:vertical resize 120<cr>" , "Goto Back Window"}
+bmn["go"] = { "<C-W>c<cmd>:vertical resize 120<cr>", "Goto Back Window" }
 bmn["gr"] = { "<cmd>Telescope lsp_references<CR>", "Telescope references" }
 -- bmn["gc"] = { "<cmd>Telescope lsp_incomming_calls<CR>", "Telescope incoming calls" }
 bmn["gi"] = { "<cmd>Telescope lsp_implementations<CR>", "Telescope Implementation" }
@@ -148,6 +150,16 @@ wk.register({
         c = { "<cmd>Telescope git_status<cr>", "Find Git Change" },
         j = { "<cmd>Telescope jumplist<cr>", "Find jumplist" },
     },
+})
+
+wk.register({
+    r = {
+        q = { "<CMD>'<,'>SqlsExecuteQuery<CR>", "Sqls Run" },
+        i = { "<CMD>SqlsSwitchConnection<CR>", "Sqls Connection" },
+    }
+}, {
+    mode = "v",
+    prefix = "<leader>"
 })
 
 
