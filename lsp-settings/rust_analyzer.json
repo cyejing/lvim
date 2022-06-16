@@ -4,7 +4,7 @@
             "features": "all"
         },
         "checkOnSave": {
-            "command": "clippy",
+            "command": "check",
             "allTargets": true
         }
     }

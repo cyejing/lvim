@@ -125,7 +125,7 @@ lvim.plugins = {
             require("plugin-config.nvim-bqf").setup()
         end,
     },
-    { 'dinhhuy258/vim-local-history' },
+    -- { 'dinhhuy258/vim-local-history' },
 
     -- git
     {
@@ -174,11 +174,11 @@ lvim.plugins = {
     -- end,
     -- }
     -- search
-    --{
-    --    "windwp/nvim-spectre", -- search replace
-    --    event = "BufRead",
-    --    config = function()
-    --        require("spectre").setup()
-    --    end,
-    --},
+    {
+       "windwp/nvim-spectre", -- search replace
+       event = "BufRead",
+       config = function()
+           require("spectre").setup()
+       end,
+    },
 }

@@ -1,13 +1,15 @@
 local mappings = lvim.builtin.which_key.mappings
-mappings["e"] = { "<cmd>NvimTreeFocus<CR>", "Explorer" }
-mappings["m"] = { "<cmd>NvimTreeToggle<CR>", "Explorer Toggle" }
-mappings["p"] = { "<CMD>Telescope projects layout_config={width=0.6}<CR>", "Projects" }
-mappings["o"] = { "<CMD>Telescope oldfiles<CR>", "Recently files" }
+mappings["e"]  = { "<cmd>NvimTreeFocus<CR>", "Explorer" }
+mappings["m"]  = { "<cmd>NvimTreeToggle<CR>", "Explorer Toggle" }
+mappings["p"]  = { "<CMD>Telescope projects layout_config={width=0.6}<CR>", "Projects" }
+mappings["o"]  = { "<CMD>Telescope oldfiles<CR>", "Recently files" }
 -- mappings["o"] = { "<CMD>:NvimTreeFindFile<CR>", "Location Exporter" }
-mappings["h"] = { "<CMD>edit ~/.cache/lvim/project_nvim/project_history<CR>", "Edit Projects" }
-mappings["h"] = { "<CMD>SymbolsOutline<CR>", "SymbolsOutline" }
-mappings["c"] = { "<CMD>only<CR>", "Close All Windows" }
+mappings["h"]  = { "<CMD>edit ~/.cache/lvim/project_nvim/project_history<CR>", "Edit Projects" }
+mappings["h"]  = { "<CMD>SymbolsOutline<CR>", "SymbolsOutline" }
+mappings["c"]  = { "<CMD>only<CR>", "Close All Windows" }
 -- mappings["q"] = { vim.diagnostic.setloclist, "Quickfix" }
+mappings["t"]  = { "<CMD>call QuickFixToggle()<CR>", "Toggle Quickfix" }
+mappings["S"]  = { "<CMD>lua require('spectre').open()<CR>", "Open Spectre" }
 
 mappings["b"] = {
     name = "Buffers",
@@ -149,6 +151,7 @@ wk.register({
         b = { "<cmd>Telescope buffers<cr>", "Find Buffers" },
         c = { "<cmd>Telescope git_status<cr>", "Find Git Change" },
         j = { "<cmd>Telescope jumplist<cr>", "Find jumplist" },
+        o = { "<CMD>Telescope oldfiles<CR>", "Recently files" },
     },
 })
 

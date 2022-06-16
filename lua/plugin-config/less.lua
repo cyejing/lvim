@@ -4,7 +4,7 @@ vim.g.local_history_new_change_delay = 10
 
 -- ui
 require('onedark').setup {
-    toggle_style_key = '<leader>ts', -- Default keybinding to toggle
+    toggle_style_key = '<leader>Ls', -- Default keybinding to toggle
     toggle_style_list = { 'darker', 'cool', 'warmer', 'light' }, -- List of styles to toggle between
     style = 'warmer',
 }
