@@ -31,6 +31,9 @@ lvim.builtin.cmp.formatting.kind_icons = {
 }
 
 lvim.builtin.cmp.mapping['<CR>'] = cmp.mapping.confirm({ select = true })
+lvim.builtin.cmp.mapping["<C-d>"] = cmp.mapping.scroll_docs(4)
+lvim.builtin.cmp.mapping["<C-f>"] = cmp.mapping.scroll_docs(-4)
+
 -- lvim.builtin.cmp.mapping['<CR>'] = cmp.mapping(function(fallback)
     -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
     -- if cmp.visible() then

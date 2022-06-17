@@ -1,9 +1,9 @@
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
-vim.api.nvim_create_augroup("_lvim_user", {})
-local agroup = vim.api.nvim_create_augroup("_lvim_user", {
-    clear = true,
-})
-local autocmd = vim.api.nvim_create_autocmd
+-- vim.api.nvim_create_augroup("_lvim_user", {})
+-- local agroup = vim.api.nvim_create_augroup("_lvim_user", {
+    -- clear = true,
+-- })
+-- local autocmd = vim.api.nvim_create_autocmd
 
 -- nvim-tree 自动关闭
 --autocmd("BufEnter", {
