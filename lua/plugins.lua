@@ -11,11 +11,12 @@ lvim.plugins = {
     { "LinArcX/telescope-env.nvim" },
     -- bufferline
     { "moll/vim-bbye" },
+
     -- cmp
-    { "hrsh7th/vim-vsnip" },
-    { "hrsh7th/cmp-vsnip" },
-    { "hrsh7th/cmp-cmdline" }, -- { name = 'cmdline' }
-    { "hrsh7th/cmp-nvim-lsp-signature-help" }, -- { name = 'nvim_lsp_signature_help' }
+    { "hrsh7th/cmp-cmdline" },
+    -- { "hrsh7th/vim-vsnip" },
+    -- { "hrsh7th/cmp-vsnip" },
+    -- { "hrsh7th/cmp-nvim-lsp-signature-help" }, -- { name = 'nvim_lsp_signature_help' }
 
     --lsp
     {
@@ -24,6 +25,13 @@ lvim.plugins = {
             require("plugin-config.rust-tools").setup()
         end,
         ft = { "rust", "rs" },
+    },
+    {
+        'saecki/crates.nvim',
+        tag = 'v0.2.1',
+        config = function()
+            require('crates').setup()
+        end,
     },
     {
         'weilbith/nvim-code-action-menu',
@@ -45,13 +53,7 @@ lvim.plugins = {
             }
         end
     },
-    {
-        'saecki/crates.nvim',
-        tag = 'v0.2.1',
-        config = function()
-            require('crates').setup()
-        end,
-    },
+    -- #lsp
 
     -- Navigation
     {
@@ -73,8 +75,6 @@ lvim.plugins = {
             }
         end,
     },
-
-
     -- plus
     -- {
     -- "tpope/vim-surround",
@@ -84,6 +84,7 @@ lvim.plugins = {
     --     --  vim.o.timeoutlen = 500
     --     -- end
     -- },
+    -- progress bar
     { "j-hui/fidget.nvim",
         config = function()
             require("fidget").setup({
@@ -118,7 +119,8 @@ lvim.plugins = {
             require("plugin-config.autosave").setup()
         end,
     },
-    { -- quickfix plus
+    -- quickfix plus
+    {
         "kevinhwang91/nvim-bqf",
         event = { "BufRead", "BufNew" },
         config = function()
@@ -126,6 +128,37 @@ lvim.plugins = {
         end,
     },
     -- { 'dinhhuy258/vim-local-history' },
+    -- show top fun
+    {
+        "romgrk/nvim-treesitter-context",
+        config = function()
+            require("treesitter-context").setup {
+                enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
+                throttle = true, -- Throttles plugin updates (may improve performance)
+                max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
+                patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
+                    -- For all filetypes
+                    -- Note that setting an entry here replaces all other patterns for this entry.
+                    -- By setting the 'default' entry below, you can control which nodes you want to
+                    -- appear in the context window.
+                    default = {
+                        'class',
+                        'function',
+                        'method',
+                    },
+                },
+            }
+        end
+    },
+    -- markdown
+    {
+        "iamcco/markdown-preview.nvim",
+        run = "cd app && npm install",
+        ft = "markdown",
+        config = function()
+            vim.g.mkdp_auto_start = 1
+        end,
+    },
 
     -- git
     {
@@ -167,18 +200,18 @@ lvim.plugins = {
     {
         "nanotee/sqls.nvim",
     },
+    -- search
+    {
+        "windwp/nvim-spectre", -- search replace
+        event = "BufRead",
+        config = function()
+            require("spectre").setup()
+        end,
+    },
     -- {
     -- 'beauwilliams/focus.nvim',
     -- config = function()
     -- require("focus").setup()
     -- end,
     -- }
-    -- search
-    {
-       "windwp/nvim-spectre", -- search replace
-       event = "BufRead",
-       config = function()
-           require("spectre").setup()
-       end,
-    },
 }

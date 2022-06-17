@@ -1,3 +1,5 @@
+local text = require "lvim.interface.text"
+
 vim.g.dashboard_default_executive = "telescope"
 
 lvim.builtin.alpha.dashboard.section.buttons = {
@@ -11,7 +13,10 @@ lvim.builtin.alpha.dashboard.section.buttons = {
 
 lvim.builtin.alpha.dashboard.section.header = {
     type = "text",
+
     val = {
+        "                                                        ",
+        "                                                        ",
         "                                                        ",
         "                                                        ",
         "                                                        ",
@@ -27,7 +32,6 @@ lvim.builtin.alpha.dashboard.section.header = {
         "                                                        ",
         "                                                        ",
         "                                                        ",
-        "                                                        ",
     },
     opts = {
         position = "center",
@@ -37,19 +41,17 @@ lvim.builtin.alpha.dashboard.section.header = {
 
 lvim.builtin.alpha.dashboard.section.footer = {
     type = "text",
-    val = {
-        "                                                         ",
-        "                                                         ",
-        "                                                         ",
-        "                                                         ",
-        "                                                         ",
-        "                        let's go                         ",
-        "                                                         ",
-        "                                                         ",
-        "                                                         ",
-        "                                                         ",
-        "                                                         ",
-    },
+    val = text.align_center({ width = 0 }, {
+        "",
+        "",
+        "",
+        "",
+        "let's go",
+        "",
+        "",
+        "",
+    }, 0.5),
+
     opts = {
         position = "center",
         hl = "Number",
