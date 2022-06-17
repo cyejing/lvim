@@ -8,7 +8,6 @@ mappings["h"]  = { "<CMD>edit ~/.cache/lvim/project_nvim/project_history<CR>", "
 mappings["h"]  = { "<CMD>SymbolsOutline<CR>", "SymbolsOutline" }
 mappings["c"]  = { "<CMD>only<CR>", "Close All Windows" }
 -- mappings["q"] = { vim.diagnostic.setloclist, "Quickfix" }
-mappings["t"]  = { "<CMD>call QuickFixToggle()<CR>", "Toggle Quickfix" }
 mappings["S"]  = { "<CMD>lua require('spectre').open()<CR>", "Open Spectre" }
 
 mappings["b"] = {
@@ -190,18 +189,24 @@ lvim.builtin.telescope.defaults.mappings = {
     -- for input mode
     i = {
         ["<C-c>"] = actions.close,
+        ["<C-Q>"] = actions.close,
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
         ["<C-n>"] = actions.cycle_history_next,
         ["<C-p>"] = actions.cycle_history_prev,
-        ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
+        ["<C-B>"] = actions.smart_send_to_qflist + actions.open_qflist,
+        ["<C-D>"] = actions.preview_scrolling_down,
+        ["<C-F>"] = actions.preview_scrolling_up,
         ["<CR>"] = actions.select_default,
     },
     -- for normal mode
     n = {
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
+        ["<C-D>"] = actions.preview_scrolling_down,
+        ["<C-F>"] = actions.preview_scrolling_up,
         ["<C-c>"] = actions.close,
+        ["<C-Q>"] = actions.close,
     },
 }
 
