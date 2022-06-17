@@ -139,30 +139,32 @@ local bmv = lvim.lsp.buffer_mappings.visual_mode
 bmv["gf"] = { "<cmd>:lua vim.lsp.buf.range_formatting()<CR>", "Format range" }
 
 
-local wk = require("which-key")
-wk.register({
-    s = {
-        name = "file", -- optional group name
-        p = { "<cmd>Telescope projects layout_config={width=0.6}<cr>", "Open Projects" },
-        f = { "<cmd>Telescope git_files<cr>", "Find File" }, -- create a binding with label
-        t = { "<cmd>Telescope live_grep<cr>", "Find All Text" },
-        s = { "<cmd>Telescope grep_string<cr>", "Find Cursor Text" },
-        b = { "<cmd>Telescope buffers<cr>", "Find Buffers" },
-        c = { "<cmd>Telescope git_status<cr>", "Find Git Change" },
-        j = { "<cmd>Telescope jumplist<cr>", "Find jumplist" },
-        o = { "<CMD>Telescope oldfiles<CR>", "Recently files" },
-    },
-})
+lvim.builtin.which_key.on_config_done = function(wk)
+    wk.register({
+        s = {
+            name = "file", -- optional group name
+            p = { "<cmd>Telescope projects layout_config={width=0.6}<cr>", "Open Projects" },
+            f = { "<cmd>Telescope git_files<cr>", "Find File" }, -- create a binding with label
+            t = { "<cmd>Telescope live_grep<cr>", "Find All Text" },
+            s = { "<cmd>Telescope grep_string<cr>", "Find Cursor Text" },
+            b = { "<cmd>Telescope buffers<cr>", "Find Buffers" },
+            c = { "<cmd>Telescope git_status<cr>", "Find Git Change" },
+            j = { "<cmd>Telescope jumplist<cr>", "Find jumplist" },
+            o = { "<CMD>Telescope oldfiles<CR>", "Recently files" },
+        },
+    })
 
-wk.register({
-    r = {
-        q = { "<CMD>'<,'>SqlsExecuteQuery<CR>", "Sqls Run" },
-        i = { "<CMD>SqlsSwitchConnection<CR>", "Sqls Connection" },
-    }
-}, {
-    mode = "v",
-    prefix = "<leader>"
-})
+    wk.register({
+        r = {
+            q = { "<CMD>'<,'>SqlsExecuteQuery<CR>", "Sqls Run" },
+            i = { "<CMD>SqlsSwitchConnection<CR>", "Sqls Connection" },
+        }
+    }, {
+        mode = "v",
+        prefix = "<leader>"
+    })
+end
+
 
 
 lvim.builtin.nvimtree.setup.view.mappings.list = {
