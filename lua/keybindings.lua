@@ -51,7 +51,7 @@ lvim.keys.normal_mode = {
     ["]q"] = ":cnext<CR>",
     ["[q"] = ":cprev<CR>",
     ["<C-Q>"] = "<CMD>lua vim.lsp.buf.formatting()<CR>",
-    ["<C-B>"] = ":call QuickFixToggle()<CR>",
+    ["<C-E>"] = ":call QuickFixToggle()<CR>",
     -- ["<C-q>"] = "<CMD>TroubleToggle<CR>",
 
 }

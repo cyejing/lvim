@@ -5,19 +5,24 @@ M.setup = function()
         auto_enable = true,
         auto_resize_height = true,
         preview = {
-            win_height = 999,
-            win_vheight = 999,
+            win_height = 20,
+            win_vheight = 20,
             delay_syntax = 50,
             border_chars = { "┃", "┃", "━", "━", "┏", "┓", "┗", "┛", "█" },
         },
         func_map = {
-            vsplit = "",
+            -- vsplit = "",
             ptogglemode = "z,",
             stoggleup = "",
+            pscrolldown = "<C-d>",
+            pscrollup = "<C-f>",
         },
         filter = {
             fzf = {
-                action_for = { ["ctrl-s"] = "split" },
+                action_for = {
+                    ["ctrl-d"] = "pscrolldown",
+                    ["ctrl-f"] = "pscrollup",
+                },
                 extra_opts = { "--bind", "ctrl-o:toggle-all", "--prompt", "> " },
             },
         },
