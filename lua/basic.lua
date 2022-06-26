@@ -1,4 +1,4 @@
-vim.o.guifont = "JetBrainsMono Nerd Font Mono:h14"
+vim.o.guifont = "JetBrainsMono Nerd Font Mono:h15"
 -- utf8
 vim.g.encoding = "UTF-8"
 vim.o.fileencoding = "utf-8"
