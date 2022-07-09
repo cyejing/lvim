@@ -31,6 +31,8 @@ lvim.builtin.cmp.formatting.kind_icons = {
 }
 
 lvim.builtin.cmp.mapping['<CR>'] = cmp.mapping.confirm({ select = true })
+lvim.builtin.cmp.mapping["<C-k>"] = cmp.mapping.select_prev_item()
+lvim.builtin.cmp.mapping["<C-j>"] = cmp.mapping.select_next_item()
 lvim.builtin.cmp.mapping["<C-d>"] = cmp.mapping.scroll_docs(4)
 lvim.builtin.cmp.mapping["<C-f>"] = cmp.mapping.scroll_docs(-4)
 
