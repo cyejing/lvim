@@ -1,5 +1,4 @@
 local mappings = lvim.builtin.which_key.mappings
-mappings["e"]  = { "<cmd>NvimTreeFocus<CR>", "Explorer" }
 mappings["m"]  = { "<cmd>NvimTreeToggle<CR>", "Explorer Toggle" }
 mappings["p"]  = { "<CMD>Telescope projects layout_config={width=0.6}<CR>", "Projects" }
 mappings["o"]  = { "<CMD>Telescope oldfiles<CR>", "Recently files" }

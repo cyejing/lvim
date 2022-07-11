@@ -35,14 +35,16 @@ lvim.builtin.lualine.sections.lualine_a = { "mode" }
 lvim.builtin.lualine.sections.lualine_z = { "progress", "location" }
 
 -- nvimtree
-local nvim_tree_setup = lvim.builtin.nvimtree.setup
-nvim_tree_setup.disable_netrw = true
-nvim_tree_setup.git.enable = false
-nvim_tree_setup.view.hide_root_folder = false
-nvim_tree_setup.view.width = 36
-nvim_tree_setup.filters.dotfiles = true
-nvim_tree_setup.actions.open_file.resize_window = true
-nvim_tree_setup.actions.open_file.quit_on_open = false
+lvim.builtin.nvimtree.setup.disable_netrw = true
+lvim.builtin.nvimtree.setup.git.enable = false
+lvim.builtin.nvimtree.setup.view.hide_root_folder = false
+lvim.builtin.nvimtree.setup.view.width = 36
+lvim.builtin.nvimtree.setup.filters.dotfiles = true
+lvim.builtin.nvimtree.setup.actions.open_file.resize_window = true
+lvim.builtin.nvimtree.setup.actions.open_file.quit_on_open = false
+lvim.builtin.nvimtree.on_config_done = function ()
+  lvim.builtin.which_key.mappings["e"] = { "<cmd>NvimTreeFocus<CR>", "Explorer" }
+end
 
 -- gitsigns
 lvim.builtin.gitsigns.opts.signs = {
