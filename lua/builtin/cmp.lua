@@ -36,20 +36,6 @@ lvim.builtin.cmp.mapping["<C-j>"] = cmp.mapping.select_next_item()
 lvim.builtin.cmp.mapping["<C-d>"] = cmp.mapping.scroll_docs(4)
 lvim.builtin.cmp.mapping["<C-f>"] = cmp.mapping.scroll_docs(-4)
 
--- lvim.builtin.cmp.mapping['<CR>'] = cmp.mapping(function(fallback)
-    -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
-    -- if cmp.visible() then
-        -- local entry = cmp.get_selected_entry()
-        -- if not entry then
-            -- cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-        -- else
-            -- cmp.confirm()
-        -- end
-    -- else
-        -- fallback()
-    -- end
--- end, { "i", "s", "c", })
-
 -- Use buffer source for `/`.
 cmp.setup.cmdline("/", {
     sources = {

@@ -98,22 +98,8 @@ mappings["r"] = {
 
 
 local bmn = lvim.lsp.buffer_mappings.normal_mode
--- windows
--- bmn["]w"] = {"<C-w>w","Next Window"}
--- bmn["[w"] = {"<C-w>W","Prev Window"}
--- bmn["]b"] = {"<CMD>BufferLineCycleNext<CR>","Next Buffer"}
--- bmn["[b"] = {"<CMD>BufferLineCyclePrev<CR>","Prev Buffer"}
-
 -- lsp
 bmn["ga"] = { "<CMD>CodeActionMenu<CR>", "Code Action" }
--- bmn["K"] = { "<CMD>Lspsaga hover_doc<CR>", "Lsp Hover Doc" }
--- bmn["gR"] = { "<CMD>Lspsaga rename<CR>", "Lsp Rename" }
--- bmn["gf"] = { "<CMD>Lspsaga lsp_finder<CR>", "Lsp Finder" }
--- bmn["gx"] = { "<CMD>Lspsaga code_action<CR>", "Lsp Code Action" }
--- bmn["gl"] = { "<CMD>Lspsaga show_line_diagnostics<CR>", "Lsp Show Line diagnostics" }
--- bmn["gj"] = { "<CMD>Lspsaga diagnostic_jump_next<CR>", "Lsp Diagnostic jump next" }
--- bmn["gk"] = { "<CMD>Lspsaga diagnostic_jump_prev<CR>", "Lsp Diagnostic jump prev" }
--- bmn["gs"] = { "<CMD>Lspsaga signature_help<CR>", "Lsp Signature Help" }
 bmn["K"] = { vim.lsp.buf.hover, "Show hover" }
 bmn["gD"] = { vim.lsp.buf.declaration, "Goto declaration" }
 bmn["gs"] = { vim.lsp.buf.signature_help, "Show signature help" }
@@ -124,7 +110,7 @@ bmn["gd"] = { "<cmd>Telescope lsp_definitions<CR>", "Goto Definition" }
 bmn["gv"] = { "<cmd>:vertical resize +80<cr>:vsp<cr>:Telescope lsp_definitions<cr>:vertical resize 120<cr>", "Goto Definition Split" }
 bmn["go"] = { "<C-W>c<cmd>:vertical resize 120<cr>", "Goto Back Window" }
 bmn["gr"] = { "<cmd>Telescope lsp_references<CR>", "Telescope references" }
--- bmn["gc"] = { "<cmd>Telescope lsp_incomming_calls<CR>", "Telescope incoming calls" }
+bmn["ge"] = { "<cmd>Telescope lsp_incoming_calls<CR>", "Telescope incoming calls" } 
 bmn["gi"] = { "<cmd>Telescope lsp_implementations<CR>", "Telescope Implementation" }
 bmn["gh"] = { "<cmd>Telescope lsp_document_symbols<CR>", "Telescope Document Symbols" }
 bmn["gw"] = { "<cmd>Telescope lsp_workspace_symbols<CR>", "Telescope Workspace Symbols" }
@@ -133,7 +119,6 @@ bmn["gk"] = { vim.diagnostic.goto_prev, "Prev Diagnostic" }
 
 
 -- search
-
 local bmv = lvim.lsp.buffer_mappings.visual_mode
 bmv["gf"] = { "<cmd>:lua vim.lsp.buf.range_formatting()<CR>", "Format range" }
 

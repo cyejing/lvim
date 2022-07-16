@@ -17,6 +17,7 @@ lvim.builtin.project.patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Make
 lvim.builtin.project.exclude_dirs = { ".local" }
 
 lvim.builtin.comment.toggler.block = "gcb"
+lvim.builtin.comment.mappings.basic = false
 
 lvim.builtin.dap.active = true
 

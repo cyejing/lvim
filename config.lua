@@ -15,4 +15,3 @@ lvim.format_on_save = false
 -- lvim.colorscheme = "everforest"
 lvim.colorscheme = "onedark"
 vim.o.background = "dark"
-vim.g.tokyonight_style = "storm"
