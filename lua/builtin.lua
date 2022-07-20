@@ -25,7 +25,8 @@ lvim.builtin.cmp.completion.keyword_length = 2
 
 -- treesitter
 -- if you don't want all the parsers change this to a table of the ones you want
-lvim.builtin.treesitter.ensure_installed = { "bash", "c", "javascript", "json", "lua", "python", "typescript", "tsx", "css", "rust", "java", "yaml", }
+lvim.builtin.treesitter.ensure_installed = { "bash", "c", "javascript", "json", "lua", "python", "typescript", "tsx",
+    "css", "rust", "java", "yaml", }
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
@@ -37,14 +38,23 @@ lvim.builtin.lualine.sections.lualine_z = { "progress", "location" }
 
 -- nvimtree
 lvim.builtin.nvimtree.setup.disable_netrw = true
-lvim.builtin.nvimtree.setup.git.enable = false
+lvim.builtin.nvimtree.setup.git.enable = true
+lvim.builtin.nvimtree.setup.renderer.icons.glyphs.git = {
+    unstaged = "",
+    staged = "✓",
+    unmerged = "",
+    renamed = "➜",
+    untracked = "",
+    deleted = "",
+    ignored = "◌",
+}
 lvim.builtin.nvimtree.setup.view.hide_root_folder = false
 lvim.builtin.nvimtree.setup.view.width = 36
-lvim.builtin.nvimtree.setup.filters.dotfiles = true
+lvim.builtin.nvimtree.setup.filters.dotfiles = false
 lvim.builtin.nvimtree.setup.actions.open_file.resize_window = true
 lvim.builtin.nvimtree.setup.actions.open_file.quit_on_open = false
-lvim.builtin.nvimtree.on_config_done = function ()
-  lvim.builtin.which_key.mappings["e"] = { "<cmd>NvimTreeFocus<CR>", "Explorer" }
+lvim.builtin.nvimtree.on_config_done = function()
+    lvim.builtin.which_key.mappings["e"] = { "<cmd>NvimTreeFocus<CR>", "Explorer" }
 end
 
 -- gitsigns

@@ -166,7 +166,7 @@ lvim.plugins = {
         event = "BufRead",
     },
 
-    -- rest
+    -- rest http
     {
         "NTBBloodbath/rest.nvim",
         config = function()
