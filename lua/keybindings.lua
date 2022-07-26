@@ -6,12 +6,15 @@ lvim.keys.normal_mode = {
     ["s"] = "",
     ["f"] = "",
     ["g"] = "",
+    ["<C-E>"] = "$",
+    ["<C-A>"] = "^",
     ["\\"] = "$",
-    ["r"] = "<C-r>",
+    ["d\\"] = "d$",
+    -- ["r"] = "<C-r>",
 
     -- move
-    ["<C-J>"] = "10j",
-    ["<C-K>"] = "10k",
+    ["<C-J>"] = "8j",
+    ["<C-K>"] = "8k",
     -- ["<C-d>"] = "15j",
     -- ["<C-u>"] = "15k",
 
@@ -51,7 +54,7 @@ lvim.keys.normal_mode = {
     ["]q"] = ":cnext<CR>",
     ["[q"] = ":cprev<CR>",
     ["<C-Q>"] = "<CMD>lua vim.lsp.buf.formatting()<CR>",
-    ["<C-E>"] = ":call QuickFixToggle()<CR>",
+    ["<C-Y>"] = ":call QuickFixToggle()<CR>",
     -- ["<C-q>"] = "<CMD>TroubleToggle<CR>",
 
 }
@@ -107,8 +110,8 @@ lvim.keys.visual_mode = {
     [">"] = ">gv",
     ["\\"] = "$",
 
-    ["<C-j>"] = "10j",
-    ["<C-k>"] = "10k",
+    ["<C-j>"] = "8j",
+    ["<C-k>"] = "8k",
 
     ["<C-N>"] = "<ESC><CMD>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>"
     -- ["p"] = '"0p',
@@ -125,12 +128,12 @@ lvim.keys.visual_block_mode = {
     ["<A-k>"] = ":m '<-2<CR>gv-gv",
 }
 
-lvim.keys.command_mode = {
+-- lvim.keys.command_mode = {
     -- navigate tab completion with <c-j> and <c-k>
     -- runs conditionally
-    ["<C-j>"] = { 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true } },
-    ["<C-k>"] = { 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true } },
-}
+    -- ["<C-j>"] = { 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true } },
+    -- ["<C-k>"] = { 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true } },
+-- }
 
 --fix who bind?
 vim.keymap.set('i', "C", "C")
