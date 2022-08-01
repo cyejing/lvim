@@ -10,7 +10,7 @@ lvim.keys.normal_mode = {
     ["<C-A>"] = "^",
     ["\\"] = "$",
     ["d\\"] = "d$",
-    -- ["r"] = "<C-r>",
+    ["r"] = "<C-r>",
 
     -- move
     ["<C-J>"] = "8j",
@@ -26,7 +26,7 @@ lvim.keys.normal_mode = {
     ["<C-H>"] = "<C-w>W",
     ["<C-L>"] = "<C-w>w",
     ["<C-C>"] = "<C-w>c",
-    ["<C-X>"] = ":Bdelete!<CR>",
+    ["<S-X>"] = ":Bdelete!<CR>",
 
     -- Resize with arrows
     ["<S-Up>"] = ":resize -2<CR>",
@@ -40,6 +40,7 @@ lvim.keys.normal_mode = {
     ["<C-n>"] = "<CMD>lua require('Comment.api').toggle_current_linewise()<CR>j",
 
     -- Tab switch buffer
+    ["<C-S>"] = ":Telescope oldfiles<CR>",
     ["<S-L>"] = ":BufferLineCycleNext<CR>",
     ["<S-H>"] = ":BufferLineCyclePrev<CR>",
     -- Navigate buffers
@@ -109,6 +110,10 @@ lvim.keys.visual_mode = {
     ["<"] = "<gv",
     [">"] = ">gv",
     ["\\"] = "$",
+    ["<C-E>"] = "$",
+    ["<C-A>"] = "^",
+
+    ["<C-Q>"] = "<ESC>",
 
     ["<C-j>"] = "8j",
     ["<C-k>"] = "8k",
@@ -123,16 +128,17 @@ lvim.keys.visual_block_mode = {
     ["K"] = ":move '<-2<CR>gv-gv",
     ["J"] = ":move '>+1<CR>gv-gv",
 
+    ["<C-Q>"] = "<ESC>",
     -- Move current line / block with Alt-j/k ala vscode.
     ["<A-j>"] = ":m '>+1<CR>gv-gv",
     ["<A-k>"] = ":m '<-2<CR>gv-gv",
 }
 
 -- lvim.keys.command_mode = {
-    -- navigate tab completion with <c-j> and <c-k>
-    -- runs conditionally
-    -- ["<C-j>"] = { 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true } },
-    -- ["<C-k>"] = { 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true } },
+-- navigate tab completion with <c-j> and <c-k>
+-- runs conditionally
+-- ["<C-j>"] = { 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true } },
+-- ["<C-k>"] = { 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true } },
 -- }
 
 --fix who bind?
