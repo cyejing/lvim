@@ -33,7 +33,7 @@ lvim.keys.normal_mode = {
     ["<S-Down>"] = ":resize +2<CR>",
     ["<S-Left>"] = ":vertical resize -2<CR>",
     ["<S-Right>"] = ":vertical resize +2<CR>",
-    -- ["<C-P>"] = ":vertical resize 120<CR>",
+    ["<C-P>"] = ":vertical resize 120<CR>",
 
     -- vim-surround : -yss insert, cs replace, ds delete, ysiw insert word
     -- lsp
@@ -43,9 +43,6 @@ lvim.keys.normal_mode = {
     ["<C-S>"] = ":Telescope oldfiles<CR>",
     ["<S-L>"] = ":BufferLineCycleNext<CR>",
     ["<S-H>"] = ":BufferLineCyclePrev<CR>",
-    -- Navigate buffers
-    --["<Tab>"] = ":bnext<CR>",
-    --["<S-Tab>"] = ":bprevious<CR>",
 
     -- Move current line / block with Alt-j/k a la vscode.
     ["<A-j>"] = ":m .+1<CR>==",
@@ -56,7 +53,6 @@ lvim.keys.normal_mode = {
     ["[q"] = ":cprev<CR>",
     ["<C-Q>"] = "<CMD>lua vim.lsp.buf.formatting()<CR>",
     ["<C-Y>"] = ":call QuickFixToggle()<CR>",
-    -- ["<C-q>"] = "<CMD>TroubleToggle<CR>",
 
 }
 
