@@ -88,10 +88,10 @@ lvim.keys.insert_mode = {
     -- Move current line / block with Alt-j/k ala vscode.
     ["<A-k>"] = "<Esc>:m .-2<CR>==gi",
     -- navigation
-    ["<A-Up>"] = "<C-\\><C-N><C-w>k",
-    ["<A-Down>"] = "<C-\\><C-N><C-w>j",
-    ["<A-Left>"] = "<C-\\><C-N><C-w>h",
-    ["<A-Right>"] = "<C-\\><C-N><C-w>l",
+    -- ["<A-Up>"] = "<C-\\><C-N><C-w>k",
+    -- ["<A-Down>"] = "<C-\\><C-N><C-w>j",
+    -- ["<A-Left>"] = "<C-\\><C-N><C-w>h",
+    -- ["<A-Right>"] = "<C-\\><C-N><C-w>l",
 }
 
 lvim.keys.term_mode = {
@@ -118,9 +118,11 @@ lvim.keys.visual_mode = {
     ["<C-j>"] = "8j",
     ["<C-k>"] = "8k",
 
-    ["<C-N>"] = "<ESC><CMD>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>"
+    ["<C-N>"] = "<ESC><CMD>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>",
     -- ["p"] = '"0p',
     -- ["P"] = '"0P',
+    ["<A-j>"] = ":m '>+1<CR>gv-gv",
+    ["<A-k>"] = ":m '<-2<CR>gv-gv",
 }
 
 lvim.keys.visual_block_mode = {

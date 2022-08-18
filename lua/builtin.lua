@@ -9,7 +9,7 @@ lvim.line_wrap_cursor_movement = true
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 
-lvim.builtin.notify.active = true
+lvim.builtin.notify.active = false
 
 lvim.builtin.terminal.active = true
 
