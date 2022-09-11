@@ -97,11 +97,37 @@ mappings["r"] = {
 
 }
 
+local bmn = lvim.lsp.buffer_mappings.normal_mode
+-- lsp
+bmn["ga"] = { "<CMD>CodeActionMenu<CR>", "Code Action" }
+bmn["K"] = { vim.lsp.buf.hover, "Show hover" }
+bmn["gD"] = { vim.lsp.buf.declaration, "Goto declaration" }
+bmn["gs"] = { vim.lsp.buf.signature_help, "Show signature help" }
+bmn["gf"] = { vim.lsp.buf.formatting, "Format" }
+bmn["gb"] = { "<cmd>Telescope diagnostics bufnr=0 theme=get_dropdown layout_config={width=0.95}<cr>",
+    "Telescope Buffer Diagnostics" }
+bmn["ge"] = { "<cmd>Telescope diagnostics<CR> theme=get_dropdown layout_config={width=0.95}", "Telescope Diagnostics" }
+bmn["gd"] = { "<cmd>Telescope lsp_definitions<CR>", "Goto Definition" }
+bmn["gv"] = { "<cmd>:vertical resize +80<cr>:vsp<cr>:Telescope lsp_definitions<cr>:vertical resize 120<cr>",
+    "Goto Definition Split" }
+bmn["go"] = { "<C-W>c<cmd>:vertical resize 120<cr>", "Goto Back Window" }
+bmn["gr"] = { "<cmd>Telescope lsp_references<CR>", "Telescope references" }
+bmn["gc"] = { "<cmd>Telescope lsp_incoming_calls<CR>", "Telescope incoming calls" }
+bmn["gi"] = { "<cmd>Telescope lsp_implementations<CR>", "Telescope Implementation" }
+bmn["gh"] = { "<cmd>Telescope lsp_document_symbols<CR>", "Telescope Document Symbols" }
+bmn["gw"] = { "<cmd>Telescope lsp_workspace_symbols<CR>", "Telescope Workspace Symbols" }
+bmn["gj"] = { vim.diagnostic.goto_next, "Next Diagnostic" }
+bmn["gk"] = { vim.diagnostic.goto_prev, "Prev Diagnostic" }
+
+
+-- search
+local bmv = lvim.lsp.buffer_mappings.visual_mode
+bmv["gf"] = { "<cmd>:lua vim.lsp.buf.range_formatting()<CR>", "Format range" }
 
 lvim.builtin.which_key.on_config_done = function(wk)
     wk.register({
         s = {
-            name = "file", -- optional group name
+            name = "File", -- optional group name
             p = { "<cmd>Telescope projects layout_config={width=0.6}<cr>", "Open Projects" },
             f = { "<cmd>Telescope git_files<cr>", "Find File" }, -- create a binding with label
             t = { "<cmd>Telescope live_grep<cr>", "Find All Text" },
@@ -111,28 +137,6 @@ lvim.builtin.which_key.on_config_done = function(wk)
             j = { "<cmd>Telescope jumplist<cr>", "Find jumplist" },
             o = { "<CMD>Telescope oldfiles<CR>", "Recently files" },
         },
-        g = {
-            name = "Lsp",
-            a = { "<CMD>CodeActionMenu<CR>", "Code Action" },
-            K = { vim.lsp.buf.hover, "Show hover" },
-            D = { vim.lsp.buf.declaration, "Goto declaration" },
-            s = { vim.lsp.buf.signature_help, "Show signature help" },
-            f = { vim.lsp.buf.formatting, "Format" },
-            b = { "<cmd>Telescope diagnostics bufnr=0 theme=get_dropdown layout_config={width=0.95}<cr>",
-                "Telescope Buffer Diagnostics" },
-            q = { "<cmd>Telescope diagnostics<CR> theme=get_dropdown layout_config={width=0.95}", "Telescope Diagnostics" },
-            d = { "<cmd>Telescope lsp_definitions<CR>", "Goto Definition" },
-            v = { "<cmd>:vertical resize +80<cr>:vsp<cr>:Telescope lsp_definitions<cr>:vertical resize 120<cr>",
-                "Goto Definition Split" },
-            o = { "<C-W>c<cmd>:vertical resize 120<cr>", "Goto Back Window" },
-            r = { "<cmd>Telescope lsp_references<CR>", "Telescope references" },
-            e = { "<cmd>Telescope lsp_incoming_calls<CR>", "Telescope incoming calls" },
-            i = { "<cmd>Telescope lsp_implementations<CR>", "Telescope Implementation" },
-            h = { "<cmd>Telescope lsp_document_symbols<CR>", "Telescope Document Symbols" },
-            w = { "<cmd>Telescope lsp_workspace_symbols<CR>", "Telescope Workspace Symbols" },
-            j = { vim.diagnostic.goto_next, "Next Diagnostic" },
-            k = { vim.diagnostic.goto_prev, "Prev Diagnostic" },
-        }
     })
 
     wk.register({

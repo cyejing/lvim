@@ -47,10 +47,7 @@ lvim.plugins = {
     {
         "simrat39/symbols-outline.nvim", -- symbols
         config = function()
-            vim.g.symbols_outline = {
-                auto_preview = false,
-                auto_close = true
-            }
+            require('symbols-outline').setup()
         end
     },
     -- #lsp
@@ -61,8 +58,7 @@ lvim.plugins = {
         event = "BufRead",
         config = function()
             require("hop").setup()
-            vim.api.nvim_set_keymap("n", "f", ":HopChar1<cr>", { silent = true })
-            vim.api.nvim_set_keymap("n", "F", ":HopWord<cr>", { silent = true })
+            vim.api.nvim_set_keymap("n", "<C-F>", ":HopChar1<cr>", { silent = true })
         end,
     },
     {
@@ -114,7 +110,7 @@ lvim.plugins = {
         end,
     },
     {
-        "Pocco81/AutoSave.nvim",
+        "Pocco81/auto-save.nvim",
         config = function()
             require("plugin-config.autosave").setup()
         end,
