@@ -156,10 +156,11 @@ end
 
 
 lvim.builtin.nvimtree.setup.view.mappings.list = {
-    { key = { "<ESC>", "q" }, action = "close", mode = "n" },
+    { key = { "<ESC>", "q", "<C-x>" }, action = "close", mode = "n" },
     { key = { "l", "<CR>", "o" }, action = "edit", mode = "n" },
     { key = "h", action = "close_node" },
     { key = "v", action = "vsplit" },
+    { key = "x", action = "split" },
     { key = "C", action = "cd" },
     { key = "<C-k>", action = "" },
     { key = "f", action = "" },
