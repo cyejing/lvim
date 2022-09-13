@@ -35,11 +35,9 @@ lvim.keys.normal_mode = {
     ["<C-P>"] = ":vertical resize 120<CR>",
 
     -- vim-surround : -yss insert, cs replace, ds delete, ysiw insert word
-    -- lsp
-    ["<C-n>"] = "<CMD>lua require('Comment.api').toggle_current_linewise()<CR>j",
+    ["gn"] = "<CMD>lua require('Comment.api').toggle_current_linewise()<CR>j",
 
     -- Tab switch buffer
-    ["<C-S>"] = ":Telescope oldfiles<CR>",
     ["<S-L>"] = ":BufferLineCycleNext<CR>",
     ["<S-H>"] = ":BufferLineCyclePrev<CR>",
 
@@ -50,7 +48,8 @@ lvim.keys.normal_mode = {
     -- QuickFix
     ["]q"] = ":cnext<CR>",
     ["[q"] = ":cprev<CR>",
-    ["<C-Q>"] = "<CMD>lua vim.lsp.buf.formatting()<CR>",
+
+    ["<C-=>"] = "<CMD>lua vim.lsp.buf.formatting()<CR>",
     ["<C-Y>"] = ":call QuickFixToggle()<CR>",
 
 }
@@ -74,7 +73,7 @@ lvim.keys.insert_mode = {
     ["<C-P>"] = "<ESC>pa",
 
     -- code
-    ["<C-\\>"] = "<ESC>v<CMD>:lua vim.lsp.buf.range_formatting()<CR><ESC>A",
+    ["<C-=>"] = "<ESC>v<CMD>:lua vim.lsp.buf.range_formatting()<CR><ESC>A",
 
     ["C-T"] = "W",
 
@@ -113,11 +112,12 @@ lvim.keys.visual_mode = {
     ["<C-j>"] = "8j",
     ["<C-k>"] = "8k",
 
-    ["<C-N>"] = "<ESC><CMD>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>",
-    -- ["p"] = '"0p',
-    -- ["P"] = '"0P',
+    ["gn"] = "<ESC><CMD>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>",
+    ["<C-=>"] = "<CMD>:lua vim.lsp.buf.range_formatting()<CR>",
+
     ["<A-j>"] = ":m '>+1<CR>gv-gv",
     ["<A-k>"] = ":m '<-2<CR>gv-gv",
+
 }
 
 lvim.keys.visual_block_mode = {

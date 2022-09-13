@@ -1,5 +1,5 @@
 local mappings = lvim.builtin.which_key.mappings
-mappings["m"]  = { "<cmd>NvimTreeToggle<CR>", "Explorer Toggle" }
+mappings["m"]  = { "<cmd>NvimTreeFocus<CR>", "Explorer Toggle" }
 mappings["p"]  = { "<CMD>Telescope projects layout_config={width=0.6}<CR>", "Projects" }
 mappings["o"]  = { "<CMD>Telescope oldfiles<CR>", "Recently files" }
 -- mappings["o"] = { "<CMD>:NvimTreeFindFile<CR>", "Location Exporter" }
@@ -98,7 +98,6 @@ mappings["r"] = {
 }
 
 local bmn = lvim.lsp.buffer_mappings.normal_mode
--- lsp
 bmn["ga"] = { "<CMD>CodeActionMenu<CR>", "Code Action" }
 bmn["K"] = { vim.lsp.buf.hover, "Show hover" }
 bmn["gD"] = { vim.lsp.buf.declaration, "Goto declaration" }
