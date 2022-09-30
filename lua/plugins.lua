@@ -204,10 +204,4 @@ lvim.plugins = {
             require("spectre").setup()
         end,
     },
-    -- {
-    -- 'beauwilliams/focus.nvim',
-    -- config = function()
-    -- require("focus").setup()
-    -- end,
-    -- }
 }
