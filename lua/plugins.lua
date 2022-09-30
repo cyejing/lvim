@@ -24,7 +24,6 @@ lvim.plugins = {
         config = function()
             require("plugin-config.rust-tools").setup()
         end,
-        ft = { "rust", "rs" },
     },
     {
         'saecki/crates.nvim',

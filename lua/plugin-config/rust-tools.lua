@@ -1,32 +1,40 @@
 local M = {}
 
 M.setup = function()
-    local lsp_installer_servers = require "nvim-lsp-installer.servers"
-    local _, requested_server = lsp_installer_servers.get_server "rust_analyzer"
     require("rust-tools").setup({
         tools = {
-            autoSetHints = true,
-            hover_with_actions = true,
+            executor = require("rust-tools/executors").termopen, -- can be quickfix or termopen
+            reload_workspace_from_cargo_toml = true,
             inlay_hints = {
+                auto = true,
+                only_current_line = false,
                 show_parameter_hints = true,
-                show_variable_name = true,
+                parameter_hints_prefix = "<-",
+                other_hints_prefix = "=>",
+                max_len_align = false,
+                max_len_align_padding = 1,
+                right_align = false,
+                right_align_padding = 7,
+                highlight = "Comment",
             },
-            runnables = {
-                use_telescope = true,
+            hover_actions = {
+                border = {
+                    { "╭", "FloatBorder" },
+                    { "─", "FloatBorder" },
+                    { "╮", "FloatBorder" },
+                    { "│", "FloatBorder" },
+                    { "╯", "FloatBorder" },
+                    { "─", "FloatBorder" },
+                    { "╰", "FloatBorder" },
+                    { "│", "FloatBorder" },
+                },
+                auto_focus = true,
             },
         },
         server = {
-            cmd_env = requested_server._default_options.cmd_env,
             on_attach = require("lvim.lsp").common_on_attach,
             on_init = require("lvim.lsp").common_on_init,
             standalone = true,
-        },
-        dap = {
-            adapter = {
-                type = "executable",
-                command = "lldb-vscode",
-                name = "rt_lldb",
-            },
         },
     })
 end
