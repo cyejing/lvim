@@ -35,7 +35,8 @@ lvim.keys.normal_mode = {
     ["<C-P>"] = ":vertical resize 120<CR>",
 
     -- vim-surround : -yss insert, cs replace, ds delete, ysiw insert word
-    ["gn"] = "<CMD>lua require('Comment.api').toggle_current_linewise()<CR>j",
+    ["gn"] = "<CMD>lua require('Comment.api').toggle.linewise.current()<CR>j",
+    ["<C-.>"] = "<CMD>lua require('Comment.api').toggle.linewise.current()<CR>j",
 
     -- Tab switch buffer
     ["<S-L>"] = ":BufferLineCycleNext<CR>",
@@ -113,8 +114,11 @@ lvim.keys.visual_mode = {
     ["<C-j>"] = "8j",
     ["<C-k>"] = "8k",
 
-    ["gn"] = "<ESC><CMD>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>",
+    ["gn"] = "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+    ["<C-.>"] = "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+
     ["<C-=>"] = "<CMD>:lua vim.lsp.buf.range_formatting()<CR>",
+
 
     ["<A-j>"] = ":m '>+1<CR>gv-gv",
     ["<A-k>"] = ":m '<-2<CR>gv-gv",

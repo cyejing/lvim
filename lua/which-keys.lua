@@ -82,13 +82,13 @@ mappings["l"] = {
 
 mappings["r"] = {
     name = "Rust",
-    r = { "<CMD>RustRunnables<CR>", "RustRunnables" },
+    r = { "<CMD>lua require('rust-tools').runnables.runnables()<CR>", "RustRunnables" },
     d = { "<CMD>RustDebuggables<CR>", "RustDebuggables" },
-    m = { "<CMD>RustExpandMacro<CR>", "RustExpandMacro" },
-    -- h = { "<CMD>RustHoverActions<CR>", "RustHoverActions" },
-    j = { "<CMD>RustMoveItemDown<CR>", "RustMoveItemDown" },
-    k = { "<CMD>RustMoveItemUp<CR>", "RustMoveItemUp" },
-    p = { "<CMD>RustParentModule<CR>", "RustParentModule" },
+    m = { "<CMD>lua require'rust-tools'.expand_macro.expand_macro()<CR>", "RustExpandMacro" },
+    -- h = { "<CMD>require'rust-tools'.hover_actions.hover_actions()<CR>", "RustHoverActions" },
+    j = { "<CMD>lua require'rust-tools'.move_item.move_item(false)<CR>", "RustMoveItemDown" },
+    k = { "<CMD>lua require'rust-tools'.move_item.move_item(true)<CR>", "RustMoveItemUp" },
+    p = { "<CMD>lua require'rust-tools'.parent_module.parent_module()<CR>", "RustParentModule" },
     w = { "<CMD>RustReloadWorkspace<CR>", "RustReloadWorkspace" },
 
     h = { "<Plug>RestNvim", "Rest Run" },
