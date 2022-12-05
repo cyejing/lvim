@@ -51,7 +51,7 @@ lvim.keys.normal_mode = {
     ["[q"] = ":cprev<CR>",
 
     ["<C-Q>"] = "<CMD>lua vim.lsp.buf.formatting()<CR>",
-    ["<C-=>"] = "<CMD>lua vim.lsp.buf.formatting()<CR>",
+    ["<C-0>"] = "<CMD>lua vim.lsp.buf.formatting()<CR>",
     ["<C-Y>"] = ":call QuickFixToggle()<CR>",
 
 }
@@ -75,7 +75,7 @@ lvim.keys.insert_mode = {
     ["<C-P>"] = "<ESC>pa",
 
     -- code
-    ["<C-=>"] = "<ESC>v<CMD>:lua vim.lsp.buf.range_formatting()<CR><ESC>A",
+    ["<C-0>"] = "<ESC>v<CMD>:lua vim.lsp.buf.range_formatting()<CR><ESC>A",
 
     ["C-T"] = "W",
 
@@ -117,7 +117,7 @@ lvim.keys.visual_mode = {
     ["gn"] = "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
     ["<C-.>"] = "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
 
-    ["<C-=>"] = "<CMD>:lua vim.lsp.buf.range_formatting()<CR>",
+    ["<C-0>"] = "<CMD>:lua vim.lsp.buf.range_formatting()<CR>",
 
 
     ["<A-j>"] = ":m '>+1<CR>gv-gv",
