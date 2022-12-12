@@ -3,6 +3,10 @@ local text = require "lvim.interface.text"
 vim.g.dashboard_default_executive = "telescope"
 
 lvim.builtin.alpha.dashboard.section.buttons = {
+    opts = {
+        hl_shortcut = "Include",
+        spacing = 1,
+    },
     entries = {
         { "SPC p", "  Projects", "<CMD>Telescope projects layout_config={width=0.6}<CR>" },
         { "SPC o", "  Recently files", "<CMD>Telescope oldfiles<CR>" },

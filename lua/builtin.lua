@@ -9,7 +9,10 @@ lvim.line_wrap_cursor_movement = true
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 
-lvim.builtin.notify.active = false
+lvim.builtin.indentlines.active = true
+
+-- lvim.builtin.notify.active = false
+lvim.builtin.lir.active = false
 
 lvim.builtin.terminal.active = true
 
@@ -72,10 +75,6 @@ lvim.builtin.gitsigns.opts.word_diff = false
 -- telescope
 lvim.builtin.telescope.defaults.layout_strategy = "horizontal"
 lvim.builtin.telescope.defaults.layout_config.width = 0.95
-
-lvim.builtin.terminal.execs = {
-    { "gitui", "<leader>gg", "Gitui", "float" },
-}
 
 -- lvim.builtin.telescope.defaults.layout_config.preview_cutoff = 75
 pcall(function()

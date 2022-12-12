@@ -47,11 +47,12 @@ lvim.keys.normal_mode = {
     ["<A-k>"] = ":m .-2<CR>==",
 
     -- QuickFix
-    ["]q"] = ":cnext<CR>",
-    ["[q"] = ":cprev<CR>",
+    -- ["]q"] = ":cnext<CR>",
+    -- ["[q"] = ":cprev<CR>",
 
-    ["<C-Q>"] = "<CMD>lua vim.lsp.buf.formatting()<CR>",
-    ["<C-0>"] = "<CMD>lua vim.lsp.buf.formatting()<CR>",
+    -- ["<C-Q>"] = "",
+    ["<C-Q>"] = "<CMD>lua vim.lsp.buf.format {async=true}<CR>",
+    ["<C-0>"] = "<CMD>lua vim.lsp.buf.format {async=true}<CR>",
     ["<C-Y>"] = ":call QuickFixToggle()<CR>",
 
 }
@@ -77,7 +78,7 @@ lvim.keys.insert_mode = {
     -- code
     ["<C-0>"] = "<ESC>v<CMD>:lua vim.lsp.buf.range_formatting()<CR><ESC>A",
 
-    ["C-T"] = "W",
+    -- ["C-T"] = "W",
 
     -- Move current line / block with Alt-j/k ala vscode.
     ["<A-j>"] = "<Esc>:m .+1<CR>==gi",

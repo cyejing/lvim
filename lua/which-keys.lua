@@ -43,6 +43,34 @@ mappings["P"] = {
     u = { "<cmd>PackerUpdate<cr>", "Update" },
 }
 
+mappings["g"] = {
+    name = "Git",
+    g = { "<cmd>lua require 'plugin-config.func'.gitui_toggle()<cr>", "Gitui" },
+    j = { "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>", "Next Hunk" },
+    k = { "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>", "Prev Hunk" },
+    l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
+    p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
+    r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
+    R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
+    s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+    u = {
+        "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
+        "Undo Stage Hunk",
+    },
+    o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+    b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+    c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+    C = {
+        "<cmd>Telescope git_bcommits<cr>",
+        "Checkout commit(for current file)",
+    },
+    d = {
+        "<cmd>Gitsigns diffthis HEAD<cr>",
+        "Git Diff",
+    },
+}
+
+
 mappings["l"] = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -129,7 +157,7 @@ lvim.builtin.which_key.on_config_done = function(wk)
             name = "File", -- optional group name
             p = { "<cmd>Telescope projects layout_config={width=0.6}<cr>", "Open Projects" },
             f = { "<cmd>Telescope git_files<cr>", "Find File" }, -- create a binding with label
-            t = { "<cmd>Telescope live_grep<cr>", "Find All Text" },
+            t = { "<cmd>Telescope live_grep theme=get_dropdown layout_config={width=0.8}<cr>", "Find All Text" },
             s = { "<cmd>Telescope grep_string<cr>", "Find Cursor Text" },
             b = { "<cmd>Telescope buffers<cr>", "Find Buffers" },
             c = { "<cmd>Telescope git_status<cr>", "Find Git Change" },

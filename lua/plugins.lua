@@ -2,9 +2,7 @@
 lvim.plugins = {
     --  UI
     { "navarasu/onedark.nvim" },
-    { "folke/tokyonight.nvim" },
-    { "sainnhe/everforest" },
-    { "marko-cerovac/material.nvim" },
+
     -- telescope
     { "nvim-telescope/telescope-project.nvim" },
     { "nvim-telescope/telescope-ui-select.nvim" },
