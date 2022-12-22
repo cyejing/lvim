@@ -131,15 +131,18 @@ bmn["K"] = { vim.lsp.buf.hover, "Show hover" }
 bmn["gD"] = { vim.lsp.buf.declaration, "Goto declaration" }
 bmn["gs"] = { vim.lsp.buf.signature_help, "Show signature help" }
 bmn["gf"] = { vim.lsp.buf.formatting, "Format" }
-bmn["gb"] = { "<cmd>Telescope diagnostics bufnr=0 theme=get_dropdown layout_config={width=0.95}<cr>",
+bmn["gb"] = { "<cmd>Telescope diagnostics bufnr=0 theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
     "Telescope Buffer Diagnostics" }
-bmn["ge"] = { "<cmd>Telescope diagnostics<CR> theme=get_dropdown layout_config={width=0.95}", "Telescope Diagnostics" }
+bmn["ge"] = { "<cmd>Telescope diagnostics theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
+    "Telescope Diagnostics" }
 bmn["gd"] = { "<cmd>Telescope lsp_definitions<CR>", "Goto Definition" }
 bmn["gv"] = { "<cmd>:vertical resize +80<cr>:vsp<cr>:Telescope lsp_definitions<cr>:vertical resize 120<cr>",
     "Goto Definition Split" }
 bmn["go"] = { "<C-W>c<cmd>:vertical resize 120<cr>", "Goto Back Window" }
-bmn["gr"] = { "<cmd>Telescope lsp_references<CR>", "Telescope references" }
-bmn["gc"] = { "<cmd>Telescope lsp_incoming_calls<CR>", "Telescope incoming calls" }
+bmn["gr"] = { "<cmd>Telescope lsp_references theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
+    "Telescope references" }
+bmn["gc"] = { "<cmd>Telescope lsp_incoming_calls theme=get_dropdown layout_config={width=0.8} initial_mode=normal<CR>",
+    "Telescope incoming calls" }
 bmn["gi"] = { "<cmd>Telescope lsp_implementations<CR>", "Telescope Implementation" }
 bmn["gh"] = { "<cmd>Telescope lsp_document_symbols<CR>", "Telescope Document Symbols" }
 bmn["gw"] = { "<cmd>Telescope lsp_workspace_symbols<CR>", "Telescope Workspace Symbols" }
@@ -163,6 +166,8 @@ lvim.builtin.which_key.on_config_done = function(wk)
             c = { "<cmd>Telescope git_status<cr>", "Find Git Change" },
             j = { "<cmd>Telescope jumplist<cr>", "Find jumplist" },
             o = { "<CMD>Telescope oldfiles<CR>", "Recently files" },
+            h = { "<CMD>Telescope lsp_document_symbols<CR>", "Document Symbols" },
+            H = { "<CMD>Telescope lsp_workspace_symbols<CR>", "Wordspace Symbols" },
         },
     })
 
