@@ -228,6 +228,7 @@ lvim.builtin.telescope.defaults.mappings = {
         ["<C-k>"] = actions.move_selection_previous,
         ["<C-D>"] = actions.preview_scrolling_down,
         ["<C-F>"] = actions.preview_scrolling_up,
+        ["<C-Y>"] = actions.smart_send_to_qflist + actions.open_qflist,
         ["<C-c>"] = actions.close,
         ["<C-Q>"] = actions.close,
     },
