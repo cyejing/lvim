@@ -9,7 +9,7 @@ mappings["c"]  = { "<CMD>only<CR>", "Close All Windows" }
 -- mappings["q"] = { vim.diagnostic.setloclist, "Quickfix" }
 mappings["S"]  = { "<CMD>lua require('spectre').open()<CR>", "Open Spectre" }
 
-mappings["b"] = {
+mappings["b"]  = {
     name = "Buffers",
     j = { "<cmd>BufferLinePick<cr>", "Jump" },
     f = { "<cmd>Telescope buffers<cr>", "Find" },
@@ -118,41 +118,41 @@ mappings["r"] = {
     k = { "<CMD>lua require'rust-tools'.move_item.move_item(true)<CR>", "RustMoveItemUp" },
     p = { "<CMD>lua require'rust-tools'.parent_module.parent_module()<CR>", "RustParentModule" },
     w = { "<CMD>RustReloadWorkspace<CR>", "RustReloadWorkspace" },
-
     h = { "<Plug>RestNvim", "Rest Run" },
     c = { "<Plug>RestNvimPreview", "Rest Perview" },
     t = { "<Plug>RestNvimLast", "Rest Run Last" },
-
 }
 
-local bmn = lvim.lsp.buffer_mappings.normal_mode
-bmn["ga"] = { "<CMD>CodeActionMenu<CR>", "Code Action" }
-bmn["K"] = { vim.lsp.buf.hover, "Show hover" }
-bmn["gD"] = { vim.lsp.buf.declaration, "Goto declaration" }
-bmn["gs"] = { vim.lsp.buf.signature_help, "Show signature help" }
-bmn["gf"] = { vim.lsp.buf.formatting, "Format" }
-bmn["gb"] = { "<cmd>Telescope diagnostics bufnr=0 theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
-    "Telescope Buffer Diagnostics" }
-bmn["ge"] = { "<cmd>Telescope diagnostics theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
-    "Telescope Diagnostics" }
-bmn["gd"] = { "<cmd>Telescope lsp_definitions<CR>", "Goto Definition" }
-bmn["gv"] = { "<cmd>:vertical resize +80<cr>:vsp<cr>:Telescope lsp_definitions<cr>:vertical resize 120<cr>",
-    "Goto Definition Split" }
-bmn["go"] = { "<C-W>c<cmd>:vertical resize 120<cr>", "Goto Back Window" }
-bmn["gr"] = { "<cmd>Telescope lsp_references theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
-    "Telescope references" }
-bmn["gc"] = { "<cmd>Telescope lsp_incoming_calls theme=get_dropdown layout_config={width=0.8} initial_mode=normal<CR>",
-    "Telescope incoming calls" }
-bmn["gi"] = { "<cmd>Telescope lsp_implementations<CR>", "Telescope Implementation" }
-bmn["gh"] = { "<cmd>Telescope lsp_document_symbols<CR>", "Telescope Document Symbols" }
-bmn["gw"] = { "<cmd>Telescope lsp_workspace_symbols<CR>", "Telescope Workspace Symbols" }
-bmn["gj"] = { vim.diagnostic.goto_next, "Next Diagnostic" }
-bmn["gk"] = { vim.diagnostic.goto_prev, "Prev Diagnostic" }
+lvim.lsp.buffer_mappings.normal_mode = {}
+-- local bmn = lvim.lsp.buffer_mappings.normal_mode
+-- bmn["ga"] = { "<CMD>CodeActionMenu<CR>", "Code Action" }
+-- bmn["K"] = { vim.lsp.buf.hover, "Show hover" }
+-- bmn["gD"] = { vim.lsp.buf.declaration, "Goto declaration" }
+-- bmn["gs"] = { vim.lsp.buf.signature_help, "Show signature help" }
+-- bmn["gf"] = { vim.lsp.buf.formatting, "Format" }
+-- bmn["gb"] = { "<cmd>Telescope diagnostics bufnr=0 theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
+--     "Telescope Buffer Diagnostics" }
+-- bmn["ge"] = { "<cmd>Telescope diagnostics theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
+--     "Telescope Diagnostics" }
+-- bmn["gd"] = { "<cmd>Telescope lsp_definitions<CR>", "Goto Definition" }
+-- bmn["gv"] = { "<cmd>:vertical resize +80<cr>:vsp<cr>:Telescope lsp_definitions<cr>:vertical resize 120<cr>",
+--     "Goto Definition Split" }
+-- bmn["go"] = { "<C-W>c<cmd>:vertical resize 120<cr>", "Goto Back Window" }
+-- bmn["gr"] = { "<cmd>Telescope lsp_references theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
+--     "Telescope references" }
+-- bmn["gc"] = { "<cmd>Telescope lsp_incoming_calls theme=get_dropdown layout_config={width=0.8} initial_mode=normal<CR>",
+--     "Telescope incoming calls" }
+-- bmn["gi"] = { "<cmd>Telescope lsp_implementations<CR>", "Telescope Implementation" }
+-- bmn["gh"] = { "<cmd>Telescope lsp_document_symbols<CR>", "Telescope Document Symbols" }
+-- bmn["gw"] = { "<cmd>Telescope lsp_workspace_symbols<CR>", "Telescope Workspace Symbols" }
+-- bmn["gj"] = { vim.diagnostic.goto_next, "Next Diagnostic" }
+-- bmn["gk"] = { vim.diagnostic.goto_prev, "Prev Diagnostic" }
+-- bmn["gn"] = { "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>j", "Comment line" }
 
 
 -- search
-local bmv = lvim.lsp.buffer_mappings.visual_mode
-bmv["gf"] = { "<cmd>:lua vim.lsp.buf.range_formatting()<CR>", "Format range" }
+-- local bmv = lvim.lsp.buffer_mappings.visual_mode
+-- bmv["gf"] = { "<cmd>:lua vim.lsp.buf.range_formatting()<CR>", "Format range" }
 
 lvim.builtin.which_key.on_config_done = function(wk)
     wk.register({
@@ -169,6 +169,40 @@ lvim.builtin.which_key.on_config_done = function(wk)
             h = { "<CMD>Telescope lsp_document_symbols<CR>", "Document Symbols" },
             H = { "<CMD>Telescope lsp_workspace_symbols<CR>", "Wordspace Symbols" },
         },
+        g = {
+            name = "Goto",
+            a = { "<CMD>CodeActionMenu<CR>", "Code Action" },
+            p = { vim.lsp.buf.hover, "Show hover" },
+            D = { vim.lsp.buf.declaration, "Goto declaration" },
+            s = { vim.lsp.buf.signature_help, "Show signature help" },
+            f = { "<cmd>lua vim.lsp.buf.format { async = true}<cr>", "Format" },
+            b = { "<cmd>Telescope diagnostics bufnr=0 theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
+                "Telescope Buffer Diagnostics" },
+            e = { "<cmd>Telescope diagnostics theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
+                "Telescope Diagnostics" },
+            d = { "<cmd>Telescope lsp_definitions<CR>", "Goto Definition" },
+            v = { "<cmd>:vertical resize +80<cr>:vsp<cr>:Telescope lsp_definitions<cr>:vertical resize 120<cr>",
+                "Goto Definition Split" },
+            o = { "<C-W>c<cmd>:vertical resize 120<cr>", "Goto Back Window" },
+            r = { "<cmd>Telescope lsp_references theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
+                "Telescope references" },
+            c = { "<cmd>Telescope lsp_incoming_calls theme=get_dropdown layout_config={width=0.8} initial_mode=normal<CR>",
+                "Telescope incoming calls" },
+            i = { "<cmd>Telescope lsp_implementations<CR>", "Telescope Implementation" },
+            h = { "<cmd>Telescope lsp_document_symbols<CR>", "Telescope Document Symbols" },
+            w = { "<cmd>Telescope lsp_workspace_symbols<CR>", "Telescope Workspace Symbols" },
+            j = { vim.diagnostic.goto_next, "Next Diagnostic" },
+            k = { vim.diagnostic.goto_prev, "Prev Diagnostic" },
+            n = { "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>j", "Comment line" },
+            l = {
+                function()
+                    local config = lvim.lsp.diagnostics.float
+                    config.scope = "line"
+                    vim.diagnostic.open_float(0, config)
+                end,
+                "Show line diagnostics",
+            }
+        }
     })
 
     wk.register({
@@ -188,15 +222,15 @@ end
 
 
 lvim.builtin.nvimtree.setup.view.mappings.list = {
-    { key = { "<ESC>", "q", "<C-x>" }, action = "close", mode = "n" },
-    { key = { "l", "<CR>", "o" }, action = "edit", mode = "n" },
-    { key = "h", action = "close_node" },
-    { key = "v", action = "vsplit" },
-    { key = "x", action = "split" },
-    { key = "C", action = "cd" },
-    { key = "<C-k>", action = "" },
-    { key = "f", action = "" },
-    { key = "<C-p>", action = "toggle_file_info" },
+    { key = { "<ESC>", "q", "<C-x>" }, action = "close",           mode = "n" },
+    { key = { "l", "<CR>", "o" },      action = "edit",            mode = "n" },
+    { key = "h",                       action = "close_node" },
+    { key = "v",                       action = "vsplit" },
+    { key = "x",                       action = "split" },
+    { key = "C",                       action = "cd" },
+    { key = "<C-k>",                   action = "" },
+    { key = "f",                       action = "" },
+    { key = "<C-p>",                   action = "toggle_file_info" },
     { key = "sf", action = "telescope_find_files", action_cb = function()
         require("lvim.core.nvimtree").start_telescope "find_files"
     end },

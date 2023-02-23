@@ -16,7 +16,7 @@ lvim.builtin.lir.active = false
 
 lvim.builtin.terminal.active = true
 
-lvim.builtin.project.patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" }
+lvim.builtin.project.patterns = { ".git", ".svn", "Makefile", "pom.xml", "package.json" }
 lvim.builtin.project.exclude_dirs = { ".local" }
 
 lvim.builtin.comment.toggler.block = "gcb"

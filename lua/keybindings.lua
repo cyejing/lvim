@@ -35,7 +35,7 @@ lvim.keys.normal_mode = {
     ["<C-P>"] = ":vertical resize 120<CR>",
 
     -- vim-surround : -yss insert, cs replace, ds delete, ysiw insert word
-    ["gn"] = "<CMD>lua require('Comment.api').toggle.linewise.current()<CR>j",
+    -- ["gn"] = "<CMD>lua require('Comment.api').toggle.linewise.current()<CR>j",
     ["<C-.>"] = "<CMD>lua require('Comment.api').toggle.linewise.current()<CR>j",
 
     -- Tab switch buffer
