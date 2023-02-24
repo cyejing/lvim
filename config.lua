@@ -8,8 +8,8 @@ require("which-keys")
 
 -- general
 lvim.log.level = "warn"
-lvim.use_icons = true
 lvim.format_on_save = false
+lvim.use_icons = true
 
 
 -- lvim.colorscheme = "onedarker"

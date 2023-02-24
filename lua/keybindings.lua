@@ -7,16 +7,12 @@ lvim.keys.normal_mode = {
     ["g"] = "",
     ["<C-E>"] = "$",
     ["<C-A>"] = "^",
-    ["\\"] = "$",
-    ["d\\"] = "d$",
+    -- ["\\"] = "$",
+    -- ["d\\"] = "d$",
     ["r"] = "<C-r>",
-
     -- move
     ["<C-J>"] = "8j",
     ["<C-K>"] = "8k",
-    -- ["<C-d>"] = "15j",
-    -- ["<C-u>"] = "15k",
-
     -- Better window movement
     ["<C-Left>"] = "<C-w>h",
     ["<C-Down>"] = "<C-w>j",
@@ -26,35 +22,27 @@ lvim.keys.normal_mode = {
     ["<C-L>"] = "<C-w>w",
     ["<C-X>"] = "<C-w>c",
     ["<S-X>"] = ":Bdelete!<CR>",
-
     -- Resize with arrows
     ["<S-Up>"] = ":resize -2<CR>",
     ["<S-Down>"] = ":resize +2<CR>",
     ["<S-Left>"] = ":vertical resize -2<CR>",
     ["<S-Right>"] = ":vertical resize +2<CR>",
-    ["<C-P>"] = ":vertical resize 120<CR>",
-
     -- vim-surround : -yss insert, cs replace, ds delete, ysiw insert word
     -- ["gn"] = "<CMD>lua require('Comment.api').toggle.linewise.current()<CR>j",
     ["<C-.>"] = "<CMD>lua require('Comment.api').toggle.linewise.current()<CR>j",
-
     -- Tab switch buffer
     ["<S-L>"] = ":BufferLineCycleNext<CR>",
     ["<S-H>"] = ":BufferLineCyclePrev<CR>",
-
     -- Move current line / block with Alt-j/k a la vscode.
     ["<A-j>"] = ":m .+1<CR>==",
     ["<A-k>"] = ":m .-2<CR>==",
-
     -- QuickFix
     -- ["]q"] = ":cnext<CR>",
     -- ["[q"] = ":cprev<CR>",
 
-    -- ["<C-Q>"] = "",
     ["<C-Q>"] = "<CMD>lua vim.lsp.buf.format {async=true}<CR>",
     ["<C-0>"] = "<CMD>lua vim.lsp.buf.format {async=true}<CR>",
     ["<C-Y>"] = ":call QuickFixToggle()<CR>",
-
 }
 
 lvim.keys.insert_mode = {
@@ -66,7 +54,6 @@ lvim.keys.insert_mode = {
     -- 'jj' for quitting insert mode
     ["jj"] = "<ESC>",
     ["<C-Q>"] = "<ESC>",
-
     ["<C-A>"] = "<ESC>I",
     ["<C-E>"] = "<ESC>A",
     ["<C-J>"] = "<Down>",
@@ -74,12 +61,8 @@ lvim.keys.insert_mode = {
     ["<C-L>"] = "<Right>",
     ["<C-B>"] = "<ESC>ea<C-W>",
     ["<C-P>"] = "<ESC>pa",
-
     -- code
     ["<C-0>"] = "<ESC>v<CMD>:lua vim.lsp.buf.range_formatting()<CR><ESC>A",
-
-    -- ["C-T"] = "W",
-
     -- Move current line / block with Alt-j/k ala vscode.
     ["<A-j>"] = "<Esc>:m .+1<CR>==gi",
     -- Move current line / block with Alt-j/k ala vscode.
@@ -92,10 +75,10 @@ lvim.keys.insert_mode = {
 }
 
 lvim.keys.term_mode = {
-    -- Terminal window navigation
     -- ["<ESC>"] = "<C-\\><C-N>",
     -- ["<C-[>"] = "<C-\\><C-N>",
     ["<C-Q>"] = "<C-\\><C-N>",
+    -- Terminal window navigation
     ["<C-h>"] = "<C-\\><C-N><C-w>h",
     ["<C-j>"] = "<C-\\><C-N><C-w>j",
     ["<C-k>"] = "<C-\\><C-N><C-w>k",
@@ -106,43 +89,38 @@ lvim.keys.visual_mode = {
     -- Better indenting
     ["<"] = "<gv",
     [">"] = ">gv",
-    ["\\"] = "$",
+    -- ["\\"] = "$",
     ["<C-E>"] = "$",
     ["<C-A>"] = "^",
-
     ["<C-Q>"] = "<ESC>",
-
     ["<C-j>"] = "8j",
     ["<C-k>"] = "8k",
-
     ["gn"] = "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
     ["<C-.>"] = "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
-
     ["<C-0>"] = "<CMD>:lua vim.lsp.buf.range_formatting()<CR>",
-
-
     ["<A-j>"] = ":m '>+1<CR>gv-gv",
     ["<A-k>"] = ":m '<-2<CR>gv-gv",
-
 }
 
 lvim.keys.visual_block_mode = {
     -- Move selected line / block of text in visual mode
-    ["K"] = ":move '<-2<CR>gv-gv",
-    ["J"] = ":move '>+1<CR>gv-gv",
+    -- ["K"] = ":move '<-2<CR>gv-gv",
+    -- ["J"] = ":move '>+1<CR>gv-gv",
 
+    ["<C-E>"] = "$",
+    ["<C-A>"] = "^",
     ["<C-Q>"] = "<ESC>",
     -- Move current line / block with Alt-j/k ala vscode.
     ["<A-j>"] = ":m '>+1<CR>gv-gv",
     ["<A-k>"] = ":m '<-2<CR>gv-gv",
 }
 
--- lvim.keys.command_mode = {
--- navigate tab completion with <c-j> and <c-k>
--- runs conditionally
--- ["<C-j>"] = { 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true } },
--- ["<C-k>"] = { 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true } },
--- }
+lvim.keys.command_mode = {
+    -- navigate tab completion with <c-j> and <c-k>
+    -- runs conditionally
+    ["<C-j>"] = { 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true } },
+    ["<C-k>"] = { 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true } },
+}
 
 --fix who bind?
 vim.keymap.set('i', "C", "C")
