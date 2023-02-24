@@ -5,6 +5,9 @@
 
 ## 需要安装工具
 
+#### search
+1. gnu-sed
+
 #### rust-tools
 1. `rust-analyzer`
 2. `dot` from `graphviz` (only for crate graph)
