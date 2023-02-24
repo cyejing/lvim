@@ -39,7 +39,7 @@ lvim.plugins = {
         end
     },
     {
-        "simrat39/symbols-outline.nvim", -- symbols
+        "simrat39/symbols-outline.nvim", -- symbols hierarchy
         config = function()
             require('symbols-outline').setup()
         end
@@ -56,7 +56,7 @@ lvim.plugins = {
         end,
     },
     {
-        "nacro90/numb.nvim", -- peek num
+        "nacro90/numb.nvim", -- peek numline
         event = "BufRead",
         config = function()
             require("numb").setup {
@@ -65,17 +65,16 @@ lvim.plugins = {
             }
         end,
     },
-    -- plus
-    -- {
-    -- "tpope/vim-surround",
-    --     -- yss insert, cs replace, ds delete, ysiw insert word
-    --     -- make sure to change the value of `timeoutlen` if it's not triggering correctly, see https://github.com/tpope/vim-surround/issues/117
-    --     -- setup = function()
-    --     --  vim.o.timeoutlen = 500
-    --     -- end
-    -- },
-    -- progress bar
-    { "j-hui/fidget.nvim",
+    {
+        "tpope/vim-surround", -- plus
+        -- yss insert, cs replace, ds delete, ysiw insert word
+        -- make sure to change the value of `timeoutlen` if it's not triggering correctly, see https://github.com/tpope/vim-surround/issues/117
+        -- setup = function()
+        --  vim.o.timeoutlen = 500
+        -- end
+    },
+    {
+        "j-hui/fidget.nvim", -- progress bar
         config = function()
             require("fidget").setup({
                 text = {
@@ -91,7 +90,7 @@ lvim.plugins = {
         end
     },
     {
-        "ethanholz/nvim-lastplace",
+        "ethanholz/nvim-lastplace", -- last place
         event = "BufRead",
         config = function()
             require("nvim-lastplace").setup({
@@ -104,23 +103,21 @@ lvim.plugins = {
         end,
     },
     {
-        "Pocco81/auto-save.nvim",
+        "Pocco81/auto-save.nvim", -- autosave
         config = function()
             require("plugin-config.autosave").setup()
         end,
     },
-    -- quickfix plus
     {
-        "kevinhwang91/nvim-bqf",
+        "kevinhwang91/nvim-bqf", -- quickfix plus
         event = { "BufRead", "BufNew" },
         config = function()
             require("plugin-config.nvim-bqf").setup()
         end,
     },
     -- { 'dinhhuy258/vim-local-history' },
-    -- show top fun
     {
-        "romgrk/nvim-treesitter-context",
+        "romgrk/nvim-treesitter-context", -- show top function name
         config = function()
             require("treesitter-context").setup {
                 enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
@@ -140,24 +137,22 @@ lvim.plugins = {
             }
         end
     },
-    -- markdown
     {
-        "iamcco/markdown-preview.nvim",
+        "iamcco/markdown-preview.nvim", -- markdown
         run = "cd app && npm install",
         ft = "markdown",
         config = function()
             vim.g.mkdp_auto_start = 1
         end,
     },
-
-    -- git
     {
-        "sindrets/diffview.nvim",
+        -- command :DiffviewFileHistory :DiffviewOpen
+        "sindrets/diffview.nvim", -- git diff
         event = "BufRead",
     },
-
     -- rest http
     {
+        -- keymapping: <leader>rh
         "NTBBloodbath/rest.nvim",
         config = function()
             require("rest-nvim").setup({
@@ -186,13 +181,17 @@ lvim.plugins = {
             })
         end
     },
-    -- sql
     {
-        "nanotee/sqls.nvim",
+        -- keymapping: v <leader>rq
+        -- command: :SqlsExecuteQuery
+        "nanotee/sqls.nvim", -- sql
+
     },
     -- search
     {
-        "windwp/nvim-spectre", -- search replace
+        -- keymapping: <leader>S
+        -- command: :Spectre
+        "windwp/nvim-spectre", -- search and replace
         event = "BufRead",
         config = function()
             require("spectre").setup()
