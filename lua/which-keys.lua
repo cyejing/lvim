@@ -18,6 +18,7 @@ mappings["bx"] = { "<CMD>:BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", "Cl
 -- i = { "<cmd>lua require('lvim.lsp.peek').Peek('implementation')<cr>", "Implementation" },
 -- }
 
+mappings["gg"] = { "<CMD>lua require 'plugin-config.func'.gitui_toggle()<CR>", "Gitui" }
 mappings["gh"] = { "<CMD>DiffviewFileHistory<CR>", "Diffview History" }
 mappings["gf"] = { "<CMD>DiffviewFileHistory %<CR>", "Diffview File" }
 mappings["gi"] = { "<CMD>DiffviewOpen<CR>", "Diffview Open" }
@@ -38,6 +39,8 @@ function M.rust_key_mappings()
         ["<leader>rw"] = { "<CMD>RustReloadWorkspace<CR>", "RustReloadWorkspace" },
     }
 end
+
+
 
 lvim.lsp.buffer_mappings.normal_mode = {}
 

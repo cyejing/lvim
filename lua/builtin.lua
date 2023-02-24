@@ -14,8 +14,6 @@ lvim.builtin.indentlines.active = true
 -- lvim.builtin.notify.active = false
 lvim.builtin.lir.active = false
 
-lvim.builtin.terminal.active = true
-
 lvim.builtin.project.patterns = { ".git", ".svn", "Makefile", "pom.xml", "package.json" }
 lvim.builtin.project.exclude_dirs = { ".local" }
 
@@ -38,6 +36,28 @@ lvim.builtin.lualine.options.theme = "auto"
 lvim.builtin.lualine.options.globalstatus = true
 lvim.builtin.lualine.sections.lualine_a = { "mode" }
 lvim.builtin.lualine.sections.lualine_z = { "progress", "location" }
+
+-- terminal
+lvim.builtin.terminal = {
+    active = true,
+    on_config_done = nil,
+    hide_numbers = false,
+    open_mapping = [[<c-\>]],
+    persist_size = false,
+    -- size = function(term)
+    -- if term.direction == "horizontal" then
+    -- return 30
+    -- elseif term.direction == "vertical" then
+    -- return vim.o.columns * 0.4
+    -- end
+    -- end,
+    size = 40,
+    execs = {
+        { vim.o.shell, "<leader>n1", "Horizontal Terminal", "horizontal", 40 },
+        { vim.o.shell, "<leader>n2", "Horizontal Terminal", "horizontal", 40 },
+        { vim.o.shell, "<leader>n3", "Horizontal Terminal", "horizontal", 40 },
+    },
+}
 
 -- nvimtree
 lvim.builtin.nvimtree.setup.disable_netrw = true
