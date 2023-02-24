@@ -15,6 +15,7 @@ lvim.plugins = {
 
     --lsp
     {
+        -- require: rust-analyzer graphviz
         "simrat39/rust-tools.nvim",
         config = function()
             require("plugin-config.rust-tools").setup()
@@ -185,7 +186,13 @@ lvim.plugins = {
         -- keymapping: v <leader>rq
         -- command: :SqlsExecuteQuery
         "nanotee/sqls.nvim", -- sql
-
+        config = function()
+            require('lspconfig').sqls.setup({
+                on_attach = function(client, bufnr)
+                    require('sqls').on_attach(client, bufnr)
+                end
+            })
+        end
     },
     -- search
     {

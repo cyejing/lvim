@@ -1,28 +1,47 @@
+local M        = {}
 local mappings = lvim.builtin.which_key.mappings
 mappings["m"]  = { "<cmd>NvimTreeFocus<CR>", "Explorer Toggle" }
 mappings["p"]  = { "<CMD>Telescope projects layout_config={width=0.6}<CR>", "Projects" }
 mappings["o"]  = { "<CMD>Telescope oldfiles<CR>", "Recently files" }
--- mappings["o"] = { "<CMD>:NvimTreeFindFile<CR>", "Location Exporter" }
 mappings["h"]  = { "<CMD>edit ~/.cache/lvim/project_nvim/project_history<CR>", "Edit Projects" }
 mappings["h"]  = { "<CMD>SymbolsOutline<CR>", "SymbolsOutline" }
-mappings["c"]  = { "<CMD>only<CR>", "Close All Windows" }
--- mappings["q"] = { vim.diagnostic.setloclist, "Quickfix" }
+mappings["x"]  = { "<CMD>only<CR>", "Close All Windows" }
 mappings["S"]  = { "<CMD>lua require('spectre').open()<CR>", "Open Spectre" }
 
 
-mappings["bc"] = { "<CMD>:BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", "Close All Buffer" }
+mappings["bx"] = { "<CMD>:BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", "Close All Buffer" }
 
-mappings["lp"] = {
-    name = "Peek",
-    d = { "<cmd>lua require('lvim.lsp.peek').Peek('definition')<cr>", "Definition" },
-    t = { "<cmd>lua require('lvim.lsp.peek').Peek('typeDefinition')<cr>", "Type Definition" },
-    i = { "<cmd>lua require('lvim.lsp.peek').Peek('implementation')<cr>", "Implementation" },
-}
-mappings["lg"] = {
-    name = "Goto",
-    d = { "<cmd>Telescope lsp_definitions<CR>", "Goto Definition" }
-}
+-- mappings["lp"] = {
+-- name = "Peek",
+-- d = { "<cmd>lua require('lvim.lsp.peek').Peek('definition')<cr>", "Definition" },
+-- t = { "<cmd>lua require('lvim.lsp.peek').Peek('typeDefinition')<cr>", "Type Definition" },
+-- i = { "<cmd>lua require('lvim.lsp.peek').Peek('implementation')<cr>", "Implementation" },
+-- }
 
+mappings["gh"] = { "<CMD>DiffviewFileHistory<CR>", "Diffview History" }
+mappings["gf"] = { "<CMD>DiffviewFileHistory %<CR>", "Diffview File" }
+mappings["gi"] = { "<CMD>DiffviewOpen<CR>", "Diffview Open" }
+mappings["gx"] = { "<CMD>DiffviewClose<CR>", "Diffview Close" }
+
+--  <leader>+r
+mappings["rh"] = { "<Plug>RestNvim", "Rest Run" }
+mappings["rc"] = { "<Plug>RestNvimPreview", "Rest Perview" }
+mappings["rl"] = { "<Plug>RestNvimLast", "Rest Run Last" }
+function M.rust_key_mappings()
+    return {
+        ["<leader>rr"] = { "<CMD>lua require('rust-tools').runnables.runnables()<CR>", "RustRunnables" },
+        ["<leader>rd"] = { "<CMD>RustDebuggables<CR>", "RustDebuggables" },
+        ["<leader>rm"] = { "<CMD>lua require'rust-tools'.expand_macro.expand_macro()<CR>", "RustExpandMacro" },
+        ["<leader>rj"] = { "<CMD>lua require'rust-tools'.move_item.move_item(false)<CR>", "RustMoveItemDown" },
+        ["<leader>rk"] = { "<CMD>lua require'rust-tools'.move_item.move_item(true)<CR>", "RustMoveItemUp" },
+        ["<leader>rp"] = { "<CMD>lua require'rust-tools'.parent_module.parent_module()<CR>", "RustParentModule" },
+        ["<leader>rw"] = { "<CMD>RustReloadWorkspace<CR>", "RustReloadWorkspace" },
+    }
+end
+
+lvim.lsp.buffer_mappings.normal_mode = {}
+
+-- which-key register
 local normal_key_mappings = {
     s = {
         name = "File", -- optional group name
@@ -72,17 +91,14 @@ local normal_key_mappings = {
         }
     }
 }
-
 local visual_key_mapping = {
     r = {
         q = { "<CMD>'<,'>SqlsExecuteQuery<CR>", "Sqls Run" },
-        i = { "<CMD>SqlsSwitchConnection<CR>", "Sqls Connection" },
     },
     g = {
         f = { "<cmd>:lua vim.lsp.buf.range_formatting()<CR>", "Format range" }
     }
 }
-
 lvim.builtin.which_key.on_config_done = function(wk)
     wk.register(normal_key_mappings)
 
@@ -92,20 +108,8 @@ lvim.builtin.which_key.on_config_done = function(wk)
     })
 end
 
-lvim.lsp.buffer_mappings.normal_mode = {
-    -- ["<leader>rr"] = { "<CMD>lua require('rust-tools').runnables.runnables()<CR>", "RustRunnables" },
-    -- ["<leader>rd"] = { "<CMD>RustDebuggables<CR>", "RustDebuggables" },
-    -- ["<leader>rm"] = { "<CMD>lua require'rust-tools'.expand_macro.expand_macro()<CR>", "RustExpandMacro" },
-    -- ["<leader>rj"] = { "<CMD>lua require'rust-tools'.move_item.move_item(false)<CR>", "RustMoveItemDown" },
-    -- ["<leader>rk"] = { "<CMD>lua require'rust-tools'.move_item.move_item(true)<CR>", "RustMoveItemUp" },
-    -- ["<leader>rp"] = { "<CMD>lua require'rust-tools'.parent_module.parent_module()<CR>", "RustParentModule" },
-    -- ["<leader>rw"] = { "<CMD>RustReloadWorkspace<CR>", "RustReloadWorkspace" },
-    -- ["<leader>rh"] = { "<Plug>RestNvim", "Rest Run" },
-    -- ["<leader>rc"] = { "<Plug>RestNvimPreview", "Rest Perview" },
-    -- ["<leader>rt"] = { "<Plug>RestNvimLast", "Rest Run Last" },
-}
 
-
+-- lvim builtin mappings
 lvim.builtin.nvimtree.setup.view.mappings.list = {
     { key = { "<ESC>", "q", "<C-x>" }, action = "close",           mode = "n" },
     { key = { "l", "<CR>", "o" },      action = "edit",            mode = "n" },
@@ -164,3 +168,6 @@ lvim.builtin.telescope.defaults.mappings = {
 -- l = { "<cmd>Trouble loclist<cr>", "LocationList" },
 -- w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
 -- }
+
+
+return M
