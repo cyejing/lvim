@@ -14,7 +14,7 @@ lvim.builtin.indentlines.active = true
 -- lvim.builtin.notify.active = false
 lvim.builtin.lir.active = false
 
-lvim.builtin.project.patterns = { ".git", ".svn", "Makefile", "pom.xml", "package.json" }
+lvim.builtin.project.patterns = { ".git", ".svn", "Makefile", "package.json" }
 lvim.builtin.project.exclude_dirs = { ".local" }
 
 lvim.builtin.comment.toggler.block = "gcb"

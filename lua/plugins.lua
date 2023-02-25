@@ -16,20 +16,23 @@ lvim.plugins = {
     --lsp
     {
         -- require: rust-analyzer graphviz
-        "simrat39/rust-tools.nvim",
+        "simrat39/rust-tools.nvim", -- rust
         config = function()
             require("plugin-config.rust-tools").setup()
         end,
     },
     {
-        'saecki/crates.nvim',
+        'saecki/crates.nvim', -- rust crate info
         tag = 'v0.2.1',
         config = function()
             require('crates').setup()
         end,
     },
     {
-        'weilbith/nvim-code-action-menu',
+        "mfussenegger/nvim-jdtls", -- java
+    },
+    {
+        'weilbith/nvim-code-action-menu', -- code action menu beautiful view
         cmd = 'CodeActionMenu',
     },
     {

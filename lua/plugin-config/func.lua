@@ -14,7 +14,8 @@ M.gitui_toggle = function()
         on_open = function(_)
             vim.cmd "startinsert!"
         end,
-        on_close = function(_) end,
+        on_close = function(_)
+        end,
         count = 99,
     }
     gitui:toggle()

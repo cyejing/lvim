@@ -18,7 +18,7 @@ require('lspconfig').sqls.setup {
     end
 }
 
-require('lspconfig').jdtls.setup {
-    use_lombok_agent = true,
-}
+-- require('lspconfig').jdtls.setup {
+--     use_lombok_agent = true,
+-- }
 

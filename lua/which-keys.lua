@@ -10,7 +10,7 @@ mappings["S"]  = { "<CMD>lua require('spectre').open()<CR>", "Open Spectre" }
 
 mappings["bx"] = { "<CMD>:BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", "Close All Buffer" }
 
-mappings["gg"] = { "<CMD>lua require 'plugin-config.func'.gitui_toggle()<CR>", "Gitui" }
+mappings["gui"] = { "<CMD>lua require 'plugin-config.func'.gitui_toggle()<CR>", "Gitui" }
 mappings["gh"] = { "<CMD>DiffviewFileHistory<CR>", "Diffview History" }
 mappings["gf"] = { "<CMD>DiffviewFileHistory %<CR>", "Diffview File" }
 mappings["gi"] = { "<CMD>DiffviewOpen<CR>", "Diffview Open" }
