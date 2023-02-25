@@ -44,6 +44,7 @@ lvim.builtin.terminal = {
     hide_numbers = false,
     open_mapping = [[<c-\>]],
     persist_size = false,
+    persist_mode = false,
     -- size = function(term)
     -- if term.direction == "horizontal" then
     -- return 30
@@ -51,12 +52,8 @@ lvim.builtin.terminal = {
     -- return vim.o.columns * 0.4
     -- end
     -- end,
-    size = 40,
-    execs = {
-        { vim.o.shell, "<leader>n1", "Horizontal Terminal", "horizontal", 40 },
-        { vim.o.shell, "<leader>n2", "Horizontal Terminal", "horizontal", 40 },
-        { vim.o.shell, "<leader>n3", "Horizontal Terminal", "horizontal", 40 },
-    },
+    size = 22,
+    execs = {},
 }
 
 -- nvimtree
