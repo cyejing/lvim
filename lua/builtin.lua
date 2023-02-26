@@ -34,7 +34,6 @@ lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.bufferline.options.close_command = "Bdelete! %d"
 lvim.builtin.bufferline.options.right_mouse_command = "Bdelete! %d"
 
-
 -- lualine
 local components = require "lvim.core.lualine.components"
 lvim.builtin.lualine.style = "lvim"

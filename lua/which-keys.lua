@@ -1,6 +1,7 @@
 local M        = {}
 local mappings = lvim.builtin.which_key.mappings
-mappings["m"]  = { "<cmd>NvimTreeFocus<CR>", "Explorer Toggle" }
+mappings["e"]  = { "<cmd>NvimTreeFocus<CR>", "Explorer" }
+mappings["m"]  = { "<cmd>NvimTreeToggle<CR>", "Explorer Toggle" }
 mappings["p"]  = { "<CMD>Telescope projects layout_config={width=0.6}<CR>", "Projects" }
 mappings["o"]  = { "<CMD>Telescope oldfiles<CR>", "Recently files" }
 mappings["h"]  = { "<CMD>edit ~/.cache/lvim/project_nvim/project_history<CR>", "Edit Projects" }
@@ -8,9 +9,12 @@ mappings["h"]  = { "<CMD>SymbolsOutline<CR>", "SymbolsOutline" }
 mappings["x"]  = { "<CMD>only<CR>", "Close All Windows" }
 mappings["S"]  = { "<CMD>lua require('spectre').open()<CR>", "Open Spectre" }
 
+--  <leader>+b
 mappings["bx"] = { "<CMD>:BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", "Close All Buffer" }
 
-mappings["gui"] = { "<CMD>lua require 'plugin-config.func'.gitui_toggle()<CR>", "Gitui" }
+-- <leader>+g
+mappings["gg"] = {}
+mappings["gg"] = { "<CMD>lua require 'plugin-config.func'.gitui_toggle()<CR>", "Gitui" }
 mappings["gh"] = { "<CMD>DiffviewFileHistory<CR>", "Diffview History" }
 mappings["gf"] = { "<CMD>DiffviewFileHistory %<CR>", "Diffview File" }
 mappings["gi"] = { "<CMD>DiffviewOpen<CR>", "Diffview Open" }
