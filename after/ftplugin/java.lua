@@ -23,7 +23,7 @@ local config = {
 
         '-javaagent:' .. home .. '/.jdtls/lombok.jar',
 
-        '-jar', vim.fn.glob(home .. '/.jdtls/jdtls-1.8.0/plugins/org.eclipse.equinox.launcher_*.jar'),
+        '-jar', vim.fn.glob(home .. '/.jdtls/jdtls-1.9.0/plugins/org.eclipse.equinox.launcher_*.jar'),
         -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
         -- Must point to the                                                     Change this to
         -- eclipse.jdt.ls installation                                           the actual version
