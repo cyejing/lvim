@@ -1,4 +1,3 @@
-require("builtin.bufferline")
 require("builtin.dashboard")
 require("builtin.cmp")
 require("plugin-config.less")
@@ -31,11 +30,20 @@ lvim.builtin.treesitter.ensure_installed = { "bash", "c", "javascript", "json", 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
+-- bufferline
+lvim.builtin.bufferline.options.close_command = "Bdelete! %d"
+lvim.builtin.bufferline.options.right_mouse_command = "Bdelete! %d"
+
+
 -- lualine
+local components = require "lvim.core.lualine.components"
+lvim.builtin.lualine.style = "lvim"
 lvim.builtin.lualine.options.theme = "auto"
 lvim.builtin.lualine.options.globalstatus = true
 lvim.builtin.lualine.sections.lualine_a = { "mode" }
-lvim.builtin.lualine.sections.lualine_z = { "progress", "location" }
+lvim.builtin.lualine.sections.lualine_y = { components.location, components.progress }
+lvim.builtin.lualine.sections.lualine_z = { "hostname" }
+
 
 -- terminal
 lvim.builtin.terminal = {
@@ -45,13 +53,6 @@ lvim.builtin.terminal = {
     open_mapping = [[<c-\>]],
     persist_size = false,
     persist_mode = false,
-    -- size = function(term)
-    -- if term.direction == "horizontal" then
-    -- return 30
-    -- elseif term.direction == "vertical" then
-    -- return vim.o.columns * 0.4
-    -- end
-    -- end,
     size = 22,
     execs = {},
 }
