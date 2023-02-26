@@ -112,11 +112,17 @@ lvim.builtin.nvimtree.setup.view.mappings.list = {
     { key = { "l", "<CR>", "o" },      action = "edit",            mode = "n" },
     { key = "h",                       action = "close_node" },
     { key = "v",                       action = "vsplit" },
-    { key = "x",                       action = "split" },
     { key = "C",                       action = "cd" },
+    --
+    { key = "x",                       action = "split" },
     { key = "<C-k>",                   action = "" },
-    { key = "f",                       action = "" },
     { key = "<C-p>",                   action = "toggle_file_info" },
+    { key = "<C-h>",                   action = "toggle_dotfiles" },
+    { key = "H",                       action = "first_sibling" },
+    { key = "J",                       action = "next_sibling" },
+    { key = "K",                       action = "prev_sibling" },
+    { key = "L",                       action = "last_sibling" },
+    --
     { key = "sf", action = "telescope_find_files", action_cb = function()
         require("lvim.core.nvimtree").start_telescope "find_files"
     end },

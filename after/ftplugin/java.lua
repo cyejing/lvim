@@ -3,7 +3,6 @@ local root_markers = { 'gradlew', '.git', 'mvnw' }
 local root_dir = require('jdtls.setup').find_root(root_markers)
 local workspace_dir = home .. '/.jdtls/workspace/' .. vim.fn.fnamemodify(root_dir, ':p:h:t')
 
-print("java workspace_dir: " .. workspace_dir)
 local config = {
     -- cmd = { '~/.jdtls/jdtls-1.9.0/bin/jdtls' },
     cmd = {
