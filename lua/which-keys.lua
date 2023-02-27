@@ -129,6 +129,7 @@ lvim.builtin.nvimtree.setup.view.mappings.list = {
     { key = "st", action = "telescope_live_grep", action_cb = function()
         require("lvim.core.nvimtree").start_telescope "live_grep"
     end },
+    { key = "<C-o>", action = "edit_and_quit", action_cb = require("plugin-config.func").edit_or_open },
 }
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
