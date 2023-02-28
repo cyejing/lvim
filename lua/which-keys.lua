@@ -45,36 +45,35 @@ local normal_key_mappings = {
         p = { "<cmd>Telescope projects layout_config={width=0.6}<cr>", "Open Projects" },
         f = { "<cmd>Telescope git_files<cr>", "Find File" }, -- create a binding with label
         t = { "<cmd>Telescope live_grep theme=get_dropdown layout_config={width=0.8}<cr>", "Find All Text" },
-        s = { "<cmd>Telescope grep_string<cr>", "Find Cursor Text" },
-        b = { "<cmd>Telescope buffers<cr>", "Find Buffers" },
-        c = { "<cmd>Telescope git_status<cr>", "Find Git Change" },
-        j = { "<cmd>Telescope jumplist<cr>", "Find jumplist" },
+        T = { "<cmd>Telescope grep_string theme=get_dropdown layout_config={width=0.8}<cr>", "Find Cursor Text" },
+        b = { "<cmd>Telescope current_buffer_fuzzy_find fuzzy=false theme=get_dropdown layout_config={width=0.8}<cr>", "Find Buffers Text" },
+        g = { "<cmd>Telescope buffers<cr>", "Buffers List" },
+        -- c = { "<cmd>Telescope git_status layout_strategy=horizontal layout_config={width=0.9,preview_width=0.7} initial_mode=normal<cr>", "Find Git Change" },
+        c = { "<cmd>Telescope git_status theme=get_ivy layout_config={height=0.7,preview_width=0.7} initial_mode=normal<cr>", "Find Git Change" },
+        -- j = { "<cmd>Telescope jumplist<cr>", "Find jumplist" },
         o = { "<CMD>Telescope oldfiles<CR>", "Recently files" },
-        h = { "<CMD>Telescope lsp_document_symbols<CR>", "Document Symbols" },
-        H = { "<CMD>Telescope lsp_workspace_symbols<CR>", "Wordspace Symbols" },
+        s = { "<CMD>Telescope oldfiles<CR>", "Recently files" },
+        h = { "<CMD>Telescope lsp_document_symbols layout_config={preview_width=0.6}<CR>", "Document Symbols" },
+        w = { "<CMD>Telescope lsp_workspace_symbols layout_config={preview_width=0.6}<CR>", "Wordspace Symbols" },
     },
     K = { vim.lsp.buf.hover, "Show hover" },
     g = {
         name = "Goto",
         a = { "<CMD>CodeActionMenu<CR>", "Code Action" },
+        -- a = { "<CMD>Telescope code<CR>", "Code Action" },
         D = { vim.lsp.buf.declaration, "Goto declaration" },
         s = { vim.lsp.buf.signature_help, "Show signature help" },
         f = { "<cmd>lua vim.lsp.buf.format { async = true}<cr>", "Format" },
-        b = { "<cmd>Telescope diagnostics bufnr=0 theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
-            "Telescope Buffer Diagnostics" },
-        e = { "<cmd>Telescope diagnostics theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
-            "Telescope Diagnostics" },
+        e = { "<cmd>Telescope diagnostics theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>", "Diagnostics" },
+        b = { "<cmd>Telescope diagnostics bufnr=0 theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>", "Buffer Diagnostics" },
         d = { "<cmd>Telescope lsp_definitions<CR>", "Goto Definition" },
-        v = { "<cmd>:vertical resize +80<cr>:vsp<cr>:Telescope lsp_definitions<cr>:vertical resize 120<cr>",
-            "Goto Definition Split" },
+        v = { "<cmd>:vertical resize +80<cr>:vsp<cr>:Telescope lsp_definitions<cr>:vertical resize 120<cr>", "Goto Definition Split" },
         o = { "<C-W>c<cmd>:vertical resize 120<cr>", "Goto Back Window" },
-        r = { "<cmd>Telescope lsp_references theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
-            "Telescope references" },
-        c = { "<cmd>Telescope lsp_incoming_calls theme=get_dropdown layout_config={width=0.8} initial_mode=normal<CR>",
-            "Telescope incoming calls" },
-        i = { "<cmd>Telescope lsp_implementations<CR>", "Telescope Implementation" },
-        h = { "<cmd>Telescope lsp_document_symbols<CR>", "Telescope Document Symbols" },
-        w = { "<cmd>Telescope lsp_workspace_symbols<CR>", "Telescope Workspace Symbols" },
+        r = { "<cmd>Telescope lsp_references theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>", "References" },
+        c = { "<cmd>Telescope lsp_incoming_calls theme=get_dropdown layout_config={width=0.8} initial_mode=normal<CR>", "Incoming calls" },
+        i = { "<cmd>Telescope lsp_implementations<CR>", "Implementation" },
+        -- h = { "<cmd>Telescope lsp_document_symbols<CR>", "Document Symbols" },
+        -- w = { "<cmd>Telescope lsp_workspace_symbols<CR>", "Workspace Symbols" },
         j = { vim.diagnostic.goto_next, "Next Diagnostic" },
         k = { vim.diagnostic.goto_prev, "Prev Diagnostic" },
         n = { "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>j", "Comment line" },
@@ -117,7 +116,7 @@ lvim.builtin.nvimtree.setup.view.mappings.list = {
     { key = "x",                       action = "split" },
     { key = "<C-k>",                   action = "" },
     { key = "<C-p>",                   action = "toggle_file_info" },
-    { key = "<C-h>",                   action = "toggle_dotfiles" },
+    { key = "G",                       action = "toggle_dotfiles" },
     { key = "H",                       action = "first_sibling" },
     { key = "J",                       action = "next_sibling" },
     { key = "K",                       action = "prev_sibling" },
@@ -129,7 +128,7 @@ lvim.builtin.nvimtree.setup.view.mappings.list = {
     { key = "st", action = "telescope_live_grep", action_cb = function()
         require("lvim.core.nvimtree").start_telescope "live_grep"
     end },
-    { key = "<C-o>", action = "edit_and_quit", action_cb = require("plugin-config.func").edit_or_open },
+    { key = { "<C-o>", "O" }, action = "edit_and_quit", action_cb = require("plugin-config.func").edit_or_open },
 }
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
@@ -142,36 +141,28 @@ lvim.builtin.telescope.defaults.mappings = {
         ["<C-Q>"] = actions.close,
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
-        ["<C-n>"] = actions.cycle_history_next,
-        ["<C-p>"] = actions.cycle_history_prev,
-        ["<C-Y>"] = actions.smart_send_to_qflist + actions.open_qflist,
         ["<C-D>"] = actions.preview_scrolling_up,
         ["<C-F>"] = actions.preview_scrolling_down,
+        ["<C-Y>"] = actions.smart_send_to_qflist + actions.open_qflist,
         ["<CR>"] = actions.select_default,
+        ["<C-o>"] = actions.select_default,
+
+        ["<C-n>"] = actions.cycle_history_next,
+        ["<C-p>"] = actions.cycle_history_prev,
     },
     -- for normal mode
     n = {
+        ["<C-c>"] = actions.close,
+        ["<C-Q>"] = actions.close,
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
         ["<C-D>"] = actions.preview_scrolling_up,
         ["<C-F>"] = actions.preview_scrolling_down,
         ["<C-Y>"] = actions.smart_send_to_qflist + actions.open_qflist,
-        ["<C-c>"] = actions.close,
-        ["<C-Q>"] = actions.close,
+        ["<CR>"] = actions.select_default,
+        ["<C-o>"] = actions.select_default,
+
     },
 }
-
--- Use which-key to add extra bindings with the leader-key prefix
--- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
--- lvim.builtin.which_key.mappings["t"] = {
--- name = "+Trouble",
--- r = { "<cmd>Trouble lsp_references<cr>", "References" },
--- f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
--- d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
--- q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
--- l = { "<cmd>Trouble loclist<cr>", "LocationList" },
--- w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
--- }
-
 
 return M

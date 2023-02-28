@@ -197,7 +197,6 @@ lvim.plugins = {
             })
         end
     },
-    -- search
     {
         -- keymapping: <leader>S
         -- command: :Spectre

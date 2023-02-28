@@ -58,6 +58,7 @@ lvim.keys.insert_mode = {
     ["<C-Q>"] = "<ESC>",
     ["<C-A>"] = "<ESC>I",
     ["<C-E>"] = "<ESC>A",
+    ["<C-F>"] = "<Left>",
     ["<C-J>"] = "<Down>",
     ["<C-K>"] = "<Up>",
     ["<C-L>"] = "<Right>",
@@ -80,7 +81,9 @@ lvim.keys.term_mode = {
     -- ["<ESC>"] = "<C-\\><C-N>",
     -- ["<C-[>"] = "<C-\\><C-N>",
     ["<C-Q>"] = "<C-\\><C-N>",
-    ["<C-n>"] = "<CMD>ToggleTermToggleAll<CR>",
+    ["<C-N>"] = "<CMD>ToggleTermToggleAll<CR>",
+    -- window max
+    ["<C-P>"] = "<C-\\><C-N><C-w>_a",
     -- Terminal window navigation
     ["<C-h>"] = "<C-\\><C-N><C-w>h",
     ["<C-j>"] = "<C-\\><C-N><C-w>j",

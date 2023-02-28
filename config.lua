@@ -11,7 +11,6 @@ lvim.log.level = "warn"
 lvim.format_on_save = false
 lvim.use_icons = true
 
-
 -- lvim.colorscheme = "onedarker"
 -- lvim.colorscheme = "everforest"
 lvim.colorscheme = "onedark"

@@ -68,12 +68,14 @@ lvim.builtin.nvimtree.setup.renderer.icons.glyphs.git = {
     deleted = "",
     ignored = "◌",
 }
-lvim.builtin.nvimtree.setup.view.width = 36
+lvim.builtin.nvimtree.setup.view.width = 40
 lvim.builtin.nvimtree.setup.view.hide_root_folder = false
 lvim.builtin.nvimtree.setup.filters.dotfiles = false
 lvim.builtin.nvimtree.setup.filters.custom = { "node_modules", "\\.cache", "^.git$" }
 lvim.builtin.nvimtree.setup.actions.open_file.resize_window = false
 lvim.builtin.nvimtree.setup.actions.open_file.quit_on_open = false
+-- Compact folders that only contain a single folder into one node in the file tree.
+lvim.builtin.nvimtree.setup.renderer.group_empty=true -- great setting, 
 lvim.builtin.nvimtree.setup.live_filter = {
     prefix = "[FILTER]: ",
     always_show_folders = false,
@@ -96,6 +98,7 @@ lvim.builtin.gitsigns.opts.linehl = false
 lvim.builtin.gitsigns.opts.word_diff = false
 
 -- telescope
+lvim.builtin.telescope.active = true
 lvim.builtin.telescope.defaults.layout_config = { width = 0.80 }
 
 pcall(function()
