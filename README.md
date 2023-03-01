@@ -17,6 +17,19 @@
 1. `jdtls` at dir `~/.jdtls/jdtls-1.9.0`
 2. `lombok` at dir `~/.jdtls/lombok.jar`
 
+### jdtls and dap
+1. [Debugger](https://github.com/mfussenegger/nvim-jdtls#debugger-via-nvim-dap) install step doc
+2. Clone [java-debug](https://github.com/microsoft/java-debug) `clean install`  Or Download [jar](https://repo1.maven.org/maven2/com/microsoft/java/com.microsoft.java.debug.plugin/0.44.0/com.microsoft.java.debug.plugin-0.44.0.jar) 
+3. Clone [vscode-java-test](https://github.com/microsoft/vscode-java-test) And run `npm instal && npm run build-plugin`
+
+Run command
+```
+require('jdtls.dap').setup_dap_main_class_configs()
+
+require'jdtls'.test_class()
+require'jdtls'.test_nearest_method()
+```
+
 #### rest
 1. `jq` install `brew install jq`
 2. `tidy` install `brew install tidy`

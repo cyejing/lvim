@@ -114,9 +114,9 @@ lvim.plugins = {
     {
         "iamcco/markdown-preview.nvim", -- markdown
         run = "cd app && npm install",
-        ft = "markdown",
+        ft = { "markdown" },
         config = function()
-            vim.g.mkdp_auto_start = 1
+            vim.g.mkdp_filetypes = { "markdown" }
         end,
     },
     {
