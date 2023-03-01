@@ -1,7 +1,16 @@
+local jdtls = require('jdtls')
 local home = os.getenv('HOME')
 local root_markers = { 'gradlew', '.git', 'mvnw' }
 local root_dir = require('jdtls.setup').find_root(root_markers)
 local workspace_dir = home .. '/.jdtls/workspace/' .. vim.fn.fnamemodify(root_dir, ':p:h:t')
+
+-- This bundles definition is the same as in the previous section (java-debug installation)
+local bundles = {
+    vim.fn.glob(home .. "/.config/java-debug/target/com.microsoft.java.debug.plugin-*.jar", 1),
+};
+
+-- This is the new part
+vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.config/vscode-java-test/server/*.jar", 1), "\n"))
 
 local config = {
     -- cmd = { '~/.jdtls/jdtls-1.9.0/bin/jdtls' },
@@ -41,7 +50,42 @@ local config = {
         java = {
             signatureHelp = { enabled = true },
             contentProvider = { preferred = 'fernflower' },
-        }
+        },
+        configuration = {
+            runtimes = {
+                {
+                    name = "Java8",
+                    path = home .. "/.config/jvm/java-8/",
+                },
+                {
+                    name = "Java17",
+                    path = home .. "/.config/jvm/java-17/",
+                },
+            }
+        },
+    },
+    on_attach = function(client, bufnr)
+        -- require('me.lsp.conf').on_attach(client, bufnr, {
+            -- server_side_fuzzy_completion = true,
+        -- })
+
+        print("setup_dap")
+        jdtls.setup_dap({ hotcodereplace = 'auto' })
+        -- jdtls.setup.add_commands()
+        -- local opts = { silent = true, buffer = bufnr }
+        -- vim.keymap.set('n', "<A-o>", jdtls.organize_imports, opts)
+        -- vim.keymap.set('n', "<leader>df", jdtls.test_class, opts)
+        -- vim.keymap.set('n', "<leader>dn", jdtls.test_nearest_method, opts)
+        -- vim.keymap.set('n', "crv", jdtls.extract_variable, opts)
+        -- vim.keymap.set('v', 'crm', [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]], opts)
+        -- vim.keymap.set('n', "crc", jdtls.extract_constant, opts)
+        -- local create_command = vim.api.nvim_buf_create_user_command
+        -- create_command(bufnr, 'W', require('me.lsp.ext').remove_unused_imports, {
+        -- nargs = 0,
+        -- })
+    end,
+    init_options = {
+        bundles = bundles,
     },
     root_dir = root_dir,
 }
