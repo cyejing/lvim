@@ -2,6 +2,7 @@ require("builtin.dashboard")
 require("builtin.cmp")
 require("plugin-config.less")
 
+
 lvim.line_wrap_cursor_movement = true
 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
@@ -48,7 +49,7 @@ lvim.builtin.lualine.sections.lualine_z = { "hostname" }
 lvim.builtin.terminal = {
     active = true,
     on_config_done = nil,
-    hide_numbers = false,
+    hide_numbers = true,
     open_mapping = [[<c-\>]],
     persist_size = false,
     persist_mode = false,

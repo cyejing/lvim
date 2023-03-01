@@ -20,10 +20,15 @@ mappings["gf"] = { "<CMD>DiffviewFileHistory %<CR>", "Diffview File" }
 mappings["gi"] = { "<CMD>DiffviewOpen<CR>", "Diffview Open" }
 mappings["gx"] = { "<CMD>DiffviewClose<CR>", "Diffview Close" }
 
---  <leader>+r
-mappings["rh"] = { "<Plug>RestNvim", "Rest Run" }
-mappings["rc"] = { "<Plug>RestNvimPreview", "Rest Perview" }
-mappings["rl"] = { "<Plug>RestNvimLast", "Rest Run Last" }
+
+function M.rest_key_mappings()
+    return {
+        ["<leader>rr"] = { "<Plug>RestNvim", "Rest Run" },
+        ["<leader>rc"] = { "<Plug>RestNvimPreview", "Rest Perview" },
+        ["<leader>rl"] = { "<Plug>RestNvimLast", "Rest Run Last" }
+    }
+end
+
 function M.rust_key_mappings()
     return {
         ["<leader>rr"] = { "<CMD>lua require('rust-tools').runnables.runnables()<CR>", "RustRunnables" },
@@ -33,6 +38,15 @@ function M.rust_key_mappings()
         ["<leader>rk"] = { "<CMD>lua require'rust-tools'.move_item.move_item(true)<CR>", "RustMoveItemUp" },
         ["<leader>rp"] = { "<CMD>lua require'rust-tools'.parent_module.parent_module()<CR>", "RustParentModule" },
         ["<leader>rw"] = { "<CMD>RustReloadWorkspace<CR>", "RustReloadWorkspace" },
+    }
+end
+
+function M.sqls_key_mappings()
+    return {
+        ["<leader>rr"] = { "v", ":SqlsExecuteQuery<CR>", "SqlsExecuteQuery" },
+        ["<leader>rv"] = { "v", ":SqlsExecuteQueryVertical<CR>", "SqlsExecuteQueryVertical" },
+        ["<leader>rn"] = { "n", ":SqlsSwitchConnection<CR>", "SqlsSwitchConnection" },
+        ["<leader>rd"] = { "n", ":SqlsSwitchDatabase<CR>", "SqlsSwitchDatabase" },
     }
 end
 
@@ -88,9 +102,6 @@ local normal_key_mappings = {
     }
 }
 local visual_key_mapping = {
-    r = {
-        q = { "<CMD>'<,'>SqlsExecuteQuery<CR>", "Sqls Run" },
-    },
     g = {
         f = { "<cmd>:lua vim.lsp.buf.range_formatting()<CR>", "Format range" }
     }

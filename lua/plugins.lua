@@ -1,7 +1,12 @@
 -- Additional Plugins
 lvim.plugins = {
     --  UI
-    { "navarasu/onedark.nvim" },
+    {
+        "navarasu/onedark.nvim",
+        config = function()
+            require("plugin-config.less").onedark_setup()
+        end
+    },
 
     -- telescope
     { "nvim-telescope/telescope-project.nvim" },
@@ -70,40 +75,20 @@ lvim.plugins = {
         end,
     },
     {
-        "tpope/vim-surround", -- plus
         -- yss insert, cs replace, ds delete, ysiw insert word
-        -- make sure to change the value of `timeoutlen` if it's not triggering correctly, see https://github.com/tpope/vim-surround/issues/117
-        -- setup = function()
-        --  vim.o.timeoutlen = 500
-        -- end
+        "tpope/vim-surround", -- plus
     },
     {
         "j-hui/fidget.nvim", -- progress bar
         config = function()
-            require("fidget").setup({
-                text = {
-                    spinner = "zip", -- animation shown when tasks are ongoing
-                    done = "✔", -- character shown when all tasks are complete
-                    commenced = "Started", -- message shown when task starts
-                    completed = "Completed", -- message shown when task completes
-                },
-                sources = {
-
-                },
-            })
+            require("plugin-config.less").fidget_setup()
         end
     },
     {
         "ethanholz/nvim-lastplace", -- last place
         event = "BufRead",
         config = function()
-            require("nvim-lastplace").setup({
-                lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
-                lastplace_ignore_filetype = {
-                    "gitcommit", "gitrebase", "svn", "hgcommit",
-                },
-                lastplace_open_folds = true,
-            })
+            require("plugin-config.less").lastplace_setup()
         end,
     },
     {
@@ -123,22 +108,7 @@ lvim.plugins = {
     {
         "romgrk/nvim-treesitter-context", -- show top function name
         config = function()
-            require("treesitter-context").setup {
-                enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-                throttle = true, -- Throttles plugin updates (may improve performance)
-                max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
-                patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
-                    -- For all filetypes
-                    -- Note that setting an entry here replaces all other patterns for this entry.
-                    -- By setting the 'default' entry below, you can control which nodes you want to
-                    -- appear in the context window.
-                    default = {
-                        'class',
-                        'function',
-                        'method',
-                    },
-                },
-            }
+            require("plugin-config.less").treesitter_context_setup()
         end
     },
     {
@@ -159,30 +129,7 @@ lvim.plugins = {
         -- keymapping: <leader>rh
         "NTBBloodbath/rest.nvim",
         config = function()
-            require("rest-nvim").setup({
-                -- Open request results in a horizontal split
-                result_split_horizontal = false,
-                -- Keep the http file buffer above|left when split horizontal|vertical
-                result_split_in_place = false,
-                -- Skip SSL verification, useful for unknown certificates
-                skip_ssl_verification = false,
-                -- Highlight request on run
-                highlight = {
-                    enabled = true,
-                    timeout = 150,
-                },
-                result = {
-                    -- toggle showing URL, HTTP info, headers at top the of result window
-                    show_url = true,
-                    show_http_info = true,
-                    show_headers = true,
-                },
-                -- Jump to request line on run
-                jump_to_request = false,
-                env_file = '.env',
-                custom_dynamic_variables = {},
-                yank_dry_run = true,
-            })
+            require("plugin-config.less").rest_setup()
         end
     },
     {
@@ -190,11 +137,7 @@ lvim.plugins = {
         -- command: :SqlsExecuteQuery
         "nanotee/sqls.nvim", -- sql
         config = function()
-            require('lspconfig').sqls.setup({
-                on_attach = function(client, bufnr)
-                    require('sqls').on_attach(client, bufnr)
-                end
-            })
+            require("plugin-config.less").sqls_setup()
         end
     },
     {

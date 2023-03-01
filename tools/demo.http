@@ -1,6 +1,7 @@
+### get user
 GET https://reqres.in/api/users?page=5
 
-
+### post user
 POST https://reqres.in/api/users
 Content-Type: application/json
 
@@ -10,5 +11,8 @@ Content-Type: application/json
     "array": ["a", "b", "c"],
     "object_ugly_closing": {
       "some_key": "some_value"
-        }
+    }
 }
+
+
+###

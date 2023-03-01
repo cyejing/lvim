@@ -4,7 +4,12 @@
             {
                 "alias": "localhost",
                 "driver": "mysql",
-                "dataSourceName": "root:root@tcp(127.0.0.1:3306)"
+                "dataSourceName": "root:root@tcp(127.0.0.1:3306)/dichat"
+            },
+            {
+                "alias": "dc-test",
+                "driver": "mysql",
+                "dataSourceName": "didi_cQQP:6CCT2do1U@tcp(10.78.133.3:3127)/im_dichat"
             }
         ]
     }

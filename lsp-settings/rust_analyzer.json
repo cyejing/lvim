@@ -6,6 +6,18 @@
         "checkOnSave": {
             "command": "check",
             "allTargets": true
+        },
+        "completion": {
+            "postfix": {
+                "enable": false
+            }
+        },
+        "hover": {
+            "actions": {
+                "run": {
+                    "enable": true
+                }
+            }
         }
     }
 }
