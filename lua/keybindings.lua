@@ -43,8 +43,9 @@ lvim.keys.normal_mode = {
     ["<C-Q>"] = "<CMD>lua vim.lsp.buf.format {async=true}<CR>",
     ["<C-0>"] = "<CMD>lua vim.lsp.buf.format {async=true}<CR>",
     ["<C-Y>"] = ":call QuickFixToggle()<CR>",
-
+    --
     ["<C-n>"] = "<CMD>ToggleTermToggleAll<CR>",
+    ["<C-m>"] = "<CMD>NvimTreeToggle<CR>",
 }
 
 lvim.keys.insert_mode = {
@@ -81,13 +82,16 @@ lvim.keys.term_mode = {
     -- ["<ESC>"] = "<C-\\><C-N>",
     -- ["<C-[>"] = "<C-\\><C-N>",
     ["<C-Q>"] = "<C-\\><C-N>",
+    ["<C-j>"] = "<C-\\><C-N>8j",
+    ["<C-k>"] = "<C-\\><C-N>8k",
+
     ["<C-N>"] = "<CMD>ToggleTermToggleAll<CR>",
     -- window max
     ["<C-P>"] = "<C-\\><C-N><C-w>_a",
     -- Terminal window navigation
     ["<C-h>"] = "<C-\\><C-N><C-w>h",
-    ["<C-j>"] = "<C-\\><C-N><C-w>j",
-    ["<C-k>"] = "<C-\\><C-N><C-w>k",
+    -- ["<C-j>"] = "<C-\\><C-N><C-w>j",
+    -- ["<C-k>"] = "<C-\\><C-N><C-w>k",
     ["<C-l>"] = "<C-\\><C-N><C-w>l",
 }
 

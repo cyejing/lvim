@@ -69,7 +69,6 @@ local config = {
             -- server_side_fuzzy_completion = true,
         -- })
 
-        print("setup_dap")
         jdtls.setup_dap({ hotcodereplace = 'auto' })
         -- jdtls.setup.add_commands()
         -- local opts = { silent = true, buffer = bufnr }
