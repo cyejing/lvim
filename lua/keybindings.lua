@@ -29,23 +29,23 @@ lvim.keys.normal_mode = {
     ["<S-Left>"] = ":vertical resize -2<CR>",
     ["<S-Right>"] = ":vertical resize +2<CR>",
     -- vim-surround : -yss insert, cs replace, ds delete, ysiw insert word
-    -- ["gn"] = "<CMD>lua require('Comment.api').toggle.linewise.current()<CR>j",
     ["<C-.>"] = "<CMD>lua require('Comment.api').toggle.linewise.current()<CR>j",
     -- Tab switch buffer
     ["<S-l>"] = ":BufferLineCycleNext<CR>",
     ["<S-h>"] = ":BufferLineCyclePrev<CR>",
-    -- Move current line / block with Alt-j/k a la vscode.
-    ["<A-j>"] = ":m .+1<CR>==",
-    ["<A-k>"] = ":m .-2<CR>==",
     -- QuickFix
     -- ["]q"] = ":cnext<CR>",
     -- ["[q"] = ":cprev<CR>",
 
     ["<C-q>"] = "<CMD>lua vim.lsp.buf.format {async=true}<CR>",
+    ["<C-s>"] = "==",
     ["<C-y>"] = ":call QuickFixToggle()<CR>",
     --
     ["<C-n>"] = "<CMD>ToggleTermToggleAll<CR>",
     ["<C-m>"] = "<CMD>NvimTreeToggle<CR>",
+    -- Move current line / block with Alt-j/k a la vscode.
+    ["<A-j>"] = ":m .+1<CR>==",
+    ["<A-k>"] = ":m .-2<CR>==",
 }
 
 lvim.keys.insert_mode = {
@@ -62,25 +62,14 @@ lvim.keys.insert_mode = {
     ["<C-a>"] = "<ESC>I",
     ["<C-e>"] = "<ESC>A",
     ["<C-f>"] = "<Right>",
+    ["<C-l>"] = "<Right>",
     ["<C-b>"] = "<Left>",
-    ["<C-j>"] = "<Down>",
-    ["<C-k>"] = "<Up>",
-    ["<A-f>"] = "<ESC>lwi",
-    ["<A-b>"] = "<ESC>bi",
-
-    -- asd wq ewfwea asd
-
-    -- edit
-    -- ["<C-X>"] = "<BS>",
-    -- ["<C-C>"] = "<DEL>",
-    -- ["<C-H>"] = "<Left>",
-    -- ["<C-J>"] = "<Down>",
-    -- ["<C-K>"] = "<Up>",
-    -- ["<C-L>"] = "<Right>",
-    -- ["<C-B>"] = "<ESC>ea<C-W>",
-    -- ["<C-P>"] = "<ESC>pa",
-    -- code format
-    ["<C-0>"] = "<ESC>v<CMD>:lua vim.lsp.buf.range_formatting()<CR><ESC>A",
+    ["<A-f>"] = "<C-o>w",
+    ["<A-b>"] = "<C-o>b",
+    ["<C-d>"] = "<del>",
+    ["<C-k>"] = "<C-o>C",
+    ["<C-y>"] = "<C-o>h<c-o>p",
+    ["<C-x><C-u>"] = "<C-o>u",
     -- Move current line / block with Alt-j/k ala vscode.
     ["<A-j>"] = "<Esc>:m .+1<CR>==gi",
     -- Move current line / block with Alt-j/k ala vscode.
@@ -90,6 +79,22 @@ lvim.keys.insert_mode = {
     -- ["<A-Down>"] = "<C-\\><C-N><C-w>j",
     -- ["<A-Left>"] = "<C-\\><C-N><C-w>h",
     -- ["<A-Right>"] = "<C-\\><C-N><C-w>l",
+}
+
+lvim.keys.visual_mode = {
+    -- Better indenting
+    ["<"] = "<gv",
+    [">"] = ">gv",
+    -- ["\\"] = "$",
+    ["<C-e>"] = "$",
+    ["<C-a>"] = "^",
+    ["<C-q>"] = "<ESC>",
+    ["<C-j>"] = "8j",
+    ["<C-k>"] = "8k",
+    ["<C-.>"] = "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+    ["<C-s>"] = "=",
+    ["<A-j>"] = ":m '>+1<CR>gv-gv",
+    ["<A-k>"] = ":m '<-2<CR>gv-gv",
 }
 
 lvim.keys.term_mode = {
@@ -106,23 +111,6 @@ lvim.keys.term_mode = {
     -- ["<C-j>"] = "<C-\\><C-N><C-w>j",
     -- ["<C-k>"] = "<C-\\><C-N><C-w>k",
     ["<C-l>"] = "<C-\\><C-N><C-w>l",
-}
-
-lvim.keys.visual_mode = {
-    -- Better indenting
-    ["<"] = "<gv",
-    [">"] = ">gv",
-    -- ["\\"] = "$",
-    ["<C-e>"] = "$",
-    ["<C-a>"] = "^",
-    ["<C-q>"] = "<ESC>",
-    ["<C-j>"] = "8j",
-    ["<C-k>"] = "8k",
-    ["gn"] = "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
-    ["<C-.>"] = "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
-    ["<C-0>"] = "<CMD>:lua vim.lsp.buf.range_formatting()<CR>",
-    ["<A-j>"] = ":m '>+1<CR>gv-gv",
-    ["<A-k>"] = ":m '<-2<CR>gv-gv",
 }
 
 lvim.keys.visual_block_mode = {

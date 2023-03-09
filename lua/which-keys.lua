@@ -103,7 +103,8 @@ local normal_key_mappings = {
 }
 local visual_key_mapping = {
     g = {
-        f = { "<cmd>:lua vim.lsp.buf.range_formatting()<CR>", "Format range" }
+        f = { "<cmd>:lua vim.lsp.buf.format()<CR><ESC>", "Format range" },
+        n = { "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", "Comment range" },
     }
 }
 lvim.builtin.which_key.on_config_done = function(wk)
@@ -111,7 +112,6 @@ lvim.builtin.which_key.on_config_done = function(wk)
 
     wk.register(visual_key_mapping, {
         mode = "v",
-        prefix = "<leader>"
     })
 end
 
