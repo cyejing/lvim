@@ -5,23 +5,24 @@ lvim.keys.normal_mode = {
     -- basic
     ["s"] = "",
     ["g"] = "",
-    ["<C-E>"] = "$",
-    ["<C-A>"] = "^",
+    ["<C-e>"] = "$",
+    ["<C-a>"] = "^",
+    ["<CR>"] = "<CMD>noh<CR>",
     -- ["\\"] = "$",
     -- ["d\\"] = "d$",
     ["r"] = "<C-r>",
     -- move
-    ["<C-J>"] = "8j",
-    ["<C-K>"] = "8k",
+    ["<C-j>"] = "8j",
+    ["<C-k>"] = "8k",
     -- Better window movement
     ["<C-Left>"] = "<C-w>h",
     ["<C-Down>"] = "<C-w>j",
     ["<C-Up>"] = "<C-w>k",
     ["<C-Right>"] = "<C-w>l",
-    ["<C-H>"] = "<C-w>W",
-    ["<C-L>"] = "<C-w>w",
-    ["<C-X>"] = "<C-w>c",
-    ["<S-X>"] = ":Bdelete!<CR>",
+    ["<C-h>"] = "<C-w>W",
+    ["<C-l>"] = "<C-w>w",
+    ["<C-x>"] = "<C-w>c",
+    ["<S-x>"] = ":Bdelete!<CR>",
     -- Resize with arrows
     ["<S-Up>"] = ":resize -2<CR>",
     ["<S-Down>"] = ":resize +2<CR>",
@@ -31,8 +32,8 @@ lvim.keys.normal_mode = {
     -- ["gn"] = "<CMD>lua require('Comment.api').toggle.linewise.current()<CR>j",
     ["<C-.>"] = "<CMD>lua require('Comment.api').toggle.linewise.current()<CR>j",
     -- Tab switch buffer
-    ["<S-L>"] = ":BufferLineCycleNext<CR>",
-    ["<S-H>"] = ":BufferLineCyclePrev<CR>",
+    ["<S-l>"] = ":BufferLineCycleNext<CR>",
+    ["<S-h>"] = ":BufferLineCyclePrev<CR>",
     -- Move current line / block with Alt-j/k a la vscode.
     ["<A-j>"] = ":m .+1<CR>==",
     ["<A-k>"] = ":m .-2<CR>==",
@@ -40,9 +41,8 @@ lvim.keys.normal_mode = {
     -- ["]q"] = ":cnext<CR>",
     -- ["[q"] = ":cprev<CR>",
 
-    ["<C-Q>"] = "<CMD>lua vim.lsp.buf.format {async=true}<CR>",
-    ["<C-0>"] = "<CMD>lua vim.lsp.buf.format {async=true}<CR>",
-    ["<C-Y>"] = ":call QuickFixToggle()<CR>",
+    ["<C-q>"] = "<CMD>lua vim.lsp.buf.format {async=true}<CR>",
+    ["<C-y>"] = ":call QuickFixToggle()<CR>",
     --
     ["<C-n>"] = "<CMD>ToggleTermToggleAll<CR>",
     ["<C-m>"] = "<CMD>NvimTreeToggle<CR>",
@@ -56,16 +56,30 @@ lvim.keys.insert_mode = {
     ["kj"] = "kj",
     -- 'jj' for quitting insert mode
     ["jj"] = "<ESC>",
-    ["<C-Q>"] = "<ESC>",
-    ["<C-A>"] = "<ESC>I",
-    ["<C-E>"] = "<ESC>A",
-    ["<C-F>"] = "<Left>",
-    ["<C-J>"] = "<Down>",
-    ["<C-K>"] = "<Up>",
-    ["<C-L>"] = "<Right>",
-    ["<C-B>"] = "<ESC>ea<C-W>",
-    ["<C-P>"] = "<ESC>pa",
-    -- code
+    ["<C-q>"] = "<ESC>",
+    -- like bash
+    ["<C-s>"] = "<C-f>", -- noremap
+    ["<C-a>"] = "<ESC>I",
+    ["<C-e>"] = "<ESC>A",
+    ["<C-f>"] = "<Right>",
+    ["<C-b>"] = "<Left>",
+    ["<C-j>"] = "<Down>",
+    ["<C-k>"] = "<Up>",
+    ["<A-f>"] = "<ESC>lwi",
+    ["<A-b>"] = "<ESC>bi",
+
+    -- asd wq ewfwea asd
+
+    -- edit
+    -- ["<C-X>"] = "<BS>",
+    -- ["<C-C>"] = "<DEL>",
+    -- ["<C-H>"] = "<Left>",
+    -- ["<C-J>"] = "<Down>",
+    -- ["<C-K>"] = "<Up>",
+    -- ["<C-L>"] = "<Right>",
+    -- ["<C-B>"] = "<ESC>ea<C-W>",
+    -- ["<C-P>"] = "<ESC>pa",
+    -- code format
     ["<C-0>"] = "<ESC>v<CMD>:lua vim.lsp.buf.range_formatting()<CR><ESC>A",
     -- Move current line / block with Alt-j/k ala vscode.
     ["<A-j>"] = "<Esc>:m .+1<CR>==gi",
@@ -81,13 +95,12 @@ lvim.keys.insert_mode = {
 lvim.keys.term_mode = {
     -- ["<ESC>"] = "<C-\\><C-N>",
     -- ["<C-[>"] = "<C-\\><C-N>",
-    ["<C-Q>"] = "<C-\\><C-N>",
+    ["<C-q>"] = "<C-\\><C-N>",
     ["<C-j>"] = "<C-\\><C-N>8j",
     ["<C-k>"] = "<C-\\><C-N>8k",
-
-    ["<C-N>"] = "<CMD>ToggleTermToggleAll<CR>",
+    ["<C-n>"] = "<CMD>ToggleTermToggleAll<CR>",
     -- window max
-    ["<C-P>"] = "<C-\\><C-N><C-w>_a",
+    ["<C-p>"] = "<C-\\><C-N><C-w>_a",
     -- Terminal window navigation
     ["<C-h>"] = "<C-\\><C-N><C-w>h",
     -- ["<C-j>"] = "<C-\\><C-N><C-w>j",
@@ -100,9 +113,9 @@ lvim.keys.visual_mode = {
     ["<"] = "<gv",
     [">"] = ">gv",
     -- ["\\"] = "$",
-    ["<C-E>"] = "$",
-    ["<C-A>"] = "^",
-    ["<C-Q>"] = "<ESC>",
+    ["<C-e>"] = "$",
+    ["<C-a>"] = "^",
+    ["<C-q>"] = "<ESC>",
     ["<C-j>"] = "8j",
     ["<C-k>"] = "8k",
     ["gn"] = "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
@@ -117,9 +130,9 @@ lvim.keys.visual_block_mode = {
     -- ["K"] = ":move '<-2<CR>gv-gv",
     -- ["J"] = ":move '>+1<CR>gv-gv",
 
-    ["<C-E>"] = "$",
-    ["<C-A>"] = "^",
-    ["<C-Q>"] = "<ESC>",
+    ["<C-e>"] = "$",
+    ["<C-a>"] = "^",
+    ["<C-q>"] = "<ESC>",
     -- Move current line / block with Alt-j/k ala vscode.
     ["<A-j>"] = ":m '>+1<CR>gv-gv",
     ["<A-k>"] = ":m '<-2<CR>gv-gv",
