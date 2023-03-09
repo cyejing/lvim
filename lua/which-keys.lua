@@ -8,6 +8,7 @@ mappings["h"]  = { "<CMD>edit ~/.cache/lvim/project_nvim/project_history<CR>", "
 mappings["h"]  = { "<CMD>SymbolsOutline<CR>", "SymbolsOutline" }
 mappings["x"]  = { "<CMD>only<CR>", "Close All Windows" }
 mappings["S"]  = { "<CMD>lua require('spectre').open()<CR>", "Open Spectre" }
+mappings["c"]  = {}
 
 --  <leader>+b
 mappings["bx"] = { "<CMD>:BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", "Close All Buffer" }
