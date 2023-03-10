@@ -29,7 +29,7 @@ lvim.keys.normal_mode = {
     ["<S-Left>"] = ":vertical resize -2<CR>",
     ["<S-Right>"] = ":vertical resize +2<CR>",
     -- vim-surround : -yss insert, cs replace, ds delete, ysiw insert word
-    ["<C-.>"] = "<CMD>lua require('Comment.api').toggle.linewise.current()<CR>j",
+    ["<C-/>"] = "<CMD>lua require('Comment.api').toggle.linewise.current()<CR>j",
     -- Tab switch buffer
     ["<S-l>"] = ":BufferLineCycleNext<CR>",
     ["<S-h>"] = ":BufferLineCyclePrev<CR>",
@@ -91,7 +91,7 @@ lvim.keys.visual_mode = {
     ["<C-q>"] = "<ESC>",
     ["<C-j>"] = "8j",
     ["<C-k>"] = "8k",
-    ["<C-.>"] = "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+    ["<C-/>"] = "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
     ["<C-s>"] = "=",
     ["<A-j>"] = ":m '>+1<CR>gv-gv",
     ["<A-k>"] = ":m '<-2<CR>gv-gv",

@@ -12,6 +12,9 @@ lvim.format_on_save = false
 lvim.use_icons = true
 
 -- lvim.colorscheme = "onedarker"
--- lvim.colorscheme = "everforest"
-lvim.colorscheme = "onedark"
+lvim.colorscheme = "tokyonight"
+-- lvim.colorscheme = "desert"
+-- lvim.colorscheme = "onedark"
 
+vim.o.background = "light"
+vim.g.tokyonight_style = "day" -- day / night
