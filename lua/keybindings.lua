@@ -101,11 +101,12 @@ lvim.keys.term_mode = {
     -- ["<ESC>"] = "<C-\\><C-N>",
     -- ["<C-[>"] = "<C-\\><C-N>",
     ["<C-q>"] = "<C-\\><C-N>",
-    ["<C-j>"] = "<C-\\><C-N>8j",
+    -- ["<C-j>"] = "<C-\\><C-N>8j",
     ["<C-k>"] = "<C-\\><C-N>8k",
+    ["<C-u>"] = "<C-\\><C-N>u",
     ["<C-n>"] = "<CMD>ToggleTermToggleAll<CR>",
     -- window max
-    ["<C-p>"] = "<C-\\><C-N><C-w>_a",
+    ["<C-t>"] = "<C-\\><C-N><C-w>_a",
     -- Terminal window navigation
     ["<C-h>"] = "<C-\\><C-N><C-w>h",
     -- ["<C-j>"] = "<C-\\><C-N><C-w>j",

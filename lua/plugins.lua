@@ -12,6 +12,8 @@ lvim.plugins = {
     { "nvim-telescope/telescope-project.nvim" },
     { "nvim-telescope/telescope-ui-select.nvim" },
     { "LinArcX/telescope-env.nvim" },
+    --tabline
+    -- {'romgrk/barbar.nvim', requires = 'nvim-web-devicons'},
     -- bufferline
     { "moll/vim-bbye" },
 

@@ -3,7 +3,8 @@ local mappings = lvim.builtin.which_key.mappings
 mappings["e"]  = { "<cmd>NvimTreeFocus<CR>", "Explorer" }
 mappings["m"]  = { "<cmd>NvimTreeToggle<CR>", "Explorer Toggle" }
 mappings["p"]  = { "<CMD>Telescope projects layout_config={width=0.6}<CR>", "Projects" }
-mappings["o"]  = { "<CMD>Telescope oldfiles<CR>", "Recently files" }
+-- mappings["o"]  = { "<CMD>Telescope oldfiles<CR>", "Recently files" }
+mappings["ss"]  = { "<CMD>Telescope oldfiles<CR>", "Recently files" }
 mappings["h"]  = { "<CMD>edit ~/.cache/lvim/project_nvim/project_history<CR>", "Edit Projects" }
 mappings["h"]  = { "<CMD>SymbolsOutline<CR>", "SymbolsOutline" }
 mappings["x"]  = { "<CMD>only<CR>", "Close All Windows" }
@@ -12,6 +13,7 @@ mappings["c"]  = {}
 
 --  <leader>+b
 mappings["bx"] = { "<CMD>:BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", "Close All Buffer" }
+mappings["bs"] = { ":e ~/buffer<cr>", "Open Scribble" }
 
 -- <leader>+g
 mappings["gg"] = {}
@@ -61,12 +63,11 @@ local normal_key_mappings = {
         f = { "<cmd>Telescope git_files<cr>", "Find File" }, -- create a binding with label
         t = { "<cmd>Telescope live_grep theme=get_dropdown layout_config={width=0.8}<cr>", "Find All Text" },
         T = { "<cmd>Telescope grep_string theme=get_dropdown layout_config={width=0.8}<cr>", "Find Cursor Text" },
-        b = { "<cmd>Telescope current_buffer_fuzzy_find fuzzy=false theme=get_dropdown layout_config={width=0.8}<cr>", "Find Buffers Text" },
-        g = { "<cmd>Telescope buffers<cr>", "Buffers List" },
-        -- c = { "<cmd>Telescope git_status layout_strategy=horizontal layout_config={width=0.9,preview_width=0.7} initial_mode=normal<cr>", "Find Git Change" },
+        y = { "<cmd>Telescope current_buffer_fuzzy_find fuzzy=false theme=get_dropdown layout_config={width=0.8}<cr>", "Find Buffers Text" },
+        b = { "<cmd>Telescope buffers<cr>", "Buffers List" },
         c = { "<cmd>Telescope git_status theme=get_ivy layout_config={height=0.7,preview_width=0.7} initial_mode=normal<cr>", "Find Git Change" },
-        -- j = { "<cmd>Telescope jumplist<cr>", "Find jumplist" },
-        o = { "<CMD>Telescope oldfiles<CR>", "Recently files" },
+        j = { "<cmd>Telescope jumplist<cr>", "Find jumplist" },
+        -- o = { "<CMD>Telescope oldfiles<CR>", "Recently files" },
         s = { "<CMD>Telescope oldfiles<CR>", "Recently files" },
         h = { "<CMD>Telescope lsp_document_symbols layout_config={preview_width=0.6}<CR>", "Document Symbols" },
         w = { "<CMD>Telescope lsp_workspace_symbols layout_config={preview_width=0.6}<CR>", "Wordspace Symbols" },
