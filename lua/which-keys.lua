@@ -4,7 +4,7 @@ mappings["e"]  = { "<cmd>NvimTreeFocus<CR>", "Explorer" }
 mappings["m"]  = { "<cmd>NvimTreeToggle<CR>", "Explorer Toggle" }
 mappings["p"]  = { "<CMD>Telescope projects layout_config={width=0.6}<CR>", "Projects" }
 -- mappings["o"]  = { "<CMD>Telescope oldfiles<CR>", "Recently files" }
-mappings["ss"]  = { "<CMD>Telescope oldfiles<CR>", "Recently files" }
+mappings["ss"] = { "<CMD>Telescope oldfiles<CR>", "Recently files" }
 mappings["h"]  = { "<CMD>edit ~/.cache/lvim/project_nvim/project_history<CR>", "Edit Projects" }
 mappings["h"]  = { "<CMD>SymbolsOutline<CR>", "SymbolsOutline" }
 mappings["x"]  = { "<CMD>only<CR>", "Close All Windows" }
@@ -68,9 +68,10 @@ local normal_key_mappings = {
         c = { "<cmd>Telescope git_status theme=get_ivy layout_config={height=0.7,preview_width=0.7} initial_mode=normal<cr>", "Find Git Change" },
         j = { "<cmd>Telescope jumplist<cr>", "Find jumplist" },
         -- o = { "<CMD>Telescope oldfiles<CR>", "Recently files" },
-        s = { "<CMD>Telescope oldfiles<CR>", "Recently files" },
-        h = { "<CMD>Telescope lsp_document_symbols layout_config={preview_width=0.6}<CR>", "Document Symbols" },
-        w = { "<CMD>Telescope lsp_workspace_symbols layout_config={preview_width=0.6}<CR>", "Wordspace Symbols" },
+        s = { "<cmd>Telescope oldfiles<CR>", "Recently files" },
+        h = { "<cmd>Telescope lsp_document_symbols layout_config={preview_width=0.6}<CR>", "Document Symbols" },
+        w = { "<cmd>Telescope lsp_workspace_symbols layout_config={preview_width=0.6}<CR>", "Wordspace Symbols" },
+        m = { "<cmd>NvimTreeToggle<CR>", "Explorer Toggle" }
     },
     K = { vim.lsp.buf.hover, "Show hover" },
     g = {

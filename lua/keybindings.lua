@@ -41,7 +41,7 @@ lvim.keys.normal_mode = {
     ["<C-s>"] = "==",
     ["<C-y>"] = ":call QuickFixToggle()<CR>",
     --
-    ["<C-n>"] = "<CMD>ToggleTermToggleAll<CR>",
+    -- ["<C-n>"] = "<CMD>ToggleTermToggleAll<CR>",
     ["<C-m>"] = "<CMD>NvimTreeToggle<CR>",
     -- Move current line / block with Alt-j/k a la vscode.
     ["<A-j>"] = ":m .+1<CR>==",
@@ -68,7 +68,7 @@ lvim.keys.insert_mode = {
     ["<A-b>"] = "<C-o>b",
     ["<C-d>"] = "<del>",
     ["<C-k>"] = "<C-o>C",
-    ["<C-y>"] = "<C-o>h<c-o>p",
+    ["<C-y>"] = "<C-o>p",
     ["<C-x><C-u>"] = "<C-o>u",
     -- Move current line / block with Alt-j/k ala vscode.
     ["<A-j>"] = "<Esc>:m .+1<CR>==gi",
@@ -103,8 +103,9 @@ lvim.keys.term_mode = {
     ["<C-q>"] = "<C-\\><C-N>",
     -- ["<C-j>"] = "<C-\\><C-N>8j",
     ["<C-k>"] = "<C-\\><C-N>8k",
-    ["<C-u>"] = "<C-\\><C-N>u",
-    ["<C-n>"] = "<CMD>ToggleTermToggleAll<CR>",
+    ["<C-y>"] = "<C-\\><C-N>pa",
+    ["<C-u><C-u>"] = "<C-\\><C-N><C-u>",
+    -- ["<C-n>"] = "<CMD>ToggleTermToggleAll<CR>",
     -- window max
     ["<C-t>"] = "<C-\\><C-N><C-w>_a",
     -- Terminal window navigation
