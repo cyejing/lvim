@@ -14,6 +14,7 @@ mappings["c"]  = {}
 --  <leader>+b
 mappings["bx"] = { "<CMD>:BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", "Close All Buffer" }
 mappings["bs"] = { ":e ~/buffer<cr>", "Open Scribble" }
+mappings["br"] = { ":e ~/reuqest.http<cr>", "Open Reuqest" }
 
 -- <leader>+g
 mappings["gg"] = {}
@@ -22,6 +23,9 @@ mappings["gh"] = { "<CMD>DiffviewFileHistory<CR>", "Diffview History" }
 mappings["gf"] = { "<CMD>DiffviewFileHistory %<CR>", "Diffview File" }
 mappings["gi"] = { "<CMD>DiffviewOpen<CR>", "Diffview Open" }
 mappings["gx"] = { "<CMD>DiffviewClose<CR>", "Diffview Close" }
+
+-- <leader>+n
+mappings["nn"] = { "<CMD>tab term<CR>", "New Tab Term" }
 
 
 function M.rest_key_mappings()
