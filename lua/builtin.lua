@@ -15,7 +15,7 @@ lvim.builtin.indentlines.active = true
 lvim.builtin.lir.active = false
 
 lvim.builtin.project.patterns = { ".git", ".svn", "Makefile", "package.json" }
-lvim.builtin.project.exclude_dirs = { ".local" }
+lvim.builtin.project.exclude_dirs = { ".local", "node_modules" }
 
 lvim.builtin.comment.toggler.block = "gcb"
 lvim.builtin.comment.mappings.basic = false
@@ -41,8 +41,10 @@ lvim.builtin.lualine.style = "lvim"
 lvim.builtin.lualine.options.theme = "auto"
 lvim.builtin.lualine.options.globalstatus = true
 lvim.builtin.lualine.sections.lualine_a = { "mode" }
-lvim.builtin.lualine.sections.lualine_y = { components.location, components.progress }
-lvim.builtin.lualine.sections.lualine_z = { "hostname" }
+lvim.builtin.lualine.sections.lualine_b = { components.branch, components.diff }
+lvim.builtin.lualine.sections.lualine_c = { components.python_env, components.filename }
+lvim.builtin.lualine.sections.lualine_y = { "hostname" }
+lvim.builtin.lualine.sections.lualine_z = { components.location, components.progress }
 
 
 -- terminal
@@ -50,11 +52,13 @@ lvim.builtin.terminal = {
     active = true,
     on_config_done = nil,
     hide_numbers = true,
-    open_mapping = [[<c-\>]],
+    open_mapping = [[<c-n>]],
     persist_size = false,
     persist_mode = false,
     size = 22,
-    execs = {},
+    execs = {
+        { vim.o.shell, "<leader>nf", "Tab Terminal", "tab", 120 },
+    },
 }
 
 -- nvimtree
@@ -76,7 +80,7 @@ lvim.builtin.nvimtree.setup.filters.custom = { "node_modules", "\\.cache", "^.gi
 lvim.builtin.nvimtree.setup.actions.open_file.resize_window = false
 lvim.builtin.nvimtree.setup.actions.open_file.quit_on_open = false
 -- Compact folders that only contain a single folder into one node in the file tree.
-lvim.builtin.nvimtree.setup.renderer.group_empty=true -- great setting, 
+lvim.builtin.nvimtree.setup.renderer.group_empty = true -- great setting,
 lvim.builtin.nvimtree.setup.live_filter = {
     prefix = "[FILTER]: ",
     always_show_folders = false,

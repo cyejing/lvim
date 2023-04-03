@@ -15,6 +15,7 @@ mappings["c"]  = {}
 --  <leader>+b
 mappings["bx"] = { "<CMD>:BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", "Close All Buffer" }
 mappings["bs"] = { ":e ~/buffer<cr>", "Open Scribble" }
+mappings["br"] = { ":e ~/reuqest.http<cr>", "Open Reuqest" }
 
 -- <leader>+g
 mappings["gg"] = {}
@@ -27,6 +28,9 @@ mappings["gx"] = { "<CMD>DiffviewClose<CR>", "Diffview Close" }
 -- <leader>+b
 mappings["bc"] = { "<CMD>new<CR>", "Buffer Create" }
 mappings["bv"] = { "<CMD>vnew<CR>", "Buffer Create" }
+
+-- <leader>+n
+mappings["nn"] = { "<CMD>tab term<CR>", "New Tab Term" }
 
 
 function M.rest_key_mappings()
@@ -73,9 +77,10 @@ local normal_key_mappings = {
         c = { "<cmd>Telescope git_status theme=get_ivy layout_config={height=0.7,preview_width=0.7} initial_mode=normal<cr>", "Find Git Change" },
         j = { "<cmd>Telescope jumplist<cr>", "Find jumplist" },
         -- o = { "<CMD>Telescope oldfiles<CR>", "Recently files" },
-        s = { "<CMD>Telescope oldfiles<CR>", "Recently files" },
-        h = { "<CMD>Telescope lsp_document_symbols layout_config={preview_width=0.6}<CR>", "Document Symbols" },
-        w = { "<CMD>Telescope lsp_workspace_symbols layout_config={preview_width=0.6}<CR>", "Wordspace Symbols" },
+        s = { "<cmd>Telescope oldfiles<CR>", "Recently files" },
+        h = { "<cmd>Telescope lsp_document_symbols layout_config={preview_width=0.6}<CR>", "Document Symbols" },
+        w = { "<cmd>Telescope lsp_workspace_symbols layout_config={preview_width=0.6}<CR>", "Wordspace Symbols" },
+        m = { "<cmd>NvimTreeToggle<CR>", "Explorer Toggle" }
     },
     K = { vim.lsp.buf.hover, "Show hover" },
     g = {
