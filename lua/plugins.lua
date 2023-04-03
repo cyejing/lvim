@@ -63,7 +63,7 @@ lvim.plugins = {
         event = "BufRead",
         config = function()
             require("hop").setup()
-            vim.api.nvim_set_keymap("n", "f", ":HopChar1<cr>", { noremap=true, silent = true })
+            vim.api.nvim_set_keymap("n", "f", ":HopChar1<cr>", { noremap = true, silent = true })
         end,
     },
     {
@@ -71,7 +71,7 @@ lvim.plugins = {
         event = "BufRead",
         config = function()
             require("numb").setup {
-                show_numbers = true, -- Enable 'number' for the window while peeking
+                show_numbers = true,    -- Enable 'number' for the window while peeking
                 show_cursorline = true, -- Enable 'cursorline' for the window while peeking
             }
         end,
@@ -128,14 +128,14 @@ lvim.plugins = {
     },
     -- rest http
     {
-        -- keymapping: <leader>rh
+        -- keymapping: <leader>rr
         "NTBBloodbath/rest.nvim",
         config = function()
             require("plugin-config.less").rest_setup()
         end
     },
     {
-        -- keymapping: v <leader>rq
+        -- keymapping: v <leader>rr
         -- command: :SqlsExecuteQuery
         "nanotee/sqls.nvim", -- sql
         config = function()

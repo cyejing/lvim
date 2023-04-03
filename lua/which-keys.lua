@@ -1,10 +1,11 @@
 local M        = {}
+
 local mappings = lvim.builtin.which_key.mappings
 mappings["e"]  = { "<cmd>NvimTreeFocus<CR>", "Explorer" }
 mappings["m"]  = { "<cmd>NvimTreeToggle<CR>", "Explorer Toggle" }
 mappings["p"]  = { "<CMD>Telescope projects layout_config={width=0.6}<CR>", "Projects" }
 -- mappings["o"]  = { "<CMD>Telescope oldfiles<CR>", "Recently files" }
-mappings["ss"]  = { "<CMD>Telescope oldfiles<CR>", "Recently files" }
+mappings["ss"] = { "<CMD>Telescope oldfiles<CR>", "Recently files" }
 mappings["h"]  = { "<CMD>edit ~/.cache/lvim/project_nvim/project_history<CR>", "Edit Projects" }
 mappings["h"]  = { "<CMD>SymbolsOutline<CR>", "SymbolsOutline" }
 mappings["x"]  = { "<CMD>only<CR>", "Close All Windows" }
@@ -22,6 +23,10 @@ mappings["gh"] = { "<CMD>DiffviewFileHistory<CR>", "Diffview History" }
 mappings["gf"] = { "<CMD>DiffviewFileHistory %<CR>", "Diffview File" }
 mappings["gi"] = { "<CMD>DiffviewOpen<CR>", "Diffview Open" }
 mappings["gx"] = { "<CMD>DiffviewClose<CR>", "Diffview Close" }
+
+-- <leader>+b
+mappings["bc"] = { "<CMD>new<CR>", "Buffer Create" }
+mappings["bv"] = { "<CMD>vnew<CR>", "Buffer Create" }
 
 
 function M.rest_key_mappings()
