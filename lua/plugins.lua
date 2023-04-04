@@ -63,7 +63,7 @@ lvim.plugins = {
         event = "BufRead",
         config = function()
             require("hop").setup()
-            vim.api.nvim_set_keymap("n", "f", ":HopChar1<cr>", { noremap = true, silent = true })
+            vim.api.nvim_set_keymap("n", "sj", ":HopChar1<cr>", { noremap = true, silent = true })
         end,
     },
     {
@@ -120,6 +120,13 @@ lvim.plugins = {
         config = function()
             vim.g.mkdp_filetypes = { "markdown" }
         end,
+    },
+    {
+        "ellisonleao/glow.nvim",
+        ft = { "markdown" },
+        config = function()
+            require("glow").setup()
+        end
     },
     {
         -- command :DiffviewFileHistory :DiffviewOpen

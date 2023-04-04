@@ -15,7 +15,11 @@ mappings["c"]  = {}
 --  <leader>+b
 mappings["bx"] = { "<CMD>:BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", "Close All Buffer" }
 mappings["bs"] = { ":e ~/buffer<cr>", "Open Scribble" }
+mappings["bm"] = { ":e ~/buffer.md<cr>", "Open Scribble Markdown" }
 mappings["br"] = { ":e ~/reuqest.http<cr>", "Open Reuqest" }
+mappings["bc"] = { "<CMD>new<CR>", "Buffer Create" }
+mappings["bv"] = { "<CMD>vnew<CR>", "Buffer Create" }
+
 
 -- <leader>+g
 mappings["gg"] = {}
@@ -24,10 +28,6 @@ mappings["gh"] = { "<CMD>DiffviewFileHistory<CR>", "Diffview History" }
 mappings["gf"] = { "<CMD>DiffviewFileHistory %<CR>", "Diffview File" }
 mappings["gi"] = { "<CMD>DiffviewOpen<CR>", "Diffview Open" }
 mappings["gx"] = { "<CMD>DiffviewClose<CR>", "Diffview Close" }
-
--- <leader>+b
-mappings["bc"] = { "<CMD>new<CR>", "Buffer Create" }
-mappings["bv"] = { "<CMD>vnew<CR>", "Buffer Create" }
 
 -- <leader>+n
 mappings["nn"] = { "<CMD>tab term<CR>", "New Tab Term" }
@@ -75,8 +75,7 @@ local normal_key_mappings = {
         y = { "<cmd>Telescope current_buffer_fuzzy_find fuzzy=false theme=get_dropdown layout_config={width=0.8}<cr>", "Find Buffers Text" },
         b = { "<cmd>Telescope buffers<cr>", "Buffers List" },
         c = { "<cmd>Telescope git_status theme=get_ivy layout_config={height=0.7,preview_width=0.7} initial_mode=normal<cr>", "Find Git Change" },
-        j = { "<cmd>Telescope jumplist<cr>", "Find jumplist" },
-        -- o = { "<CMD>Telescope oldfiles<CR>", "Recently files" },
+        o = { "<cmd>Telescope jumplist<cr>", "Find jumplist" },
         s = { "<cmd>Telescope oldfiles<CR>", "Recently files" },
         h = { "<cmd>Telescope lsp_document_symbols layout_config={preview_width=0.6}<CR>", "Document Symbols" },
         w = { "<cmd>Telescope lsp_workspace_symbols layout_config={preview_width=0.6}<CR>", "Wordspace Symbols" },

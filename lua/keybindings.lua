@@ -8,9 +8,8 @@ lvim.keys.normal_mode = {
     ["<C-e>"] = "$",
     ["<C-a>"] = "^",
     ["<CR>"] = "<CMD>noh<CR>",
-    -- ["\\"] = "$",
-    -- ["d\\"] = "d$",
-    ["r"] = "<C-r>",
+    -- ["r"] = "<C-r>",
+
     -- move
     ["<C-j>"] = "8j",
     ["<C-k>"] = "8k",
@@ -34,9 +33,8 @@ lvim.keys.normal_mode = {
     ["<S-l>"] = ":BufferLineCycleNext<CR>",
     ["<S-h>"] = ":BufferLineCyclePrev<CR>",
     -- QuickFix
-    -- ["]q"] = ":cnext<CR>",
-    -- ["[q"] = ":cprev<CR>",
-
+    ["]q"] = ":cnext<CR>",
+    ["[q"] = ":cprev<CR>",
     ["<C-q>"] = "<CMD>lua vim.lsp.buf.format {async=true}<CR>",
     ["<C-s>"] = "==",
     ["<C-y>"] = ":call QuickFixToggle()<CR>",
@@ -93,20 +91,21 @@ lvim.keys.visual_mode = {
     ["<C-k>"] = "8k",
     ["<C-/>"] = "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
     ["<C-s>"] = "=",
+    ["<C-n>"] = "<CMD>ToggleTermToggleAll<CR>",
     ["<A-j>"] = ":m '>+1<CR>gv-gv",
     ["<A-k>"] = ":m '<-2<CR>gv-gv",
 }
 
 lvim.keys.term_mode = {
-    -- ["<ESC>"] = "<C-\\><C-N>",
-    -- ["<C-[>"] = "<C-\\><C-N>",
+    ["<C-n>"] = "<CMD>ToggleTermToggleAll<CR>",
+    
     ["<C-q>"] = "<C-\\><C-N>",
     ["<C-j>"] = "<CR>",
     ["<C-k>"] = "<C-\\><C-N>8k",
-    -- ["<C-u>"] = "<C-\\><C-N>u",
-    ["<C-n>"] = "<CMD>ToggleTermToggleAll<CR>",
     ["<C-y>"] = "<C-\\><C-N>pa",
     ["<C-u><C-u>"] = "<C-\\><C-N><C-u>",
+    -- ["<C-u>"] = "<C-\\><C-N>u",
+
     -- window max
     ["<C-t>"] = "<C-\\><C-N><C-w>_a",
     -- Terminal window navigation
