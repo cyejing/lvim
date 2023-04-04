@@ -51,9 +51,16 @@ formatters.setup {
         command = "prettier",
         ---@usage arguments to pass to the formatter
         -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
-        extra_args = { "--print-with", "120" },
+        extra_args = {
+            "--print-width", "120",
+            "--no-semi",
+            "--single-quote",
+            "--tab-width", "2",
+            "--trailing-comma", "none",
+            "--prose-wrap", "always",
+        },
         ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-        filetypes = { "typescript", "typescriptreact", "javascript", "vue", "json" },
+        filetypes = { "typescript", "typescriptreact", "javascript", "vue", "json", "jsonc", "html", "css" },
     }
 }
 
@@ -68,9 +75,9 @@ linters.setup {
     --     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
     --     extra_args = { "--severity", "warning" },
     -- },
-    {
-        command = "eslint",
-        ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-        filetypes = { "javascript", "python" },
-    },
+    -- {
+    --     command = "eslint",
+    --     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+    --     filetypes = { "javascript", "python" },
+    -- },
 }
