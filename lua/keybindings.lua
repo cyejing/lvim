@@ -68,7 +68,7 @@ lvim.keys.insert_mode = {
     ["<A-b>"] = "<C-o>b",
     ["<C-d>"] = "<del>",
     ["<C-k>"] = "<C-o>C",
-    ["<C-y>"] = "<C-o>p",
+    ["<C-y>"] = "<Left><C-o>p",
     ["<C-x><C-u>"] = "<C-o>u",
     -- Move current line / block with Alt-j/k ala vscode.
     ["<A-j>"] = "<Esc>:m .+1<CR>==gi",
