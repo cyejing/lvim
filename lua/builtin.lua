@@ -15,7 +15,7 @@ lvim.builtin.indentlines.active = true
 lvim.builtin.lir.active = false
 
 lvim.builtin.project.patterns = { ".git", ".svn", "Makefile", "package.json" }
-lvim.builtin.project.exclude_dirs = { "*/.local/*", "*/node_modules/*" }
+lvim.builtin.project.exclude_dirs = { "*/node_modules/*" }
 
 lvim.builtin.comment.toggler.block = "gcb"
 lvim.builtin.comment.mappings.basic = false
@@ -24,12 +24,6 @@ lvim.builtin.dap.active = true
 
 lvim.builtin.cmp.completion.keyword_length = 2
 
--- treesitter
--- if you don't want all the parsers change this to a table of the ones you want
-lvim.builtin.treesitter.ensure_installed = { "bash", "c", "javascript", "json", "lua", "python", "typescript", "tsx",
-    "css", "rust", "java", "yaml", }
-lvim.builtin.treesitter.ignore_install = { "haskell" }
-lvim.builtin.treesitter.highlight.enabled = true
 
 -- bufferline
 lvim.builtin.bufferline.options.close_command = "Bdelete! %d"

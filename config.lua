@@ -15,6 +15,7 @@ lvim.use_icons = true
 -- lvim.colorscheme = "tokyonight"
 -- lvim.colorscheme = "desert"
 lvim.colorscheme = "onedark"
+-- lvim.colorscheme = "lunar"
 
 -- vim.o.background = "light"
 -- vim.g.tokyonight_style = "day" -- day / night

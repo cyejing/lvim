@@ -62,7 +62,7 @@ lvim.plugins = {
         "phaazon/hop.nvim", -- jump char
         event = "BufRead",
         config = function()
-            require("hop").setup()
+            require("hop").setup({ keys = "asdqwezxclkjoiumnyfh" })
             vim.api.nvim_set_keymap("n", "f", ":HopChar1<cr>", { noremap = true, silent = true })
         end,
     },

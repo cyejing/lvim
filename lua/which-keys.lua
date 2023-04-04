@@ -67,14 +67,17 @@ lvim.lsp.buffer_mappings.normal_mode = {}
 -- which-key register
 local normal_key_mappings = {
     s = {
-        name = "File", -- optional group name
+        name = "File",                                       -- optional group name
         p = { "<cmd>Telescope projects layout_config={width=0.6}<cr>", "Open Projects" },
         f = { "<cmd>Telescope git_files<cr>", "Find File" }, -- create a binding with label
         t = { "<cmd>Telescope live_grep theme=get_dropdown layout_config={width=0.8}<cr>", "Find All Text" },
         T = { "<cmd>Telescope grep_string theme=get_dropdown layout_config={width=0.8}<cr>", "Find Cursor Text" },
-        y = { "<cmd>Telescope current_buffer_fuzzy_find fuzzy=false theme=get_dropdown layout_config={width=0.8}<cr>", "Find Buffers Text" },
+        y = { "<cmd>Telescope current_buffer_fuzzy_find fuzzy=false theme=get_dropdown layout_config={width=0.8}<cr>",
+            "Find Buffers Text" },
         b = { "<cmd>Telescope buffers<cr>", "Buffers List" },
-        c = { "<cmd>Telescope git_status theme=get_ivy layout_config={height=0.7,preview_width=0.7} initial_mode=normal<cr>", "Find Git Change" },
+        c = {
+            "<cmd>Telescope git_status theme=get_ivy layout_config={height=0.7,preview_width=0.7} initial_mode=normal<cr>",
+            "Find Git Change" },
         o = { "<cmd>Telescope jumplist<cr>", "Find jumplist" },
         s = { "<cmd>Telescope oldfiles<CR>", "Recently files" },
         h = { "<cmd>Telescope lsp_document_symbols layout_config={preview_width=0.6}<CR>", "Document Symbols" },
@@ -89,13 +92,18 @@ local normal_key_mappings = {
         D = { vim.lsp.buf.declaration, "Goto declaration" },
         s = { vim.lsp.buf.signature_help, "Show signature help" },
         f = { "<cmd>lua vim.lsp.buf.format { async = true}<cr>", "Format" },
-        e = { "<cmd>Telescope diagnostics theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>", "Diagnostics" },
-        b = { "<cmd>Telescope diagnostics bufnr=0 theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>", "Buffer Diagnostics" },
+        e = { "<cmd>Telescope diagnostics theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
+            "Diagnostics" },
+        b = { "<cmd>Telescope diagnostics bufnr=0 theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
+            "Buffer Diagnostics" },
         d = { "<cmd>Telescope lsp_definitions<CR>", "Goto Definition" },
-        v = { "<cmd>:vertical resize +80<cr>:vsp<cr>:Telescope lsp_definitions<cr>:vertical resize 120<cr>", "Goto Definition Split" },
+        v = { "<cmd>:vertical resize +80<cr>:vsp<cr>:Telescope lsp_definitions<cr>:vertical resize 120<cr>",
+            "Goto Definition Split" },
         o = { "<C-W>c<cmd>:vertical resize 120<cr>", "Goto Back Window" },
-        r = { "<cmd>Telescope lsp_references theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>", "References" },
-        c = { "<cmd>Telescope lsp_incoming_calls theme=get_dropdown layout_config={width=0.8} initial_mode=normal<CR>", "Incoming calls" },
+        r = { "<cmd>Telescope lsp_references theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
+            "References" },
+        c = { "<cmd>Telescope lsp_incoming_calls theme=get_dropdown layout_config={width=0.8} initial_mode=normal<CR>",
+            "Incoming calls" },
         i = { "<cmd>Telescope lsp_implementations<CR>", "Implementation" },
         -- h = { "<cmd>Telescope lsp_document_symbols<CR>", "Document Symbols" },
         -- w = { "<cmd>Telescope lsp_workspace_symbols<CR>", "Workspace Symbols" },
@@ -106,7 +114,7 @@ local normal_key_mappings = {
             function()
                 local config = lvim.lsp.diagnostics.float
                 config.scope = "line"
-                vim.diagnostic.open_float(0, config)
+                    vim.diagnostic.open_float(0, config)
             end,
             "Show line diagnostics",
         }
@@ -144,12 +152,20 @@ lvim.builtin.nvimtree.setup.view.mappings.list = {
     { key = "K",                       action = "prev_sibling" },
     { key = "L",                       action = "last_sibling" },
     --
-    { key = "sf", action = "telescope_find_files", action_cb = function()
-        require("lvim.core.nvimtree").start_telescope "find_files"
-    end },
-    { key = "st", action = "telescope_live_grep", action_cb = function()
-        require("lvim.core.nvimtree").start_telescope "live_grep"
-    end },
+    {
+        key = "sf",
+        action = "telescope_find_files",
+        action_cb = function()
+            require("lvim.core.nvimtree").start_telescope "find_files"
+        end
+    },
+    {
+        key = "st",
+        action = "telescope_live_grep",
+        action_cb = function()
+            require("lvim.core.nvimtree").start_telescope "live_grep"
+        end
+    },
     { key = { "<C-o>", "O" }, action = "edit_and_quit", action_cb = require("plugin-config.func").edit_or_open },
 }
 
@@ -168,7 +184,6 @@ lvim.builtin.telescope.defaults.mappings = {
         ["<C-Y>"] = actions.smart_send_to_qflist + actions.open_qflist,
         ["<CR>"] = actions.select_default,
         ["<C-o>"] = actions.select_default,
-
         ["<C-n>"] = actions.cycle_history_next,
         ["<C-p>"] = actions.cycle_history_prev,
     },
@@ -183,7 +198,6 @@ lvim.builtin.telescope.defaults.mappings = {
         ["<C-Y>"] = actions.smart_send_to_qflist + actions.open_qflist,
         ["<CR>"] = actions.select_default,
         ["<C-o>"] = actions.select_default,
-
     },
 }
 
