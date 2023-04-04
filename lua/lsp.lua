@@ -1,9 +1,15 @@
 --generic LSP settings
 
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust_analyzer", "jdtls" })
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust_analyzer", "jdtls", "tsserver" })
 
 ---@usage disable automatic installation of servers
 lvim.lsp.automatic_servers_installation = false
+
+
+--- lspconfig setup
+require 'lspconfig'.volar.setup {
+    filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }
+}
 
 ---configure a server manually. !!Requires `:LvimCacheReset` to take effect!!
 ---see the full default list `:lua print(vim.inspect(lvim.lsp.automatic_configuration.skipped_servers))`

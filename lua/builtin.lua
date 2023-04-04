@@ -15,7 +15,7 @@ lvim.builtin.indentlines.active = true
 lvim.builtin.lir.active = false
 
 lvim.builtin.project.patterns = { ".git", ".svn", "Makefile", "package.json" }
-lvim.builtin.project.exclude_dirs = { ".local", "node_modules" }
+lvim.builtin.project.exclude_dirs = { "*/.local/*", "*/node_modules/*" }
 
 lvim.builtin.comment.toggler.block = "gcb"
 lvim.builtin.comment.mappings.basic = false
