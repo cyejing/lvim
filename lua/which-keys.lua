@@ -23,7 +23,7 @@ mappings["bv"] = { "<CMD>vnew<CR>", "Buffer Create" }
 
 -- <leader>+g
 mappings["gg"] = {}
-mappings["gg"] = { "<CMD>lua require 'plugin-config.func'.gitui_toggle()<CR>", "Gitui" }
+mappings["gg"] = { "<CMD>lua require 'func'.gitui_toggle()<CR>", "Gitui" }
 mappings["gh"] = { "<CMD>DiffviewFileHistory<CR>", "Diffview History" }
 mappings["gf"] = { "<CMD>DiffviewFileHistory %<CR>", "Diffview File" }
 mappings["gi"] = { "<CMD>DiffviewOpen<CR>", "Diffview Open" }
@@ -114,7 +114,8 @@ local normal_key_mappings = {
             function()
                 local config = lvim.lsp.diagnostics.float
                 config.scope = "line"
-                    vim.diagnostic.open_float(0, config)
+                
+                vim.diagnostic.open_float(config)
             end,
             "Show line diagnostics",
         }
@@ -166,7 +167,7 @@ lvim.builtin.nvimtree.setup.view.mappings.list = {
             require("lvim.core.nvimtree").start_telescope "live_grep"
         end
     },
-    { key = { "<C-o>", "O" }, action = "edit_and_quit", action_cb = require("plugin-config.func").edit_or_open },
+    { key = { "<C-o>", "O" }, action = "edit_and_quit", action_cb = require("func").edit_or_open },
 }
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.

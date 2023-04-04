@@ -1,7 +1,3 @@
--- vim.g.local_history_width = 35
--- vim.g.local_history_new_change_delay = 10
---
---
 local M = {}
 
 -- ui
@@ -12,6 +8,82 @@ M.onedark_setup = function()
         toggle_style_list = { 'light', 'darker' }, -- List of styles to toggle between
     }
 end
+
+-- autosave
+M.autosave_setup = function()
+    local status_ok, autosave = pcall(require, "autosave")
+    if not status_ok then
+        vim.notify("autosave not found!")
+        return
+    end
+
+    autosave.setup({
+        enabled = true,
+        execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
+        events = { "InsertLeave", "TextChanged" },
+        conditions = {
+            exists = true,
+            filename_is_not = {},
+            filetype_is_not = {},
+            modifiable = true
+        },
+        on_off_commands = true,
+        write_all_buffers = false,
+        clean_command_line_interval = 0,
+        debounce_delay = 135
+    })
+end
+
+M.bqf_setup = function()
+    require("bqf").setup({
+        auto_enable = true,
+        auto_resize_height = true,
+        preview = {
+            win_height = 20,
+            win_vheight = 20,
+            delay_syntax = 50,
+            border_chars = { "┃", "┃", "━", "━", "┏", "┓", "┗", "┛", "█" },
+        },
+        func_map = {
+            -- vsplit = "",
+            ptogglemode = "z,",
+            stoggleup = "",
+            pscrolldown = "<C-d>",
+            pscrollup = "<C-f>",
+        },
+        filter = {
+            fzf = {
+                action_for = {
+                    ["ctrl-d"] = "pscrolldown",
+                    ["ctrl-f"] = "pscrollup",
+                },
+                extra_opts = { "--bind", "ctrl-o:toggle-all", "--prompt", "> " },
+            },
+        },
+    })
+
+end
+
+M.rust_tools_setup = function()
+    local rt = require("rust-tools")
+    rt.setup({
+        server = {
+            on_attach = function(client, bufnr)
+                local mappings = require("which-keys").rust_key_mappings()
+
+                for key, remap in pairs(mappings) do
+                    local opts = { buffer = bufnr, desc = remap[2], noremap = true, silent = true }
+                    vim.keymap.set("n", key, remap[1], opts)
+                end
+
+                require("lvim.lsp").common_on_attach(client, bufnr)
+            end,
+            on_init = require("lvim.lsp").common_on_init,
+            standalone = true,
+        },
+    })
+end
+
 
 M.fidget_setup = function()
     require("fidget").setup({

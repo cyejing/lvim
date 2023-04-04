@@ -3,7 +3,7 @@ lvim.leader = "space"
 
 lvim.keys.normal_mode = {
     -- basic
-    ["s"] = "",
+    -- ["s"] = "",
     ["g"] = "",
     ["<C-e>"] = "$",
     ["<C-a>"] = "^",

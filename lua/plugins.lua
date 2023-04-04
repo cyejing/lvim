@@ -4,7 +4,7 @@ lvim.plugins = {
     {
         "navarasu/onedark.nvim",
         config = function()
-            require("plugin-config.less").onedark_setup()
+            require("plugin-config").onedark_setup()
         end
     },
 
@@ -25,7 +25,7 @@ lvim.plugins = {
         -- require: rust-analyzer graphviz
         "simrat39/rust-tools.nvim", -- rust
         config = function()
-            require("plugin-config.rust-tools").setup()
+            require("plugin-config").rust_tools_setup()
         end,
     },
     {
@@ -83,34 +83,34 @@ lvim.plugins = {
     {
         "j-hui/fidget.nvim", -- progress bar
         config = function()
-            require("plugin-config.less").fidget_setup()
+            require("plugin-config").fidget_setup()
         end
     },
     {
         "ethanholz/nvim-lastplace", -- last place
         event = "BufRead",
         config = function()
-            require("plugin-config.less").lastplace_setup()
+            require("plugin-config").lastplace_setup()
         end,
     },
     {
         "Pocco81/auto-save.nvim", -- autosave
         config = function()
-            require("plugin-config.autosave").setup()
+            require("plugin-config").autosave_setup()
         end,
     },
     {
         "kevinhwang91/nvim-bqf", -- quickfix plus
         event = { "BufRead", "BufNew" },
         config = function()
-            require("plugin-config.nvim-bqf").setup()
+            require("plugin-config").bqf_setup()
         end,
     },
     -- { 'dinhhuy258/vim-local-history' },
     {
         "romgrk/nvim-treesitter-context", -- show top function name
         config = function()
-            require("plugin-config.less").treesitter_context_setup()
+            require("plugin-config").treesitter_context_setup()
         end
     },
     {
@@ -138,7 +138,7 @@ lvim.plugins = {
         -- keymapping: <leader>rr
         "NTBBloodbath/rest.nvim",
         config = function()
-            require("plugin-config.less").rest_setup()
+            require("plugin-config").rest_setup()
         end
     },
     {
@@ -146,7 +146,7 @@ lvim.plugins = {
         -- command: :SqlsExecuteQuery
         "nanotee/sqls.nvim", -- sql
         config = function()
-            require("plugin-config.less").sqls_setup()
+            require("plugin-config").sqls_setup()
         end
     },
     {

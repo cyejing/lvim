@@ -1,8 +1,8 @@
 require("basic")
-require("plugins")
-require("autocmd")
-require("lsp")
 require("builtin")
+require("dashboard")
+require("lsp")
+require("plugins")
 require("keybindings")
 require("which-keys")
 

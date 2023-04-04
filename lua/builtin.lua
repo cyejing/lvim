@@ -1,8 +1,3 @@
-require("builtin.dashboard")
-require("builtin.cmp")
-require("plugin-config.less")
-
-
 lvim.line_wrap_cursor_movement = true
 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
@@ -20,9 +15,57 @@ lvim.builtin.project.exclude_dirs = { "*/node_modules/*" }
 lvim.builtin.comment.toggler.block = "gcb"
 lvim.builtin.comment.mappings.basic = false
 
+-- dap
 lvim.builtin.dap.active = true
 
+-- cmp
 lvim.builtin.cmp.completion.keyword_length = 2
+lvim.builtin.cmp.formatting.fields = { "abbr", "kind", "menu" }
+
+lvim.builtin.cmp.formatting.kind_icons = {
+    Text = "",
+    Method = "",
+    Function = "",
+    Constructor = "",
+    Field = "",
+    Variable = "",
+    Class = "ﴯ",
+    Interface = "",
+    Module = "",
+    Property = "ﰠ",
+    Unit = "",
+    Value = "",
+    Enum = "",
+    Keyword = "",
+    Snippet = "",
+    Color = "",
+    File = "",
+    Reference = "",
+    Folder = "",
+    EnumMember = "",
+    Constant = "",
+    Struct = "",
+    Event = "",
+    Operator = "",
+    TypeParameter = ""
+}
+local cmp = require("cmp")
+-- Use buffer source for `/`.
+cmp.setup.cmdline("/", {
+    sources = {
+        { name = "buffer" },
+    },
+})
+-- Use cmdline & path source for ':'.
+cmp.setup.cmdline(":", {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+        { name = "path" },
+    }, {
+        { name = "cmdline" },
+    }),
+})
+
 
 
 -- bufferline
@@ -80,6 +123,7 @@ lvim.builtin.nvimtree.setup.live_filter = {
     always_show_folders = false,
 }
 
+-- nvimtree
 lvim.builtin.nvimtree.on_config_done = function()
     lvim.builtin.which_key.mappings["e"] = { "<cmd>NvimTreeFocus<CR>", "Explorer" }
 end
@@ -106,3 +150,12 @@ end)
 pcall(function()
     require("telescope").load_extension "ui-select"
 end)
+
+
+-- Autocommands (https://neovim.io/doc/user/autocmd.html)
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = { "*.json", "*.jsonc" },
+  -- enable wrap mode for json files only
+  command = "setlocal wrap",
+})
+
