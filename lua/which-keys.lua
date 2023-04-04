@@ -1,4 +1,5 @@
 local M        = {}
+
 local mappings = lvim.builtin.which_key.mappings
 mappings["e"]  = { "<cmd>NvimTreeFocus<CR>", "Explorer" }
 mappings["m"]  = { "<cmd>NvimTreeToggle<CR>", "Explorer Toggle" }
@@ -23,6 +24,10 @@ mappings["gh"] = { "<CMD>DiffviewFileHistory<CR>", "Diffview History" }
 mappings["gf"] = { "<CMD>DiffviewFileHistory %<CR>", "Diffview File" }
 mappings["gi"] = { "<CMD>DiffviewOpen<CR>", "Diffview Open" }
 mappings["gx"] = { "<CMD>DiffviewClose<CR>", "Diffview Close" }
+
+-- <leader>+b
+mappings["bc"] = { "<CMD>new<CR>", "Buffer Create" }
+mappings["bv"] = { "<CMD>vnew<CR>", "Buffer Create" }
 
 -- <leader>+n
 mappings["nn"] = { "<CMD>tab term<CR>", "New Tab Term" }

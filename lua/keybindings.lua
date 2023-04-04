@@ -103,9 +103,10 @@ lvim.keys.term_mode = {
     ["<C-q>"] = "<C-\\><C-N>",
     ["<C-j>"] = "<CR>",
     ["<C-k>"] = "<C-\\><C-N>8k",
+    -- ["<C-u>"] = "<C-\\><C-N>u",
+    ["<C-n>"] = "<CMD>ToggleTermToggleAll<CR>",
     ["<C-y>"] = "<C-\\><C-N>pa",
     ["<C-u><C-u>"] = "<C-\\><C-N><C-u>",
-    -- ["<C-n>"] = "<CMD>ToggleTermToggleAll<CR>",
     -- window max
     ["<C-t>"] = "<C-\\><C-N><C-w>_a",
     -- Terminal window navigation
@@ -131,6 +132,7 @@ lvim.keys.visual_block_mode = {
 lvim.keys.command_mode = {
     -- navigate tab completion with <c-j> and <c-k>
     -- runs conditionally
+    ["<C-q>"] = "<ESC>",
     ["<C-j>"] = { 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true } },
     ["<C-k>"] = { 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true } },
 }
