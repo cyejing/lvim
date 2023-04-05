@@ -44,30 +44,33 @@ require 'lspconfig'.volar.setup {
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-    { command = "black", filetypes = { "python" } },
-    { command = "isort", filetypes = { "python" } },
+    { name = "black", filetypes = { "python" } },
+    { name = "isort", filetypes = { "python" } },
     {
         -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
-        command = "prettier",
+        name = "prettier",
         ---@usage arguments to pass to the formatter
         -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
-        extra_args = {
-            "--print-width", "120",
-            "--no-semi",
-            "--single-quote",
-            "--tab-width", "2",
-            "--trailing-comma", "none",
-            "--prose-wrap", "always",
-        },
+        -- args = {
+        --     "--print-width", "120",
+        --     "--no-semi",
+        --     "--single-quote",
+        --     "--tab-width", "2",
+        --     "--trailing-comma", "none",
+        --     "--prose-wrap", "always",
+        -- },
         ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-        filetypes = { "typescript", "typescriptreact", "javascript", "vue", "json", "jsonc", "html", "css" },
+        filetypes = {
+            "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "css", "scss", "less", "html",
+            "json", "jsonc", "yaml", "markdown",
+        }
     }
 }
 
 -- -- set additional linters
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
-    { command = "flake8", filetypes = { "python" } },
+    { name = "flake8", filetypes = { "python" } },
     -- {
     --     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
     --     command = "shellcheck",
@@ -76,8 +79,8 @@ linters.setup {
     --     extra_args = { "--severity", "warning" },
     -- },
     -- {
-    --     command = "eslint",
+    --     name = "eslint",
     --     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-    --     filetypes = { "javascript", "python" },
+    --     filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
     -- },
 }

@@ -70,10 +70,25 @@ local normal_key_mappings = {
         name = "File",                                       -- optional group name
         p = { "<cmd>Telescope projects layout_config={width=0.6}<cr>", "Open Projects" },
         f = { "<cmd>Telescope git_files<cr>", "Find File" }, -- create a binding with label
-        t = { "<cmd>Telescope live_grep theme=get_dropdown layout_config={width=0.8}<cr>", "Find All Text" },
-        T = { "<cmd>Telescope grep_string theme=get_dropdown layout_config={width=0.8}<cr>", "Find Cursor Text" },
-        y = { "<cmd>Telescope current_buffer_fuzzy_find fuzzy=false theme=get_dropdown layout_config={width=0.8}<cr>",
-            "Find Buffers Text" },
+        -- T = { "<cmd>Telescope live_grep theme=get_dropdown layout_config={width=0.8}<cr>", "Find All Text" },
+        t = { function()
+            local word = vim.fn.expand "<cword>";
+            require('telescope.builtin').live_grep({
+                default_text = word,
+                theme = "get_dropdown",
+                layout_config = { width = 0.8, preview_cutoff = 30 }
+            })
+        end, "Live Grep Word" },
+        T = { "<cmd>Telescope grep_string theme=get_dropdown layout_config={width=0.8}<cr>", "Grep Word" },
+        y = { function()
+            local word = vim.fn.expand "<cword>";
+            require('telescope.builtin').current_buffer_fuzzy_find({
+                default_text = word,
+                fuzzy = false,
+                theme = "get_dropdown",
+                layout_config = { width = 0.8, preview_cutoff = 30 }
+            })
+        end, "Find Buffer Word" },
         b = { "<cmd>Telescope buffers<cr>", "Buffers List" },
         c = {
             "<cmd>Telescope git_status theme=get_ivy layout_config={height=0.7,preview_width=0.7} initial_mode=normal<cr>",
@@ -91,7 +106,7 @@ local normal_key_mappings = {
         -- a = { "<CMD>Telescope code<CR>", "Code Action" },
         D = { vim.lsp.buf.declaration, "Goto declaration" },
         s = { vim.lsp.buf.signature_help, "Show signature help" },
-        f = { "<cmd>lua vim.lsp.buf.format { async = true}<cr>", "Format" },
+        f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
         e = { "<cmd>Telescope diagnostics theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
             "Diagnostics" },
         b = { "<cmd>Telescope diagnostics bufnr=0 theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
@@ -114,7 +129,6 @@ local normal_key_mappings = {
             function()
                 local config = lvim.lsp.diagnostics.float
                 config.scope = "line"
-                
                 vim.diagnostic.open_float(config)
             end,
             "Show line diagnostics",
@@ -123,8 +137,27 @@ local normal_key_mappings = {
 }
 local visual_key_mapping = {
     g = {
-        f = { "<cmd>:lua vim.lsp.buf.format()<CR><ESC>", "Format range" },
+        f = { "<cmd>lua vim.lsp.buf.format()<CR><ESC>", "Format range" },
         n = { "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", "Comment range" },
+    },
+    s = {
+        t = { function()
+            local text = vim.getVisualSelection()
+            require('telescope.builtin').live_grep({
+                default_text = text,
+                theme = "get_dropdown",
+                layout_config = { width = 0.8, preview_cutoff = 30 }
+            })
+        end, "Find All Text" },
+        y = { function()
+            local text = vim.getVisualSelection()
+            require('telescope.builtin').current_buffer_fuzzy_find({
+                default_text = text,
+                fuzzy = false,
+                theme = "get_dropdown",
+                layout_config = { width = 0.8, preview_cutoff = 30 }
+            })
+        end, "Find Buffer Text" },
     }
 }
 lvim.builtin.which_key.on_config_done = function(wk)

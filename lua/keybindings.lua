@@ -28,7 +28,6 @@ lvim.keys.normal_mode = {
     ["<S-Left>"] = ":vertical resize -2<CR>",
     ["<S-Right>"] = ":vertical resize +2<CR>",
     -- vim-surround : -yss insert, cs replace, ds delete, ysiw insert word
-    ["<C-/>"] = "<CMD>lua require('Comment.api').toggle.linewise.current()<CR>j",
     -- Tab switch buffer
     ["<S-l>"] = ":BufferLineCycleNext<CR>",
     ["<S-h>"] = ":BufferLineCyclePrev<CR>",
@@ -36,7 +35,6 @@ lvim.keys.normal_mode = {
     ["]q"] = ":cnext<CR>",
     ["[q"] = ":cprev<CR>",
     ["<C-q>"] = "<CMD>lua vim.lsp.buf.format()<CR>",
-    ["<C-s>"] = "<CMD>lua vim.lsp.buf.format()<CR>",
     ["<C-y>"] = ":call QuickFixToggle()<CR>",
     --
     -- ["<C-n>"] = "<CMD>ToggleTermToggleAll<CR>",
@@ -83,14 +81,11 @@ lvim.keys.visual_mode = {
     -- Better indenting
     ["<"] = "<gv",
     [">"] = ">gv",
-    -- ["\\"] = "$",
     ["<C-e>"] = "$",
     ["<C-a>"] = "^",
     ["<C-q>"] = "<ESC>",
     ["<C-j>"] = "8j",
     ["<C-k>"] = "8k",
-    ["<C-/>"] = "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
-    ["<C-s>"] = "<cmd>:lua vim.lsp.buf.format()<CR><ESC>",
     ["<C-n>"] = "<CMD>ToggleTermToggleAll<CR>",
     ["<A-j>"] = ":m '>+1<CR>gv-gv",
     ["<A-k>"] = ":m '<-2<CR>gv-gv",
