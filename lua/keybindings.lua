@@ -23,10 +23,10 @@ lvim.keys.normal_mode = {
     ["<C-x>"] = "<C-w>c",
     ["<S-x>"] = ":Bdelete!<CR>",
     -- Resize with arrows
-    ["<S-Up>"] = ":resize -2<CR>",
-    ["<S-Down>"] = ":resize +2<CR>",
-    ["<S-Left>"] = ":vertical resize -2<CR>",
-    ["<S-Right>"] = ":vertical resize +2<CR>",
+    ["<S-Up>"] = ":resize -1<CR>",
+    ["<S-Down>"] = ":resize +1<CR>",
+    ["<S-Left>"] = ":vertical resize -1<CR>",
+    ["<S-Right>"] = ":vertical resize +1<CR>",
     -- vim-surround : -yss insert, cs replace, ds delete, ysiw insert word
     -- Tab switch buffer
     ["<S-l>"] = ":BufferLineCycleNext<CR>",

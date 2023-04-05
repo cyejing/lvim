@@ -52,10 +52,10 @@ formatters.setup {
         ---@usage arguments to pass to the formatter
         -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
         -- args = {
-        --     "--print-width", "120",
+            "--print-width", "120",
         --     "--no-semi",
         --     "--single-quote",
-        --     "--tab-width", "2",
+            "--tab-width", "2",
         --     "--trailing-comma", "none",
         --     "--prose-wrap", "always",
         -- },

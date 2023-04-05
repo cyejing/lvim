@@ -55,10 +55,17 @@ end
 
 function M.sqls_key_mappings()
     return {
-        ["<leader>rr"] = { "v", ":SqlsExecuteQuery<CR>", "SqlsExecuteQuery" },
-        ["<leader>rv"] = { "v", ":SqlsExecuteQueryVertical<CR>", "SqlsExecuteQueryVertical" },
-        ["<leader>rn"] = { "n", ":SqlsSwitchConnection<CR>", "SqlsSwitchConnection" },
-        ["<leader>rd"] = { "n", ":SqlsSwitchDatabase<CR>", "SqlsSwitchDatabase" },
+        ["v"] = {
+            ["<leader>rr"] = { ":SqlsExecuteQuery<CR>", "SqlsExecuteQuery" },
+            ["<leader>rv"] = { ":SqlsExecuteQueryVertical<CR>", "SqlsExecuteQueryVertical" },
+
+        },
+        ["n"] = {
+            ["<leader>rr"] = { "v:SqlsExecuteQuery<CR>", "SqlsExecuteQuery" },
+            ["<leader>rv"] = { "v:SqlsExecuteQueryVertical<CR>", "SqlsExecuteQueryVertical" },
+            ["<leader>rn"] = { ":SqlsSwitchConnection<CR>", "SqlsSwitchConnection" },
+            ["<leader>rd"] = { ":SqlsSwitchDatabase<CR>", "SqlsSwitchDatabase" },
+        }
     }
 end
 
@@ -89,7 +96,7 @@ local normal_key_mappings = {
                 layout_config = { width = 0.8, preview_cutoff = 30 }
             })
         end, "Find Buffer Word" },
-        b = { "<cmd>Telescope buffers<cr>", "Buffers List" },
+        b = { "<cmd>Telescope buffers initial_mode=insert<cr>", "Buffers List" },
         c = {
             "<cmd>Telescope git_status theme=get_ivy layout_config={height=0.7,preview_width=0.7} initial_mode=normal<cr>",
             "Find Git Change" },
