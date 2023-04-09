@@ -114,6 +114,12 @@ lvim.plugins = {
         end
     },
     {
+        "windwp/nvim-ts-autotag",
+        config = function()
+            require("nvim-ts-autotag").setup()
+        end,
+    },
+    {
         "iamcco/markdown-preview.nvim", -- markdown
         run = "cd app && npm install",
         ft = { "markdown" },

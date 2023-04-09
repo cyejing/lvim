@@ -31,6 +31,8 @@ lvim.keys.normal_mode = {
     -- Tab switch buffer
     ["<S-l>"] = ":BufferLineCycleNext<CR>",
     ["<S-h>"] = ":BufferLineCyclePrev<CR>",
+    ["<S-m><S-h>"] = ":BufferLineMovePrev<CR>",
+    ["<S-m><S-l>"] = ":BufferLineMoveNext<CR>",
     -- QuickFix
     ["]q"] = ":cnext<CR>",
     ["[q"] = ":cprev<CR>",

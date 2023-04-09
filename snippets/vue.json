@@ -1,14 +1,38 @@
 {
-  "vue": {
-    "prefix": "vue",
-    "body": [
-      "<script setup lang=\"ts\">",
-      "</script>",
-      "<template>",
-      "</template>",
-      "<style scoped>",
-      "</style>"
-    ],
-    "description": "vue template"
-  }
+    "vue": {
+        "prefix": "vue",
+        "body": [
+            "<script setup lang=\"ts\">",
+            "</script>",
+            "<template>",
+            "</template>",
+            "<style scoped>",
+            "</style>"
+        ],
+        "description": "vue template"
+    },
+    "style": {
+        "prefix": "style",
+        "body": [
+            "<style>",
+            "</style>"
+        ],
+        "description": "style tag"
+    },
+    "div": {
+        "prefix": "div",
+        "body": [
+            "<div>",
+            "</div>"
+        ],
+        "description": "div tag"
+    },
+    "span": {
+        "prefix": "span",
+        "body": [
+            "<span>",
+            "</span>"
+        ],
+        "description": "span tag"
+    }
 }

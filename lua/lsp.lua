@@ -44,8 +44,8 @@ require 'lspconfig'.volar.setup {
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-    { name = "black", filetypes = { "python" } },
-    { name = "isort", filetypes = { "python" } },
+    -- { name = "black", filetypes = { "python" } },
+    -- { name = "isort", filetypes = { "python" } },
     {
         -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
         name = "prettier",
@@ -53,8 +53,8 @@ formatters.setup {
         -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
         -- args = {
             "--print-width", "120",
-        --     "--no-semi",
-        --     "--single-quote",
+            "--no-semi",
+            "--single-quote",
             "--tab-width", "2",
         --     "--trailing-comma", "none",
         --     "--prose-wrap", "always",
@@ -70,7 +70,7 @@ formatters.setup {
 -- -- set additional linters
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
-    { name = "flake8", filetypes = { "python" } },
+    -- { name = "flake8", filetypes = { "python" } },
     -- {
     --     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
     --     command = "shellcheck",
