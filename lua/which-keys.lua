@@ -77,7 +77,6 @@ local normal_key_mappings = {
         name = "File",                                       -- optional group name
         p = { "<cmd>Telescope projects layout_config={width=0.6}<cr>", "Open Projects" },
         f = { "<cmd>Telescope git_files<cr>", "Find File" }, -- create a binding with label
-        -- T = { "<cmd>Telescope live_grep theme=get_dropdown layout_config={width=0.8}<cr>", "Find All Text" },
         t = { function()
             local word = vim.fn.expand "<cword>";
             require('telescope.builtin').live_grep({
@@ -229,6 +228,7 @@ lvim.builtin.telescope.defaults.mappings = {
         ["<C-o>"] = actions.select_default,
         ["<C-n>"] = actions.cycle_history_next,
         ["<C-p>"] = actions.cycle_history_prev,
+        ["<C-s>"] = actions.select_horizontal,
     },
     -- for normal mode
     n = {
@@ -241,6 +241,7 @@ lvim.builtin.telescope.defaults.mappings = {
         ["<C-Y>"] = actions.smart_send_to_qflist + actions.open_qflist,
         ["<CR>"] = actions.select_default,
         ["<C-o>"] = actions.select_default,
+        ["<C-s>"] = actions.select_horizontal,
     },
 }
 
