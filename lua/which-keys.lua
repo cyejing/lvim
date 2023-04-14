@@ -85,7 +85,7 @@ local normal_key_mappings = {
                 layout_config = { width = 0.8, preview_cutoff = 30 }
             })
         end, "Live Grep Current Word" },
-        T = { "<cmd>Telescope grep_string theme=get_dropdown layout_config={width=0.8}<cr>", "Live Grep Word" },
+        T = { "<cmd>Telescope live_grep theme=get_dropdown layout_config={width=0.8}<cr>", "Live Grep Word" },
         y = { function()
             local word = vim.fn.expand "<cword>";
             require('telescope.builtin').current_buffer_fuzzy_find({
