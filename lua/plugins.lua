@@ -63,7 +63,10 @@ lvim.plugins = {
         event = "BufRead",
         config = function()
             require("hop").setup({ keys = "asdqwezxclkjoiumnyfh" })
-            vim.api.nvim_set_keymap("n", "f", ":HopChar1<cr>", { noremap = true, silent = true })
+            vim.api.nvim_set_keymap("n", "f", ":HopChar1AC<cr>", { noremap = true, silent = true })
+            vim.api.nvim_set_keymap("n", "F", ":HopChar1BC<cr>", { noremap = true, silent = true })
+            vim.api.nvim_set_keymap("n", "t", ":HopChar1AC<cr>", { noremap = true, silent = true })
+            vim.api.nvim_set_keymap("n", "T", ":HopChar1BC<cr>", { noremap = true, silent = true })
         end,
     },
     {

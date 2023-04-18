@@ -35,7 +35,8 @@ require'jdtls'.test_nearest_method()
 2. `tidy` install `brew install tidy`
 
 ### sqls
-1. `go`
+1. `go install github.com/lighttiger2505/sqls@latest`
+2. `~/.config/sqls.yml` config db connection
 
 #### search
 1. `gnu-sed` install `brew install gnu-sed`

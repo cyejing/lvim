@@ -49,6 +49,7 @@ lvim.builtin.cmp.formatting.kind_icons = {
     Operator = "",
     TypeParameter = ""
 }
+
 local cmp = require("cmp")
 -- Use buffer source for `/`.
 cmp.setup.cmdline("/", {

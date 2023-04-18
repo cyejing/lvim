@@ -176,6 +176,11 @@ lvim.builtin.which_key.on_config_done = function(wk)
     })
 end
 
+-- lvim cmp mappings
+local cmp = require("cmp")
+lvim.builtin.cmp.mapping["<C-D>"] = cmp.mapping.scroll_docs(4);
+lvim.builtin.cmp.mapping["<C-F>"] = cmp.mapping.scroll_docs(-4);
+
 
 -- lvim builtin mappings
 lvim.builtin.nvimtree.setup.view.mappings.list = {
@@ -185,7 +190,8 @@ lvim.builtin.nvimtree.setup.view.mappings.list = {
     { key = "v",                       action = "vsplit" },
     { key = "C",                       action = "cd" },
     --
-    { key = "x",                       action = "split" },
+    { key = "s",                       action = "split" },
+    { key = "S",                       action = "system_open" },
     { key = "<C-k>",                   action = "" },
     { key = "<C-p>",                   action = "toggle_file_info" },
     { key = "G",                       action = "toggle_dotfiles" },
@@ -221,8 +227,8 @@ lvim.builtin.telescope.defaults.mappings = {
         ["<C-Q>"] = actions.close,
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
-        ["<C-D>"] = actions.preview_scrolling_up,
-        ["<C-F>"] = actions.preview_scrolling_down,
+        ["<C-D>"] = actions.preview_scrolling_down,
+        ["<C-F>"] = actions.preview_scrolling_up,
         ["<C-Y>"] = actions.smart_send_to_qflist + actions.open_qflist,
         ["<CR>"] = actions.select_default,
         ["<C-o>"] = actions.select_default,
@@ -236,8 +242,8 @@ lvim.builtin.telescope.defaults.mappings = {
         ["<C-Q>"] = actions.close,
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
-        ["<C-D>"] = actions.preview_scrolling_up,
-        ["<C-F>"] = actions.preview_scrolling_down,
+        ["<C-D>"] = actions.preview_scrolling_down,
+        ["<C-F>"] = actions.preview_scrolling_up,
         ["<C-Y>"] = actions.smart_send_to_qflist + actions.open_qflist,
         ["<CR>"] = actions.select_default,
         ["<C-o>"] = actions.select_default,

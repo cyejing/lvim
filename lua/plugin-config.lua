@@ -85,6 +85,7 @@ end
 
 M.sqls_setup = function()
     require('lspconfig').sqls.setup({
+        cmd = {"sqls", "-config", "~/.config/sqls.yml"};
         on_attach = function(client, bufnr)
             local mappings = require("which-keys").sqls_key_mappings()
 

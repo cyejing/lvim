@@ -1,23 +1,23 @@
 {
-    "rust-analyzer": {
-        "cargo": {
-            "features": "all"
-        },
-        "checkOnSave": {
-            "command": "check",
-            "allTargets": true
-        },
-        "completion": {
-            "postfix": {
-                "enable": false
-            }
-        },
-        "hover": {
-            "actions": {
-                "run": {
-                    "enable": true
-                }
-            }
+  "rust-analyzer": {
+    "cargo": {
+      "features": "all"
+    },
+    "checkOnSave": {
+      "command": "check",
+      "allTargets": true
+    },
+    "completion": {
+      "postfix": {
+        "enable": false
+      }
+    },
+    "hover": {
+      "actions": {
+        "run": {
+          "enable": true
         }
+      }
     }
+  }
 }
