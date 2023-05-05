@@ -38,7 +38,7 @@ lvim.keys.normal_mode = {
     ["]q"] = ":cnext<CR>",
     ["[q"] = ":cprev<CR>",
     ["<C-q>"] = "<CMD>lua vim.lsp.buf.format()<CR>",
-    ["<C-y>"] = ":call QuickFixToggle()<CR>",
+    ["<C-,>"] = ":call QuickFixToggle()<CR>",
     --
     -- ["<C-n>"] = "<CMD>ToggleTermToggleAll<CR>",
     ["<C-m>"] = "<CMD>NvimTreeToggle<CR>",
@@ -106,10 +106,10 @@ lvim.keys.term_mode = {
     -- window max
     ["<C-t>"] = "<C-\\><C-N><C-w>_a",
     -- Terminal window navigation
-    ["<C-h>"] = "<C-\\><C-N><C-w>h",
+    ["<C-h>"] = "<C-\\><C-N><C-w>W",
     -- ["<C-j>"] = "<C-\\><C-N><C-w>j",
     -- ["<C-k>"] = "<C-\\><C-N><C-w>k",
-    ["<C-l>"] = "<C-\\><C-N><C-w>l",
+    ["<C-l>"] = "<C-\\><C-N><C-w>w",
 }
 
 lvim.keys.visual_block_mode = {
