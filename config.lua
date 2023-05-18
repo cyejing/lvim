@@ -19,3 +19,4 @@ lvim.colorscheme = "onedark"
 
 -- vim.o.background = "light"
 -- vim.g.tokyonight_style = "day" -- day / night
+

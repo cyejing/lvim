@@ -11,6 +11,7 @@ mappings["h"]  = { "<CMD>SymbolsOutline<CR>", "SymbolsOutline" }
 mappings["x"]  = { "<CMD>only<CR>", "Close All Windows" }
 mappings["S"]  = { "<CMD>lua require('spectre').open()<CR>", "Open Spectre" }
 mappings["c"]  = {}
+mappings["j"]  = { "`", "Jump mark" }
 
 --  <leader>+b
 mappings["bx"] = { "<CMD>:BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", "Close All Buffer" }
@@ -18,7 +19,9 @@ mappings["bs"] = { ":e ~/buffer<cr>", "Open Scribble" }
 mappings["bm"] = { ":e ~/buffer.md<cr>", "Open Scribble Markdown" }
 mappings["br"] = { ":e ~/reuqest.http<cr>", "Open Reuqest" }
 mappings["bc"] = { "<CMD>new<CR>", "Buffer Create" }
-mappings["bv"] = { "<CMD>vnew<CR>", "Buffer Create" }
+mappings["bv"] = { "<CMD>vnew<CR>", "Buffer Create vertical" }
+-- mappings["bl"] = { "<CMD>BufferLineMoveNext<CR>", "Buffer move next" }
+-- mappings["bh"] = { "<CMD>BufferLineMovePrev<CR>", "Buffer move prev" }
 
 
 -- <leader>+g
@@ -141,6 +144,11 @@ local normal_key_mappings = {
             end,
             "Show line diagnostics",
         }
+    },
+    c = {
+        name = "Buffers",
+        l = { "<cmd>BufferLineCloseRight<cr>", "Close all to the left" },
+        h = { "<cmd>BufferLineCloseLeft<cr>", "Close all to the left" },
     }
 }
 local visual_key_mapping = {

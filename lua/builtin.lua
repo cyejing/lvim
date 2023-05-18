@@ -18,6 +18,10 @@ lvim.builtin.comment.mappings.basic = false
 -- dap
 lvim.builtin.dap.active = true
 
+-- which_key
+lvim.builtin.which_key.setup.plugins.registers = true
+lvim.builtin.which_key.setup.plugins.marks = true
+
 -- cmp
 lvim.builtin.cmp.completion.keyword_length = 2
 lvim.builtin.cmp.formatting.fields = { "abbr", "kind", "menu" }

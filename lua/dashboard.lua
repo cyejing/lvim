@@ -45,7 +45,12 @@ lvim.builtin.alpha.dashboard.section.buttons = {
 local function footer()
     local datetime = os.date("  %Y-%m-%d   %H:%M:%S")
     local version = vim.version()
-    local nvim_version_info = "   v" .. version.major .. "." .. version.minor .. "." .. version.patch
+
+    local nvim_version_info = ""
+    if version ~= nil then
+        nvim_version_info = "   v" .. version.major .. "." .. version.minor .. "." .. version.patch
+    end
+
     return datetime .. nvim_version_info
 end
 
