@@ -17,9 +17,6 @@ lvim.plugins = {
     -- bufferline
     { "moll/vim-bbye" },
 
-    -- cmp
-    -- { "hrsh7th/cmp-cmdline" },
-
     --lsp
     {
         -- require: rust-analyzer graphviz
@@ -89,7 +86,6 @@ lvim.plugins = {
     },
     {
         "ethanholz/nvim-lastplace", -- last place
-        event = "BufRead",
         config = function()
             require("plugin-config").lastplace_setup()
         end,

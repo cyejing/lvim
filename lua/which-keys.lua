@@ -190,40 +190,63 @@ lvim.builtin.cmp.mapping["<C-D>"] = cmp.mapping.scroll_docs(4);
 lvim.builtin.cmp.mapping["<C-F>"] = cmp.mapping.scroll_docs(-4);
 
 
+
 -- lvim builtin mappings
--- lvim.builtin.nvimtree.setup.view.mappings.list = {
---     { key = { "<ESC>", "q", "<C-x>" }, action = "close",           mode = "n" },
---     { key = { "l", "<CR>", "o" },      action = "edit",            mode = "n" },
---     { key = "h",                       action = "close_node" },
---     { key = "v",                       action = "vsplit" },
---     { key = "C",                       action = "cd" },
---     --
---     { key = "s",                       action = "split" },
---     { key = "S",                       action = "system_open" },
---     { key = "<C-k>",                   action = "" },
---     { key = "<C-p>",                   action = "toggle_file_info" },
---     { key = "G",                       action = "toggle_dotfiles" },
---     { key = "H",                       action = "first_sibling" },
---     { key = "J",                       action = "next_sibling" },
---     { key = "K",                       action = "prev_sibling" },
---     { key = "L",                       action = "last_sibling" },
---     --
---     {
---         key = "sf",
---         action = "telescope_find_files",
---         action_cb = function()
---             require("lvim.core.nvimtree").start_telescope "find_files"
---         end
---     },
---     {
---         key = "st",
---         action = "telescope_live_grep",
---         action_cb = function()
---             require("lvim.core.nvimtree").start_telescope "live_grep"
---         end
---     },
---     { key = { "<C-o>", "O" }, action = "edit_and_quit", action_cb = require("func").edit_or_open },
--- }
+local function on_attach(bufnr)
+    local api = require "nvim-tree.api"
+
+    local function telescope_find_files(_)
+        require("lvim.core.nvimtree").start_telescope "find_files"
+    end
+
+    local function telescope_live_grep(_)
+        require("lvim.core.nvimtree").start_telescope "live_grep"
+    end
+
+    local function opts(desc)
+        return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+    end
+
+    api.config.mappings.default_on_attach(bufnr)
+
+    local useful_keys = {
+        ["<ESC>"] = { api.tree.close, opts "Close" },
+        ["q"] = { api.tree.close, opts "Close" },
+        ["<C-x>"] = { api.tree.close, opts "Close" },
+
+        ["l"] = { api.node.open.edit, opts "Open" },
+        ["o"] = { api.node.open.edit, opts "Open" },
+        ["<CR>"] = { api.node.open.edit, opts "Open" },
+
+        ["h"] = { api.node.navigate.parent_close, opts "Close Directory" },
+        ["C"] = { api.tree.change_root_to_node, opts "CD" },
+
+        ["st"] = { telescope_live_grep, opts "Telescope Live Grep" },
+        ["sf"] = { telescope_find_files, opts "Telescope Find File" },
+
+        ["v"] = { api.node.open.vertical, opts "Open: Vertical Split" },
+        ["s"] = { api.node.open.horizontal, opts "Open: Horizontal Split" },
+        ["S"] = { api.node.run.system, opts "Open: Run System" },
+        ["<C-p>"] = { api.node.show_info_popup, opts "Info" },
+        ["<C-k>"] = { "8k", opts "None" },
+
+        ["G"] = { api.tree.toggle_hidden_filter, opts "Toggle Dotfiles" },
+
+        ["H"] = { api.node.navigate.sibling.first, opts "First Sibling" },
+        ["L"] = { api.node.navigate.sibling.last, opts "Last Sibling" },
+        ["J"] = { api.node.navigate.sibling.next, opts "Next Sibling" },
+        ["K"] = { api.node.navigate.sibling.prev, opts "Prev Sibling" },
+
+        ["<C-o>"] = { require("func").edit_or_open, opts "Edit Or Open" },
+        ["O"] = { require("func").edit_or_open, opts "Edit Or Open" },
+    }
+
+    require("lvim.keymappings").load_mode("n", useful_keys)
+end
+
+lvim.builtin.nvimtree.setup.on_attach = on_attach
+
+
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
