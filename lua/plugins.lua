@@ -3,6 +3,8 @@ lvim.plugins = {
     --  UI
     {
         "navarasu/onedark.nvim",
+        lazy = false, -- make sure we load this during startup if it is your main colorscheme
+        priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
             require("plugin-config").onedark_setup()
         end
@@ -145,12 +147,12 @@ lvim.plugins = {
         end
     },
     -- {
-        -- keymapping: v <leader>rr
-        -- command: :SqlsExecuteQuery
-        -- "nanotee/sqls.nvim", -- sql
-        -- config = function()
-            -- require("plugin-config").sqls_setup()
-        -- end
+    -- keymapping: v <leader>rr
+    -- command: :SqlsExecuteQuery
+    -- "nanotee/sqls.nvim", -- sql
+    -- config = function()
+    -- require("plugin-config").sqls_setup()
+    -- end
     -- },
     {
         -- keymapping: <leader>S

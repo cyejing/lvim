@@ -15,8 +15,5 @@ lvim.use_icons = true
 -- lvim.colorscheme = "tokyonight"
 -- lvim.colorscheme = "desert"
 lvim.colorscheme = "onedark"
-
-
--- vim.o.background = "light"
--- vim.g.tokyonight_style = "day" -- day / night
+vim.o.background = "dark"
 
