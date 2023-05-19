@@ -18,7 +18,7 @@ lvim.plugins = {
     { "moll/vim-bbye" },
 
     -- cmp
-    { "hrsh7th/cmp-cmdline" },
+    -- { "hrsh7th/cmp-cmdline" },
 
     --lsp
     {
@@ -30,7 +30,7 @@ lvim.plugins = {
     },
     {
         'saecki/crates.nvim', -- rust crate info
-        tag = 'v0.2.1',
+        version = 'v0.2.1',
         config = function()
             require('crates').setup()
         end,
@@ -122,7 +122,7 @@ lvim.plugins = {
     },
     {
         "iamcco/markdown-preview.nvim", -- markdown
-        run = "cd app && npm install",
+        build = "cd app && npm install",
         ft = { "markdown" },
         config = function()
             vim.g.mkdp_filetypes = { "markdown" }
@@ -148,14 +148,14 @@ lvim.plugins = {
             require("plugin-config").rest_setup()
         end
     },
-    {
+    -- {
         -- keymapping: v <leader>rr
         -- command: :SqlsExecuteQuery
-        "nanotee/sqls.nvim", -- sql
-        config = function()
-            require("plugin-config").sqls_setup()
-        end
-    },
+        -- "nanotee/sqls.nvim", -- sql
+        -- config = function()
+            -- require("plugin-config").sqls_setup()
+        -- end
+    -- },
     {
         -- keymapping: <leader>S
         -- command: :Spectre

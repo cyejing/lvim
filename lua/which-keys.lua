@@ -191,39 +191,39 @@ lvim.builtin.cmp.mapping["<C-F>"] = cmp.mapping.scroll_docs(-4);
 
 
 -- lvim builtin mappings
-lvim.builtin.nvimtree.setup.view.mappings.list = {
-    { key = { "<ESC>", "q", "<C-x>" }, action = "close",           mode = "n" },
-    { key = { "l", "<CR>", "o" },      action = "edit",            mode = "n" },
-    { key = "h",                       action = "close_node" },
-    { key = "v",                       action = "vsplit" },
-    { key = "C",                       action = "cd" },
-    --
-    { key = "s",                       action = "split" },
-    { key = "S",                       action = "system_open" },
-    { key = "<C-k>",                   action = "" },
-    { key = "<C-p>",                   action = "toggle_file_info" },
-    { key = "G",                       action = "toggle_dotfiles" },
-    { key = "H",                       action = "first_sibling" },
-    { key = "J",                       action = "next_sibling" },
-    { key = "K",                       action = "prev_sibling" },
-    { key = "L",                       action = "last_sibling" },
-    --
-    {
-        key = "sf",
-        action = "telescope_find_files",
-        action_cb = function()
-            require("lvim.core.nvimtree").start_telescope "find_files"
-        end
-    },
-    {
-        key = "st",
-        action = "telescope_live_grep",
-        action_cb = function()
-            require("lvim.core.nvimtree").start_telescope "live_grep"
-        end
-    },
-    { key = { "<C-o>", "O" }, action = "edit_and_quit", action_cb = require("func").edit_or_open },
-}
+-- lvim.builtin.nvimtree.setup.view.mappings.list = {
+--     { key = { "<ESC>", "q", "<C-x>" }, action = "close",           mode = "n" },
+--     { key = { "l", "<CR>", "o" },      action = "edit",            mode = "n" },
+--     { key = "h",                       action = "close_node" },
+--     { key = "v",                       action = "vsplit" },
+--     { key = "C",                       action = "cd" },
+--     --
+--     { key = "s",                       action = "split" },
+--     { key = "S",                       action = "system_open" },
+--     { key = "<C-k>",                   action = "" },
+--     { key = "<C-p>",                   action = "toggle_file_info" },
+--     { key = "G",                       action = "toggle_dotfiles" },
+--     { key = "H",                       action = "first_sibling" },
+--     { key = "J",                       action = "next_sibling" },
+--     { key = "K",                       action = "prev_sibling" },
+--     { key = "L",                       action = "last_sibling" },
+--     --
+--     {
+--         key = "sf",
+--         action = "telescope_find_files",
+--         action_cb = function()
+--             require("lvim.core.nvimtree").start_telescope "find_files"
+--         end
+--     },
+--     {
+--         key = "st",
+--         action = "telescope_live_grep",
+--         action_cb = function()
+--             require("lvim.core.nvimtree").start_telescope "live_grep"
+--         end
+--     },
+--     { key = { "<C-o>", "O" }, action = "edit_and_quit", action_cb = require("func").edit_or_open },
+-- }
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.

@@ -37,7 +37,7 @@ vim.opt.cmdheight = 1
 ---- 当文件被外部程序修改时，自动加载
 vim.opt.autoread = true
 ---- 禁止折行
-vim.opt.wrap = false
+vim.opt.wrap = true
 -- 光标在行首尾时<Left><Right>可以跳到下一行
 vim.opt.whichwrap = "<,>,[,]"
 ---- 允许隐藏被修改过的buffer

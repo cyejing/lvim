@@ -12,7 +12,6 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- generic LSP settings
 lvim.lsp.installer.setup.ensure_installed = {
-    "sumneko_lua",
     "cssls",
     "html",
     "jsonls",

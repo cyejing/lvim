@@ -23,6 +23,7 @@ lvim.builtin.which_key.setup.plugins.registers = true
 lvim.builtin.which_key.setup.plugins.marks = true
 
 -- cmp
+lvim.builtin.cmp.cmdline.enable = true
 lvim.builtin.cmp.completion.keyword_length = 2
 lvim.builtin.cmp.formatting.fields = { "abbr", "kind", "menu" }
 
