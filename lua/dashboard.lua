@@ -25,7 +25,7 @@ lvim.builtin.alpha.dashboard.section.header = {
     },
     opts = {
         position = "center",
-        hl = "Type",
+        hl = "Identifier",
     },
 }
 

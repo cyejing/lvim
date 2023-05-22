@@ -11,7 +11,6 @@ mappings["h"]  = { "<CMD>SymbolsOutline<CR>", "SymbolsOutline" }
 mappings["x"]  = { "<CMD>only<CR>", "Close All Windows" }
 mappings["S"]  = { "<CMD>lua require('spectre').open()<CR>", "Open Spectre" }
 mappings["c"]  = {}
-mappings["j"]  = { "`", "Jump mark" }
 
 --  <leader>+b
 mappings["bx"] = { "<CMD>:BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", "Close All Buffer" }
@@ -106,9 +105,10 @@ local normal_key_mappings = {
             "Find Git Change" },
         o = { "<cmd>Telescope jumplist<cr>", "Find jumplist" },
         s = { "<cmd>Telescope oldfiles<CR>", "Recently files" },
-        h = { "<cmd>Telescope lsp_document_symbols layout_config={preview_width=0.6}<CR>", "Document Symbols" },
-        w = { "<cmd>Telescope lsp_workspace_symbols layout_config={preview_width=0.6}<CR>", "Wordspace Symbols" },
-        m = { "<cmd>NvimTreeToggle<CR>", "Explorer Toggle" }
+        h = { "<cmd>Telescope lsp_document_symbols<CR>", "Document Symbols" },
+        w = { "<cmd>Telescope lsp_workspace_symbols<CR>", "Wordspace Symbols" },
+        -- m = { "<cmd>NvimTreeToggle<CR>", "Explorer Toggle" }
+        m = { "`", "Jump mark" }
     },
     K = { vim.lsp.buf.hover, "Show hover" },
     g = {
@@ -138,9 +138,14 @@ local normal_key_mappings = {
         n = { "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>j", "Comment line" },
         l = {
             function()
-                local config = lvim.lsp.diagnostics.float
-                config.scope = "line"
-                vim.diagnostic.open_float(config)
+                local float = vim.diagnostic.config().float
+
+                if float then
+                    local config = type(float) == "table" and float or {}
+                    config.scope = "line"
+
+                    vim.diagnostic.open_float(config)
+                end
             end,
             "Show line diagnostics",
         }
