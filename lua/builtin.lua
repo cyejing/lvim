@@ -12,8 +12,8 @@ lvim.builtin.lir.active = false
 lvim.builtin.project.patterns = { ".git", ".svn", "Makefile", "package.json" }
 lvim.builtin.project.exclude_dirs = { "*/node_modules/*" }
 
-lvim.builtin.comment.toggler.block = "gcb"
-lvim.builtin.comment.mappings.basic = false
+-- lvim.builtin.comment.toggler.block = "gcb"
+-- lvim.builtin.comment.mappings.basic = false
 
 -- dap
 lvim.builtin.dap.active = true

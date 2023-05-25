@@ -128,7 +128,7 @@ local normal_key_mappings = {
         o = { "<C-W>c<cmd>:vertical resize 120<cr>", "Goto Back Window" },
         r = { "<cmd>Telescope lsp_references theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
             "References" },
-        c = { "<cmd>Telescope lsp_incoming_calls theme=get_dropdown layout_config={width=0.8} initial_mode=normal<CR>",
+        w = { "<cmd>Telescope lsp_incoming_calls theme=get_dropdown layout_config={width=0.8} initial_mode=normal<CR>",
             "Incoming calls" },
         i = { "<cmd>Telescope lsp_implementations<CR>", "Implementation" },
         -- h = { "<cmd>Telescope lsp_document_symbols<CR>", "Document Symbols" },
