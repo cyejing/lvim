@@ -105,7 +105,6 @@ lvim.builtin.terminal = {
 }
 
 -- nvimtree
-lvim.builtin.nvimtree.setup.disable_netrw = true
 lvim.builtin.nvimtree.setup.git.enable = true
 lvim.builtin.nvimtree.setup.renderer.icons.glyphs.git = {
     unstaged = "",
@@ -128,8 +127,6 @@ lvim.builtin.nvimtree.setup.live_filter = {
     prefix = "[FILTER]: ",
     always_show_folders = false,
 }
-
--- nvimtree
 lvim.builtin.nvimtree.on_config_done = function()
     lvim.builtin.which_key.mappings["e"] = { "<cmd>NvimTreeFocus<CR>", "Explorer" }
 end

@@ -79,13 +79,30 @@ M.rust_tools_setup = function()
             end,
             on_init = require("lvim.lsp").common_on_init,
             standalone = true,
+
+            settings = {
+                ['rust-analyzer'] = {
+                    cargo = {
+                        features = "all"
+                    },
+                    checkOnSave = true,
+                    check = {
+                        allTargets = true
+                    },
+                    completion = {
+                        postfix = {
+                            enable = false
+                        }
+                    }
+                }
+            }
         },
     })
 end
 
 M.sqls_setup = function()
     require('lspconfig').sqls.setup({
-        cmd = {"sqls", "-config", "~/.config/sqls.yml"};
+        cmd = { "sqls", "-config", "~/.config/sqls.yml" },
         on_attach = function(client, bufnr)
             local mappings = require("which-keys").sqls_key_mappings()
 

@@ -11,7 +11,6 @@ lvim.builtin.alpha.dashboard.section.header = {
         "                                                        ",
         "                                                        ",
         "                                                        ",
-        "                                                        ",
         " ██████╗██╗   ██╗███████╗     ██╗██╗███╗   ██╗ ██████╗  ",
         "██╔════╝╚██╗ ██╔╝██╔════╝     ██║██║████╗  ██║██╔════╝  ",
         "██║      ╚████╔╝ █████╗       ██║██║██╔██╗ ██║██║  ███╗ ",
@@ -25,16 +24,19 @@ lvim.builtin.alpha.dashboard.section.header = {
     },
     opts = {
         position = "center",
+        -- hl = "Label",
         hl = "Identifier",
     },
 }
 
 lvim.builtin.alpha.dashboard.section.buttons = {
     entries = {
-        { "SPC p",  "  Projects",       "<CMD>Telescope projects layout_config={width=0.6}<CR>" },
-        { "SPC ss", "  Recently files", "<CMD>Telescope oldfiles<CR>" },
-        { "SPC f",  "  Find File",      "<CMD>Telescope find_files<CR>" },
-        { "SPC h",  "  Edit Projects",  "<CMD>edit ~/.cache/lvim/project_nvim/project_history<CR>" },
+        { "SPC p",  lvim.icons.ui.Project .. " Projects",       "<CMD>Telescope projects layout_config={width=0.6}<CR>" },
+        { "SPC ss", lvim.icons.ui.History .. " Recently files", "<CMD>Telescope oldfiles<CR>" },
+        { "SPC f",  lvim.icons.ui.FindFile .. " Find File",     "<CMD>Telescope find_files<CR>" },
+        { "n",      lvim.icons.ui.NewFile .. " New File",       "<CMD>ene!<CR>" },
+        { "SPC h",  lvim.icons.ui.Gear .. " Edit Projects",     "<CMD>edit ~/.cache/lvim/project_nvim/project_history<CR>" },
+
     },
     opts = {
         hl_shortcut = "Include",
@@ -42,16 +44,23 @@ lvim.builtin.alpha.dashboard.section.buttons = {
     }
 }
 
-local function footer()
+local function now()
     local datetime = os.date("  %Y-%m-%d   %H:%M:%S")
-    local version = vim.version()
+    return datetime
+end
 
+local function nvim_version()
+    local version = vim.version()
     local nvim_version_info = ""
     if version ~= nil then
-        nvim_version_info = "   v" .. version.major .. "." .. version.minor .. "." .. version.patch
+        nvim_version_info = "nvim  v" .. version.major .. "." .. version.minor .. "." .. version.patch
     end
+    return nvim_version_info
+end
 
-    return datetime .. nvim_version_info
+local function lvim_version()
+    local lvim_version_info = require("lvim.utils.git").get_lvim_version()
+    return "lvim 󰘬 " .. lvim_version_info
 end
 
 lvim.builtin.alpha.dashboard.section.footer = {
@@ -60,8 +69,9 @@ lvim.builtin.alpha.dashboard.section.footer = {
         "",
         "",
         "",
-        "",
-        footer(),
+        now(),
+        lvim_version(),
+        nvim_version(),
         "",
         "",
         "",
