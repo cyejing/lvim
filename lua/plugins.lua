@@ -48,13 +48,19 @@ lvim.plugins = {
                         hide_dotfiles = false,
                         hide_gitignored = true,
                         hide_by_name = {
-                            "node_modules"
+                            "node_modules", ".git", ".cache"
                         },
                         hide_by_pattern = { -- uses glob style patterns
                             --"*.meta",
                             --"*/src/*/tsconfig.json",
                         },
                     },
+                    window = {
+                        fuzzy_finder_mappings = {
+                            ["<C-J>"] = "move_cursor_down",
+                            ["<C-k>"] = "move_cursor_up",
+                        }
+                    }
                 },
                 window = {
                     mappings = {
