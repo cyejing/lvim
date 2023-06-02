@@ -25,73 +25,7 @@ lvim.plugins = {
             "MunifTanjim/nui.nvim",
         },
         config = function()
-            require("neo-tree").setup({
-                default_component_configs = {
-                    git_status = {
-                        symbols = {
-                            added = lvim.icons.git.LineAdded,
-                            modified = lvim.icons.git.LineModified,
-                            unstaged = lvim.icons.git.FileUnstaged,
-                            staged = lvim.icons.git.FileStaged,
-                            unmerged = lvim.icons.git.FileUnmerged,
-                            renamed = lvim.icons.git.FileRenamed,
-                            untracked = lvim.icons.git.FileUntracked,
-                            deleted = lvim.icons.git.FileDeleted,
-                            ignored = lvim.icons.git.FileIgnored,
-                        }
-                    }
-                },
-                filesystem = {
-                    follow_current_file = true,
-                    group_empty_dirs = true,
-                    filtered_items = {
-                        hide_dotfiles = false,
-                        hide_gitignored = true,
-                        hide_by_name = {
-                            "node_modules", ".git", ".cache"
-                        },
-                        hide_by_pattern = { -- uses glob style patterns
-                            --"*.meta",
-                            --"*/src/*/tsconfig.json",
-                        },
-                    },
-                    window = {
-                        fuzzy_finder_mappings = {
-                            ["<C-J>"] = "move_cursor_down",
-                            ["<C-k>"] = "move_cursor_up",
-                        }
-                    }
-                },
-                window = {
-                    mappings = {
-                        ["<cr>"] = "open",
-                        ["l"] = "open",
-                        ["o"] = "open",
-                        ["s"] = "open_split",
-                        ["v"] = "open_vsplit",
-                        ["h"] = "close_node",
-                        ["a"] = {
-                            "add",
-                            config = {
-                                show_path = "none" -- "none", "relative", "absolute"
-                            }
-                        },
-                        ["A"] = "add_directory",
-                        ["d"] = "delete",
-                        ["r"] = "rename",
-                        ["y"] = "copy_to_clipboard",
-                        ["x"] = "cut_to_clipboard",
-                        ["p"] = "paste_from_clipboard",
-                        ["c"] = "copy",
-                        ["m"] = "move",
-                        ["q"] = "close_window",
-                        ["R"] = "refresh",
-                        ["?"] = "show_help",
-                        ["<"] = "prev_source",
-                        [">"] = "next_source",
-                    }
-                }
-            })
+            require("plugin-config").neotree_setup()
         end
     },
 
@@ -215,6 +149,9 @@ lvim.plugins = {
         -- command :DiffviewFileHistory :DiffviewOpen
         "sindrets/diffview.nvim", -- git diff
         event = "BufRead",
+        config = function()
+            require("plugin-config").diffview_steup()
+        end
     },
     -- rest http
     {

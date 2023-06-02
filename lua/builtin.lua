@@ -31,34 +31,6 @@ lvim.builtin.cmp.cmdline.enable = true
 lvim.builtin.cmp.completion.keyword_length = 2
 lvim.builtin.cmp.formatting.fields = { "abbr", "kind", "menu" }
 
-lvim.builtin.cmp.formatting.kind_icons = {
-    Text = "",
-    Method = "",
-    Function = "",
-    Constructor = "",
-    Field = "",
-    Variable = "",
-    Class = "ﴯ",
-    Interface = "",
-    Module = "",
-    Property = "ﰠ",
-    Unit = "",
-    Value = "",
-    Enum = "",
-    Keyword = "",
-    Snippet = "",
-    Color = "",
-    File = "",
-    Reference = "",
-    Folder = "",
-    EnumMember = "",
-    Constant = "",
-    Struct = "",
-    Event = "",
-    Operator = "",
-    TypeParameter = ""
-}
-
 local cmp = require("cmp")
 -- Use buffer source for `/`.
 cmp.setup.cmdline("/", {
@@ -75,8 +47,6 @@ cmp.setup.cmdline(":", {
         { name = "cmdline" },
     }),
 })
-
-
 
 -- bufferline
 lvim.builtin.bufferline.options.close_command = "Bdelete! %d"

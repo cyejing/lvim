@@ -1,12 +1,13 @@
 local M        = {}
 
 local mappings = lvim.builtin.which_key.mappings
--- mappings["e"]  = { "<cmd>NvimTreeFocus<CR>", "Explorer" }
+mappings["e"]  = { "<cmd>Neotree reveal_force_cwd<CR>", "Explorer Reveal" }
 -- mappings["m"]  = { "<cmd>NvimTreeToggle<CR>", "Explorer Toggle" }
-mappings["m"]  = { "<cmd>NeoTreeShowToggle<CR>", "Explorer Toggle" }
+mappings["m"]  = { "<cmd>NeoTreeFocusToggle<CR>", "Explorer Toggle" }
 -- mappings["m"]  = { "<cmd>lua require'lir.float'.toggle()<CR>", "Explorer Toggle" }
 mappings["p"]  = { "<CMD>Telescope projects layout_config={width=0.6}<CR>", "Projects" }
 -- mappings["o"]  = { "<CMD>Telescope oldfiles<CR>", "Recently files" }
+--
 mappings["ss"] = { "<CMD>Telescope oldfiles<CR>", "Recently files" }
 mappings["h"]  = { "<CMD>edit ~/.cache/lvim/project_nvim/project_history<CR>", "Edit Projects" }
 mappings["h"]  = { "<CMD>SymbolsOutline<CR>", "SymbolsOutline" }
@@ -17,10 +18,11 @@ mappings["c"]  = {}
 --  <leader>+b
 mappings["bx"] = { "<CMD>:BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", "Close All Buffer" }
 mappings["bs"] = { ":e ~/buffer<cr>", "Open Scribble" }
-mappings["bm"] = { ":e ~/buffer.md<cr>", "Open Scribble Markdown" }
+mappings["bd"] = { ":e ~/buffer.md<cr>", "Open Scribble Markdown" }
 mappings["br"] = { ":e ~/reuqest.http<cr>", "Open Reuqest" }
 mappings["bc"] = { "<CMD>new<CR>", "Buffer Create" }
 mappings["bv"] = { "<CMD>vnew<CR>", "Buffer Create vertical" }
+mappings["bm"] = { "<CMD>Neotree toggle buffers float<cr>", "Open Scribble Markdown" }
 -- mappings["bl"] = { "<CMD>BufferLineMoveNext<CR>", "Buffer move next" }
 -- mappings["bh"] = { "<CMD>BufferLineMovePrev<CR>", "Buffer move prev" }
 
@@ -32,11 +34,211 @@ mappings["gh"] = { "<CMD>DiffviewFileHistory<CR>", "Diffview History" }
 mappings["gf"] = { "<CMD>DiffviewFileHistory %<CR>", "Diffview File" }
 mappings["gi"] = { "<CMD>DiffviewOpen<CR>", "Diffview Open" }
 mappings["gx"] = { "<CMD>DiffviewClose<CR>", "Diffview Close" }
+mappings["gm"] = { "<CMD>Neotree toggle git_status<CR>", "Diffview Close" }
 
 -- <leader>+n
 mappings["nn"] = { "<CMD>tab term<CR>", "New Tab Term" }
 
+lvim.lsp.buffer_mappings.normal_mode = {}
 
+-- which-key register
+local function which_key_mappings()
+    local normal_key_mappings = {
+        s = {
+            name = "File",                                       -- optional group name
+            p = { "<cmd>Telescope projects layout_config={width=0.6}<cr>", "Open Projects" },
+            f = { "<cmd>Telescope git_files<cr>", "Find File" }, -- create a binding with label
+            t = { function()
+                local word = vim.fn.expand "<cword>";
+                require('telescope.builtin').live_grep({
+                    default_text = word,
+                    theme = "get_dropdown",
+                    layout_config = { width = 0.8, preview_cutoff = 30 }
+                })
+            end, "Live Grep Current Word" },
+            T = { "<cmd>Telescope live_grep theme=get_dropdown layout_config={width=0.8}<cr>", "Live Grep Word" },
+            y = { function()
+                local word = vim.fn.expand "<cword>";
+                require('telescope.builtin').current_buffer_fuzzy_find({
+                    default_text = word,
+                    fuzzy = false,
+                    theme = "get_dropdown",
+                    layout_config = { width = 0.8, preview_cutoff = 30 }
+                })
+            end, "Find Buffer Current Word" },
+            Y = {
+                "<cmd>Telescope current_buffer_fuzzy_find fuzzy=false theme=get_dropdown layout_config={width=0.8}<cr>",
+                "Find Buffer Word" },
+            b = { "<cmd>Telescope buffers initial_mode=insert<cr>", "Buffers List" },
+            c = {
+                "<cmd>Telescope git_status theme=get_ivy layout_config={height=0.7,preview_width=0.7} initial_mode=normal<cr>",
+                "Find Git Change" },
+            o = { "<cmd>Telescope jumplist<cr>", "Find jumplist" },
+            s = { "<cmd>Telescope oldfiles<CR>", "Recently files" },
+            h = { "<cmd>Telescope lsp_document_symbols<CR>", "Document Symbols" },
+            w = { "<cmd>Telescope lsp_workspace_symbols<CR>", "Wordspace Symbols" },
+            m = { "`", "Jump mark" }
+        },
+        K = { vim.lsp.buf.hover, "Show hover" },
+        g = {
+            name = "Goto",
+            a = { "<CMD>CodeActionMenu<CR>", "Code Action" },
+            -- a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+            D = { vim.lsp.buf.declaration, "Goto declaration" },
+            s = { vim.lsp.buf.signature_help, "Show signature help" },
+            f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
+            e = { "<cmd>Telescope diagnostics theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
+                "Diagnostics" },
+            b = {
+                "<cmd>Telescope diagnostics bufnr=0 theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
+                "Buffer Diagnostics" },
+            d = { "<cmd>Telescope lsp_definitions<CR>", "Goto Definition" },
+            -- v = { "<cmd>:vertical resize +80<cr>:vsp<cr>:Telescope lsp_definitions<cr>:vertical resize 120<cr>",
+            -- "Goto Definition Split" },
+            v = { "<cmd>vsp<cr><cmd>Telescope lsp_definitions<cr>", "Goto Definition Split" },
+            -- o = { "<C-W>c<cmd>:vertical resize 120<cr>", "Goto Back Window" },
+            r = { "<cmd>Telescope lsp_references theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
+                "References" },
+            R = {
+                "<cmd>Telescope lsp_incoming_calls theme=get_dropdown layout_config={width=0.8} initial_mode=normal<CR>",
+                "Incoming calls" },
+            i = { "<cmd>Telescope lsp_implementations<CR>", "Implementation" },
+            j = { vim.diagnostic.goto_next, "Next Diagnostic" },
+            k = { vim.diagnostic.goto_prev, "Prev Diagnostic" },
+            n = { "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>j", "Comment line" },
+            l = {
+                function()
+                    local float = vim.diagnostic.config().float
+
+                    if float then
+                        local config = type(float) == "table" and float or {}
+                        config.scope = "line"
+
+                        vim.diagnostic.open_float(config)
+                    end
+                end,
+                "Show line diagnostics",
+            }
+        },
+        c = {
+            name = "Buffers",
+            l = { "<cmd>BufferLineCloseRight<cr>", "Close all to the left" },
+            h = { "<cmd>BufferLineCloseLeft<cr>", "Close all to the left" },
+        }
+    }
+    local visual_key_mapping = {
+        g = {
+            f = { "<cmd>lua vim.lsp.buf.format()<CR><ESC>", "Format range" },
+            n = { "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", "Comment range" },
+        },
+        s = {
+            t = { function()
+                local text = vim.getVisualSelection()
+                require('telescope.builtin').live_grep({
+                    default_text = text,
+                    theme = "get_dropdown",
+                    layout_config = { width = 0.8, preview_cutoff = 30 }
+                })
+            end, "Find All Text" },
+            y = { function()
+                local text = vim.getVisualSelection()
+                require('telescope.builtin').current_buffer_fuzzy_find({
+                    default_text = text,
+                    fuzzy = false,
+                    theme = "get_dropdown",
+                    layout_config = { width = 0.8, preview_cutoff = 30 }
+                })
+            end, "Find Buffer Text" },
+        }
+    }
+    return {
+        normal_key_mappings = normal_key_mappings,
+        visual_key_mapping = visual_key_mapping
+    }
+end
+
+-- lvim neotree mappings
+function M.neotree_key_mappings()
+    local function getTelescopeOpts(state, path)
+        return {
+            cwd = path,
+            search_dirs = { path },
+            attach_mappings = function(prompt_bufnr, map)
+                local actions = require "telescope.actions"
+                actions.select_default:replace(function()
+                    actions.close(prompt_bufnr)
+                    local action_state = require "telescope.actions.state"
+                    local selection = action_state.get_selected_entry()
+                    local filename = selection.filename
+                    if (filename == nil) then
+                        filename = selection[1]
+                    end
+                    -- any way to open the file without triggering auto-close event of neo-tree?
+                    require("neo-tree.sources.filesystem").navigate(state, state.path, filename)
+                end)
+                return true
+            end
+        }
+    end
+
+    return {
+        mappings = {
+            ["<cr>"] = "open",
+            ["l"] = "open",
+            ["o"] = "open",
+            ["<space>"] = "",
+            ["S"] = "",
+            ["C"] = "",
+            ["/"] = "",
+            ["e"] = "",
+            ["s"] = "open_split",
+            ["<C-s>"] = "open_split",
+            ["v"] = "open_vsplit",
+            ["<C-v>"] = "open_vsplit",
+            ["h"] = "close_node",
+            ["a"] = {
+                "add",
+                config = {
+                    show_path = "none" -- "none", "relative", "absolute"
+                }
+            },
+            ["A"] = "add_directory",
+            ["d"] = "delete",
+            ["r"] = "rename",
+            ["y"] = "copy_to_clipboard",
+            ["x"] = "cut_to_clipboard",
+            ["p"] = "paste_from_clipboard",
+            ["c"] = "copy",
+            ["m"] = "move",
+            ["q"] = "close_window",
+            ["R"] = "refresh",
+            ["?"] = "show_help",
+            ["<"] = "prev_source",
+            [">"] = "next_source",
+            ["z"] = "close_all_nodes",
+        },
+        fs = {
+            mappings = {
+                ["sf"] = "telescope_find",
+                ["st"] = "telescope_grep",
+            },
+            commands = {
+                telescope_find = function(state)
+                    local node = state.tree:get_node()
+                    local path = node:get_id()
+                    require('telescope.builtin').find_files(getTelescopeOpts(state, path))
+                end,
+                telescope_grep = function(state)
+                    local node = state.tree:get_node()
+                    local path = node:get_id()
+                    require('telescope.builtin').live_grep(getTelescopeOpts(state, path))
+                end,
+            },
+        }
+    }
+end
+
+-- rest mappings
 function M.rest_key_mappings()
     return {
         ["<leader>rr"] = { "<Plug>RestNvim", "Rest Run" },
@@ -45,6 +247,7 @@ function M.rest_key_mappings()
     }
 end
 
+-- rust mappings
 function M.rust_key_mappings()
     return {
         ["<leader>rr"] = { "<CMD>lua require('rust-tools').runnables.runnables()<CR>", "RustRunnables" },
@@ -57,6 +260,7 @@ function M.rust_key_mappings()
     }
 end
 
+-- sqls mappings
 function M.sqls_key_mappings()
     return {
         ["v"] = {
@@ -73,129 +277,7 @@ function M.sqls_key_mappings()
     }
 end
 
-lvim.lsp.buffer_mappings.normal_mode = {}
-
--- which-key register
-local normal_key_mappings = {
-    s = {
-        name = "File",                                       -- optional group name
-        p = { "<cmd>Telescope projects layout_config={width=0.6}<cr>", "Open Projects" },
-        f = { "<cmd>Telescope git_files<cr>", "Find File" }, -- create a binding with label
-        t = { function()
-            local word = vim.fn.expand "<cword>";
-            require('telescope.builtin').live_grep({
-                default_text = word,
-                theme = "get_dropdown",
-                layout_config = { width = 0.8, preview_cutoff = 30 }
-            })
-        end, "Live Grep Current Word" },
-        T = { "<cmd>Telescope live_grep theme=get_dropdown layout_config={width=0.8}<cr>", "Live Grep Word" },
-        y = { function()
-            local word = vim.fn.expand "<cword>";
-            require('telescope.builtin').current_buffer_fuzzy_find({
-                default_text = word,
-                fuzzy = false,
-                theme = "get_dropdown",
-                layout_config = { width = 0.8, preview_cutoff = 30 }
-            })
-        end, "Find Buffer Current Word" },
-        Y = { "<cmd>Telescope current_buffer_fuzzy_find fuzzy=false theme=get_dropdown layout_config={width=0.8}<cr>",
-            "Find Buffer Word" },
-        b = { "<cmd>Telescope buffers initial_mode=insert<cr>", "Buffers List" },
-        c = {
-            "<cmd>Telescope git_status theme=get_ivy layout_config={height=0.7,preview_width=0.7} initial_mode=normal<cr>",
-            "Find Git Change" },
-        o = { "<cmd>Telescope jumplist<cr>", "Find jumplist" },
-        s = { "<cmd>Telescope oldfiles<CR>", "Recently files" },
-        h = { "<cmd>Telescope lsp_document_symbols<CR>", "Document Symbols" },
-        w = { "<cmd>Telescope lsp_workspace_symbols<CR>", "Wordspace Symbols" },
-        m = { "`", "Jump mark" }
-    },
-    K = { vim.lsp.buf.hover, "Show hover" },
-    g = {
-        name = "Goto",
-        a = { "<CMD>CodeActionMenu<CR>", "Code Action" },
-        -- a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-        D = { vim.lsp.buf.declaration, "Goto declaration" },
-        s = { vim.lsp.buf.signature_help, "Show signature help" },
-        f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
-        e = { "<cmd>Telescope diagnostics theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
-            "Diagnostics" },
-        b = { "<cmd>Telescope diagnostics bufnr=0 theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
-            "Buffer Diagnostics" },
-        d = { "<cmd>Telescope lsp_definitions<CR>", "Goto Definition" },
-        v = { "<cmd>:vertical resize +80<cr>:vsp<cr>:Telescope lsp_definitions<cr>:vertical resize 120<cr>",
-            "Goto Definition Split" },
-        o = { "<C-W>c<cmd>:vertical resize 120<cr>", "Goto Back Window" },
-        r = { "<cmd>Telescope lsp_references theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
-            "References" },
-        R = { "<cmd>Telescope lsp_incoming_calls theme=get_dropdown layout_config={width=0.8} initial_mode=normal<CR>",
-            "Incoming calls" },
-        i = { "<cmd>Telescope lsp_implementations<CR>", "Implementation" },
-        j = { vim.diagnostic.goto_next, "Next Diagnostic" },
-        k = { vim.diagnostic.goto_prev, "Prev Diagnostic" },
-        n = { "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>j", "Comment line" },
-        l = {
-            function()
-                local float = vim.diagnostic.config().float
-
-                if float then
-                    local config = type(float) == "table" and float or {}
-                    config.scope = "line"
-
-                    vim.diagnostic.open_float(config)
-                end
-            end,
-            "Show line diagnostics",
-        }
-    },
-    c = {
-        name = "Buffers",
-        l = { "<cmd>BufferLineCloseRight<cr>", "Close all to the left" },
-        h = { "<cmd>BufferLineCloseLeft<cr>", "Close all to the left" },
-    }
-}
-local visual_key_mapping = {
-    g = {
-        f = { "<cmd>lua vim.lsp.buf.format()<CR><ESC>", "Format range" },
-        n = { "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", "Comment range" },
-    },
-    s = {
-        t = { function()
-            local text = vim.getVisualSelection()
-            require('telescope.builtin').live_grep({
-                default_text = text,
-                theme = "get_dropdown",
-                layout_config = { width = 0.8, preview_cutoff = 30 }
-            })
-        end, "Find All Text" },
-        y = { function()
-            local text = vim.getVisualSelection()
-            require('telescope.builtin').current_buffer_fuzzy_find({
-                default_text = text,
-                fuzzy = false,
-                theme = "get_dropdown",
-                layout_config = { width = 0.8, preview_cutoff = 30 }
-            })
-        end, "Find Buffer Text" },
-    }
-}
-lvim.builtin.which_key.on_config_done = function(wk)
-    wk.register(normal_key_mappings)
-
-    wk.register(visual_key_mapping, {
-        mode = "v",
-    })
-end
-
--- lvim cmp mappings
-local cmp = require("cmp")
-lvim.builtin.cmp.mapping["<C-D>"] = cmp.mapping.scroll_docs(4);
-lvim.builtin.cmp.mapping["<C-F>"] = cmp.mapping.scroll_docs(-4);
-
-
-
--- lvim builtin mappings
+-- lvim nvimtree mappings
 local function on_attach(bufnr)
     local api = require "nvim-tree.api"
 
@@ -247,6 +329,24 @@ local function on_attach(bufnr)
 
     require("lvim.keymappings").load_mode("n", useful_keys)
 end
+
+-- ====================================
+-- ==== mappings set builtin ==== 
+-- ====================================
+lvim.builtin.which_key.on_config_done = function(wk)
+    local wk_mappings = which_key_mappings();
+    wk.register(wk_mappings.normal_key_mappings)
+
+    wk.register(wk_mappings.visual_key_mapping, {
+        mode = "v",
+    })
+end
+
+-- lvim cmp mappings
+local cmp = require("cmp")
+lvim.builtin.cmp.mapping["<C-D>"] = cmp.mapping.scroll_docs(4);
+lvim.builtin.cmp.mapping["<C-F>"] = cmp.mapping.scroll_docs(-4);
+
 lvim.builtin.nvimtree.setup.on_attach = on_attach
 
 -- lir mappings

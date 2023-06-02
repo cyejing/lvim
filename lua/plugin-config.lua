@@ -1,5 +1,47 @@
 local M = {}
 
+M.neotree_setup = function()
+    local neotree_wk = require("which-keys").neotree_key_mappings()
+    require("neo-tree").setup({
+        default_component_configs = {
+            git_status = {
+                symbols = {
+                    added = lvim.icons.git.LineAdded,
+                    modified = lvim.icons.git.LineModified,
+                    unstaged = lvim.icons.git.FileUnstaged,
+                    staged = lvim.icons.git.FileStaged,
+                    unmerged = lvim.icons.git.FileUnmerged,
+                    renamed = lvim.icons.git.FileRenamed,
+                    untracked = lvim.icons.git.FileUntracked,
+                    deleted = lvim.icons.git.FileDeleted,
+                    ignored = lvim.icons.git.FileIgnored,
+                }
+            }
+        },
+        filesystem = {
+            follow_current_file = false,
+            group_empty_dirs = true,
+            filtered_items = {
+                hide_dotfiles = false,
+                hide_gitignored = true,
+                hide_by_name = {
+                    "node_modules", ".git", ".cache"
+                },
+                hide_by_pattern = { -- uses glob style patterns
+                    --"*.meta",
+                    --"*/src/*/tsconfig.json",
+                },
+            },
+            window = {
+                mappings = neotree_wk.fs.mappings,
+            },
+            commands = neotree_wk.fs.commands,
+        },
+        window = {
+            mappings = neotree_wk.mappings,
+        }
+    })
+end
 -- ui
 M.onedark_setup = function()
     require('onedark').setup {
@@ -201,6 +243,16 @@ M.rest_setup = function()
     })
 end
 
+M.diffview_steup = function()
+    local actions = require("diffview.actions")
+    require("diffview").setup({
+        keymaps = {
+            file_panel = {
+                { "n", "s", actions.toggle_stage_entry, { desc = "Stage / unstage the selected entry" } },
+            }
+        }
+    })
+end
 
 -- require("dap-install").config("codelldb", {})
 
