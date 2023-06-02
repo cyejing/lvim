@@ -8,7 +8,7 @@ lvim.builtin.indentlines.active = true
 
 -- lvim.builtin.notify.active = false
 lvim.builtin.lir.active = false
-lvim.builtin.nvimtree.active = true
+lvim.builtin.nvimtree.active = false
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
@@ -116,7 +116,6 @@ lvim.builtin.nvimtree.setup.filters.dotfiles = false
 lvim.builtin.nvimtree.setup.filters.custom = { "node_modules", "\\.cache", "^.git$" }
 lvim.builtin.nvimtree.setup.actions.open_file.resize_window = false
 lvim.builtin.nvimtree.setup.actions.open_file.quit_on_open = false
--- Compact folders that only contain a single folder into one node in the file tree.
 lvim.builtin.nvimtree.setup.renderer.group_empty = true -- great setting,
 lvim.builtin.nvimtree.setup.live_filter = {
     prefix = "[FILTER]: ",
@@ -125,9 +124,6 @@ lvim.builtin.nvimtree.setup.live_filter = {
 lvim.builtin.nvimtree.on_config_done = function()
     lvim.builtin.which_key.mappings["e"] = { "<cmd>NvimTreeFocus<CR>", "Explorer" }
 end
-
--- lir
-lvim.builtin.lir.float.hide_cursor = true
 
 -- gitsigns
 lvim.builtin.gitsigns.opts.signs = {
