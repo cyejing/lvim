@@ -1,8 +1,10 @@
 local M        = {}
 
 local mappings = lvim.builtin.which_key.mappings
-mappings["e"]  = { "<cmd>NvimTreeFocus<CR>", "Explorer" }
-mappings["m"]  = { "<cmd>NvimTreeToggle<CR>", "Explorer Toggle" }
+-- mappings["e"]  = { "<cmd>NvimTreeFocus<CR>", "Explorer" }
+-- mappings["m"]  = { "<cmd>NvimTreeToggle<CR>", "Explorer Toggle" }
+mappings["m"]  = { "<cmd>NeoTreeShowToggle<CR>", "Explorer Toggle" }
+-- mappings["m"]  = { "<cmd>lua require'lir.float'.toggle()<CR>", "Explorer Toggle" }
 mappings["p"]  = { "<CMD>Telescope projects layout_config={width=0.6}<CR>", "Projects" }
 -- mappings["o"]  = { "<CMD>Telescope oldfiles<CR>", "Recently files" }
 mappings["ss"] = { "<CMD>Telescope oldfiles<CR>", "Recently files" }
@@ -107,13 +109,13 @@ local normal_key_mappings = {
         s = { "<cmd>Telescope oldfiles<CR>", "Recently files" },
         h = { "<cmd>Telescope lsp_document_symbols<CR>", "Document Symbols" },
         w = { "<cmd>Telescope lsp_workspace_symbols<CR>", "Wordspace Symbols" },
-        -- m = { "<cmd>NvimTreeToggle<CR>", "Explorer Toggle" }
         m = { "`", "Jump mark" }
     },
     K = { vim.lsp.buf.hover, "Show hover" },
     g = {
         name = "Goto",
         a = { "<CMD>CodeActionMenu<CR>", "Code Action" },
+        -- a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
         D = { vim.lsp.buf.declaration, "Goto declaration" },
         s = { vim.lsp.buf.signature_help, "Show signature help" },
         f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
@@ -245,9 +247,16 @@ local function on_attach(bufnr)
 
     require("lvim.keymappings").load_mode("n", useful_keys)
 end
-
 lvim.builtin.nvimtree.setup.on_attach = on_attach
 
+-- lir mappings
+lvim.builtin.lir.mappings["r"] = function()
+    local dir = require 'lspconfig.util'.find_git_ancestor(vim.fn.getcwd())
+    if dir == nil or dir == "" then
+        return
+    end
+    vim.cmd('e ' .. dir)
+end
 
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.

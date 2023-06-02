@@ -3,7 +3,7 @@ lvim.plugins = {
     --  UI
     {
         "navarasu/onedark.nvim",
-        lazy = false, -- make sure we load this during startup if it is your main colorscheme
+        lazy = false,    -- make sure we load this during startup if it is your main colorscheme
         priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
             require("plugin-config").onedark_setup()
@@ -14,8 +14,81 @@ lvim.plugins = {
     { "nvim-telescope/telescope-project.nvim" },
     { "nvim-telescope/telescope-ui-select.nvim" },
     { "LinArcX/telescope-env.nvim" },
-    --tabline
-    -- {'romgrk/barbar.nvim', requires = 'nvim-web-devicons'},
+
+    -- file explorer
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v2.x",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+        },
+        config = function()
+            require("neo-tree").setup({
+                default_component_configs = {
+                    git_status = {
+                        symbols = {
+                            added = lvim.icons.git.LineAdded,
+                            modified = lvim.icons.git.LineModified,
+                            unstaged = lvim.icons.git.FileUnstaged,
+                            staged = lvim.icons.git.FileStaged,
+                            unmerged = lvim.icons.git.FileUnmerged,
+                            renamed = lvim.icons.git.FileRenamed,
+                            untracked = lvim.icons.git.FileUntracked,
+                            deleted = lvim.icons.git.FileDeleted,
+                            ignored = lvim.icons.git.FileIgnored,
+                        }
+                    }
+                },
+                filesystem = {
+                    follow_current_file = true,
+                    group_empty_dirs = true,
+                    filtered_items = {
+                        hide_dotfiles = false,
+                        hide_gitignored = true,
+                        hide_by_name = {
+                            "node_modules"
+                        },
+                        hide_by_pattern = { -- uses glob style patterns
+                            --"*.meta",
+                            --"*/src/*/tsconfig.json",
+                        },
+                    },
+                },
+                window = {
+                    mappings = {
+                        ["<cr>"] = "open",
+                        ["l"] = "open",
+                        ["o"] = "open",
+                        ["s"] = "open_split",
+                        ["v"] = "open_vsplit",
+                        ["h"] = "close_node",
+                        ["a"] = {
+                            "add",
+                            config = {
+                                show_path = "none" -- "none", "relative", "absolute"
+                            }
+                        },
+                        ["A"] = "add_directory",
+                        ["d"] = "delete",
+                        ["r"] = "rename",
+                        ["y"] = "copy_to_clipboard",
+                        ["x"] = "cut_to_clipboard",
+                        ["p"] = "paste_from_clipboard",
+                        ["c"] = "copy",
+                        ["m"] = "move",
+                        ["q"] = "close_window",
+                        ["R"] = "refresh",
+                        ["?"] = "show_help",
+                        ["<"] = "prev_source",
+                        [">"] = "next_source",
+                    }
+                }
+            })
+        end
+    },
+
     -- bufferline
     { "moll/vim-bbye" },
 

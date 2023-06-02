@@ -8,6 +8,10 @@ lvim.builtin.indentlines.active = true
 
 -- lvim.builtin.notify.active = false
 lvim.builtin.lir.active = false
+lvim.builtin.nvimtree.active = true
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 
 lvim.builtin.project.patterns = { ".git", ".svn", "Makefile", "package.json" }
 lvim.builtin.project.exclude_dirs = { "*/node_modules/*" }
@@ -106,15 +110,6 @@ lvim.builtin.terminal = {
 
 -- nvimtree
 lvim.builtin.nvimtree.setup.git.enable = true
-lvim.builtin.nvimtree.setup.renderer.icons.glyphs.git = {
-    unstaged = "",
-    staged = "✓",
-    unmerged = "",
-    renamed = "➜",
-    untracked = "",
-    deleted = "",
-    ignored = "◌",
-}
 lvim.builtin.nvimtree.setup.view.width = 40
 lvim.builtin.nvimtree.setup.view.hide_root_folder = false
 lvim.builtin.nvimtree.setup.filters.dotfiles = false
@@ -130,6 +125,9 @@ lvim.builtin.nvimtree.setup.live_filter = {
 lvim.builtin.nvimtree.on_config_done = function()
     lvim.builtin.which_key.mappings["e"] = { "<cmd>NvimTreeFocus<CR>", "Explorer" }
 end
+
+-- lir
+lvim.builtin.lir.float.hide_cursor = true
 
 -- gitsigns
 lvim.builtin.gitsigns.opts.signs = {
@@ -157,8 +155,7 @@ end)
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = { "*.json", "*.jsonc" },
-  -- enable wrap mode for json files only
-  command = "setlocal wrap",
+    pattern = { "*.json", "*.jsonc" },
+    -- enable wrap mode for json files only
+    command = "setlocal wrap",
 })
-
