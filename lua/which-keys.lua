@@ -181,6 +181,12 @@ function M.neotree_key_mappings()
         }
     end
 
+    local function copy_to_clipboard(name)
+        vim.fn.setreg("+", name)
+        vim.fn.setreg('"', name)
+        vim.notify(string.format("Copied %s to system clipboard!", name))
+    end
+    local utils = require("neo-tree.utils")
     return {
         mappings = {
             ["<cr>"] = "open",
@@ -191,6 +197,7 @@ function M.neotree_key_mappings()
             ["C"] = "",
             ["/"] = "",
             ["e"] = "",
+            ["c"] = "copy_to_clipboard",
             ["s"] = "open_split",
             ["<C-s>"] = "open_split",
             ["v"] = "open_vsplit",
@@ -208,7 +215,6 @@ function M.neotree_key_mappings()
             ["y"] = "copy_to_clipboard",
             ["x"] = "cut_to_clipboard",
             ["p"] = "paste_from_clipboard",
-            ["c"] = "copy",
             ["m"] = "move",
             ["q"] = "close_window",
             ["R"] = "refresh",
@@ -221,6 +227,8 @@ function M.neotree_key_mappings()
             mappings = {
                 ["sf"] = "telescope_find",
                 ["st"] = "telescope_grep",
+                ["y"] = "copy_filename",
+                ["Y"] = "copy_absolute_path",
             },
             commands = {
                 telescope_find = function(state)
@@ -233,6 +241,17 @@ function M.neotree_key_mappings()
                     local path = node:get_id()
                     require('telescope.builtin').live_grep(getTelescopeOpts(state, path))
                 end,
+                copy_filename = function(state)
+                    local node = state.tree:get_node()
+                    local path = node:get_id()
+                    local _, name = utils.split_path(path)
+                    copy_to_clipboard(name)
+                end,
+                copy_absolute_path = function(state)
+                    local node = state.tree:get_node()
+                    local path = node:get_id()
+                    copy_to_clipboard(path)
+                end
             },
         }
     }
@@ -331,7 +350,7 @@ local function on_attach(bufnr)
 end
 
 -- ====================================
--- ==== mappings set builtin ==== 
+-- ==== mappings set builtin ====
 -- ====================================
 lvim.builtin.which_key.on_config_done = function(wk)
     local wk_mappings = which_key_mappings();
