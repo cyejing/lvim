@@ -22,7 +22,7 @@ mappings["bd"] = { ":e ~/buffer.md<cr>", "Open Scribble Markdown" }
 mappings["br"] = { ":e ~/reuqest.http<cr>", "Open Reuqest" }
 mappings["bc"] = { "<CMD>new<CR>", "Buffer Create" }
 mappings["bv"] = { "<CMD>vnew<CR>", "Buffer Create vertical" }
-mappings["bm"] = { "<CMD>Neotree toggle buffers float<cr>", "Open Scribble Markdown" }
+mappings["bm"] = { "<CMD>Neotree toggle buffers<cr>", "Open Scribble Markdown" }
 -- mappings["bl"] = { "<CMD>BufferLineMoveNext<CR>", "Buffer move next" }
 -- mappings["bh"] = { "<CMD>BufferLineMovePrev<CR>", "Buffer move prev" }
 
