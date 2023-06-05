@@ -157,18 +157,20 @@ lvim.plugins = {
     {
         -- keymapping: <leader>rr
         "NTBBloodbath/rest.nvim",
+        event = "BufRead",
         config = function()
             require("plugin-config").rest_setup()
         end
     },
-    -- {
-    -- keymapping: v <leader>rr
-    -- command: :SqlsExecuteQuery
-    -- "nanotee/sqls.nvim", -- sql
-    -- config = function()
-    -- require("plugin-config").sqls_setup()
-    -- end
-    -- },
+    {
+        -- keymapping: v <leader>rr
+        -- command: :SqlsExecuteQuery
+        "nanotee/sqls.nvim", -- sql
+        event = "BufRead",
+        config = function()
+            require("plugin-config").sqls_setup()
+        end
+    },
     {
         -- keymapping: <leader>S
         -- command: :Spectre
