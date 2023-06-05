@@ -159,6 +159,7 @@ end
 
 -- lvim neotree mappings
 function M.neotree_key_mappings()
+    local utils = require("neo-tree.utils")
     local function getTelescopeOpts(state, path)
         return {
             cwd = path,
@@ -173,6 +174,7 @@ function M.neotree_key_mappings()
                     if (filename == nil) then
                         filename = selection[1]
                     end
+                    utils.open_file(state, filename)
                     -- any way to open the file without triggering auto-close event of neo-tree?
                     require("neo-tree.sources.filesystem").navigate(state, state.path, filename)
                 end)
@@ -186,7 +188,6 @@ function M.neotree_key_mappings()
         vim.fn.setreg('"', name)
         vim.notify(string.format("Copied %s to system clipboard!", name))
     end
-    local utils = require("neo-tree.utils")
     return {
         mappings = {
             ["<cr>"] = "open",
@@ -202,7 +203,7 @@ function M.neotree_key_mappings()
             ["<C-s>"] = "open_split",
             ["v"] = "open_vsplit",
             ["<C-v>"] = "open_vsplit",
-            ["h"] = "close_node",
+            ["H"] = "close_node",
             ["a"] = {
                 "add",
                 config = {
@@ -229,6 +230,7 @@ function M.neotree_key_mappings()
                 ["st"] = "telescope_grep",
                 ["y"] = "copy_filename",
                 ["Y"] = "copy_absolute_path",
+                ["h"] = "parent_node",
             },
             commands = {
                 telescope_find = function(state)
@@ -251,6 +253,22 @@ function M.neotree_key_mappings()
                     local node = state.tree:get_node()
                     local path = node:get_id()
                     copy_to_clipboard(path)
+                end,
+                parent_node = function(state)
+                    local renderer = require("neo-tree.ui.renderer")
+                    local tree = state.tree
+                    local node = tree:get_node()
+                    local parent_node = tree:get_node(node:get_parent_id())
+                    local target_node = parent_node
+
+                    local root = tree:get_nodes()[1]
+                    local is_root = target_node:get_id() == root:get_id()
+
+
+                    if target_node and target_node:has_children() and not is_root then
+                        renderer.redraw(state)
+                        renderer.focus_node(state, target_node:get_id())
+                    end
                 end
             },
         }
