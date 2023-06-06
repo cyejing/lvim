@@ -80,7 +80,8 @@
         "/usr/local/Cellar/neovim/0.9.0/lib/nvim",
         "/Users/chenyejing/.local/share/lunarvim/site/after",
         "/Users/chenyejing/.config/lvim/after",
-        "${3rd}/luv/library"
+        "${3rd}/luv/library",
+        "${3rd}/luassert/library"
     ]
 }
 

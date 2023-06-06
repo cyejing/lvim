@@ -23,8 +23,6 @@ mappings["br"] = { ":e ~/reuqest.http<cr>", "Open Reuqest" }
 mappings["bc"] = { "<CMD>new<CR>", "Buffer Create" }
 mappings["bv"] = { "<CMD>vnew<CR>", "Buffer Create vertical" }
 mappings["bm"] = { "<CMD>Neotree toggle buffers<cr>", "Open Scribble Markdown" }
--- mappings["bl"] = { "<CMD>BufferLineMoveNext<CR>", "Buffer move next" }
--- mappings["bh"] = { "<CMD>BufferLineMovePrev<CR>", "Buffer move prev" }
 
 
 -- <leader>+g
@@ -133,7 +131,7 @@ local function which_key_mappings()
         },
         s = {
             t = { function()
-                local text = vim.getVisualSelection()
+                local text = require("func").getVisualSelection()
                 require('telescope.builtin').live_grep({
                     default_text = text,
                     theme = "get_dropdown",
@@ -141,7 +139,7 @@ local function which_key_mappings()
                 })
             end, "Find All Text" },
             y = { function()
-                local text = vim.getVisualSelection()
+                local text = require("func").getVisualSelection()
                 require('telescope.builtin').current_buffer_fuzzy_find({
                     default_text = text,
                     fuzzy = false,
@@ -164,7 +162,7 @@ function M.neotree_key_mappings()
         return {
             cwd = path,
             search_dirs = { path },
-            attach_mappings = function(prompt_bufnr, map)
+            attach_mappings = function(prompt_bufnr)
                 local actions = require "telescope.actions"
                 actions.select_default:replace(function()
                     actions.close(prompt_bufnr)
@@ -197,13 +195,13 @@ function M.neotree_key_mappings()
             ["S"] = "",
             ["C"] = "",
             ["/"] = "",
-            ["e"] = "",
             ["c"] = "copy_to_clipboard",
             ["s"] = "open_split",
             ["<C-s>"] = "open_split",
             ["v"] = "open_vsplit",
             ["<C-v>"] = "open_vsplit",
             ["H"] = "close_node",
+            ["i"] = "toggle_hidden",
             ["a"] = {
                 "add",
                 config = {
@@ -231,6 +229,7 @@ function M.neotree_key_mappings()
                 ["y"] = "copy_filename",
                 ["Y"] = "copy_absolute_path",
                 ["h"] = "parent_node",
+                ["<space>e"] = "focus_node",
             },
             commands = {
                 telescope_find = function(state)
@@ -269,6 +268,10 @@ function M.neotree_key_mappings()
                         renderer.redraw(state)
                         renderer.focus_node(state, target_node:get_id())
                     end
+                end,
+                focus_node = function()
+                    vim.cmd("Neotree toggle")
+                    vim.cmd("Neotree toggle reveal")
                 end
             },
         }

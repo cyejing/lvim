@@ -1,5 +1,18 @@
 local M = {}
 
+M.getVisualSelection = function()
+    vim.cmd('noau normal! "vy"')
+    local text = vim.fn.getreg('v')
+    vim.fn.setreg('v', {})
+
+    text = string.gsub(text, "\n", "")
+    if #text > 0 then
+        return text
+    else
+        return ''
+    end
+end
+
 M.gitui_toggle = function()
     local Terminal = require("toggleterm.terminal").Terminal
     local gitui = Terminal:new {
@@ -21,10 +34,11 @@ M.gitui_toggle = function()
     gitui:toggle()
 end
 
-local lib = require("nvim-tree.lib")
-local view = require("nvim-tree.view")
 
 M.edit_or_open = function()
+    local lib = require("nvim-tree.lib")
+    local view = require("nvim-tree.view")
+
     -- open as vsplit on current node
     local action = "edit"
     local node = lib.get_node_at_cursor()
@@ -41,18 +55,5 @@ M.edit_or_open = function()
     end
 end
 
-
-function vim.getVisualSelection()
-    vim.cmd('noau normal! "vy"')
-    local text = vim.fn.getreg('v')
-    vim.fn.setreg('v', {})
-
-    text = string.gsub(text, "\n", "")
-    if #text > 0 then
-        return text
-    else
-        return ''
-    end
-end
 
 return M

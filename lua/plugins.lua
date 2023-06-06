@@ -158,6 +158,7 @@ lvim.plugins = {
         -- keymapping: <leader>rr
         "NTBBloodbath/rest.nvim",
         event = "BufRead",
+        ft = { "http" },
         config = function()
             require("plugin-config").rest_setup()
         end
@@ -167,6 +168,8 @@ lvim.plugins = {
         -- command: :SqlsExecuteQuery
         "nanotee/sqls.nvim", -- sql
         event = "BufRead",
+        ft = { "sql" },
+        enabled = false,
         config = function()
             require("plugin-config").sqls_setup()
         end
