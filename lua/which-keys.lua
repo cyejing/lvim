@@ -26,7 +26,7 @@ mappings["bm"] = { "<CMD>Neotree toggle buffers<cr>", "Open Scribble Markdown" }
 
 
 -- <leader>+g
-mappings["gg"] = {}
+mappings["gg"] = nil
 mappings["gg"] = { "<CMD>lua require 'func'.gitui_toggle()<CR>", "Gitui" }
 mappings["gh"] = { "<CMD>DiffviewFileHistory<CR>", "Diffview History" }
 mappings["gf"] = { "<CMD>DiffviewFileHistory %<CR>", "Diffview File" }
