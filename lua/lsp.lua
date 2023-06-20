@@ -39,27 +39,27 @@ require 'lspconfig'.volar.setup {
     filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }
 }
 
-require'lspconfig'.lua_ls.setup {
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = 'LuaJIT',
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
+require 'lspconfig'.lua_ls.setup {
+    settings = {
+        Lua = {
+            runtime = {
+                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                version = 'LuaJIT',
+            },
+            diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = { 'vim' },
+            },
+            workspace = {
+                -- Make the server aware of Neovim runtime files
+                library = vim.api.nvim_get_runtime_file("", true),
+            },
+            -- Do not send telemetry data containing a randomized but unique identifier
+            telemetry = {
+                enable = false,
+            },
+        },
     },
-  },
 }
 
 
@@ -74,17 +74,19 @@ formatters.setup {
         ---@usage arguments to pass to the formatter
         -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
         -- args = {
-            "--print-width", "120",
-            "--no-semi",
-            "--single-quote",
-            "--tab-width", "2",
+        "--print-width",
+        "120",
+        "--no-semi",
+        "--single-quote",
+        "--tab-width",
+        "2",
         --     "--trailing-comma", "none",
         --     "--prose-wrap", "always",
         -- },
         ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
         filetypes = {
             "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "css", "scss", "less", "html",
-            "json", "jsonc", "yaml", "markdown",
+            "json", "jsonc", "yaml", "markdown", "xml"
         }
     }
 }
