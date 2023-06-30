@@ -46,6 +46,8 @@ local function which_key_mappings()
             name = "File",                                       -- optional group name
             p = { "<cmd>Telescope projects layout_config={width=0.6}<cr>", "Open Projects" },
             f = { "<cmd>Telescope git_files<cr>", "Find File" }, -- create a binding with label
+            s = { "<cmd>Telescope frecency<cr>", "Find Frecency" },
+            c = { "<cmd>Telescope neoclip<cr>", "Find Frecency" },
             t = { function()
                 local word = vim.fn.expand "<cword>";
                 require('telescope.builtin').live_grep({
@@ -68,11 +70,11 @@ local function which_key_mappings()
                 "<cmd>Telescope current_buffer_fuzzy_find fuzzy=false theme=get_dropdown layout_config={width=0.8}<cr>",
                 "Find Buffer Word" },
             b = { "<cmd>Telescope buffers initial_mode=insert<cr>", "Buffers List" },
-            c = {
+            g = {
                 "<cmd>Telescope git_status theme=get_ivy layout_config={height=0.7,preview_width=0.7} initial_mode=normal<cr>",
                 "Find Git Change" },
             o = { "<cmd>Telescope jumplist<cr>", "Find jumplist" },
-            s = { "<cmd>Telescope oldfiles<CR>", "Recently files" },
+            r = { "<cmd>Telescope oldfiles<CR>", "Recently files" },
             h = { "<cmd>Telescope lsp_document_symbols<CR>", "Document Symbols" },
             w = { "<cmd>Telescope lsp_workspace_symbols<CR>", "Wordspace Symbols" },
             m = { "`", "Jump mark" }

@@ -14,6 +14,17 @@ lvim.plugins = {
     { "nvim-telescope/telescope-project.nvim" },
     { "nvim-telescope/telescope-ui-select.nvim" },
     { "LinArcX/telescope-env.nvim" },
+    {
+        "nvim-telescope/telescope-frecency.nvim",
+        dependencies = { "kkharji/sqlite.lua" }
+    },
+    {
+        "AckslD/nvim-neoclip.lua",
+        config = function()
+            require("plugin-config").neoclip_setup()
+        end,
+        dependencies = { "kkharji/sqlite.lua" }
+    },
 
     -- file explorer
     {
@@ -94,6 +105,7 @@ lvim.plugins = {
     },
     {
         "j-hui/fidget.nvim", -- progress bar
+        branch = "legacy",
         config = function()
             require("plugin-config").fidget_setup()
         end

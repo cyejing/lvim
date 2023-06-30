@@ -109,14 +109,17 @@ lvim.builtin.gitsigns.opts.word_diff = false
 
 -- telescope
 lvim.builtin.telescope.active = true
+lvim.builtin.telescope.defaults.path_display = {
+    shorten = { len = 4, exclude = { 1, 2, -1, -2, -3 } },
+}
 lvim.builtin.telescope.defaults.layout_config = { width = 0.80 }
-
-pcall(function()
-    require("telescope").load_extension "env"
-end)
-pcall(function()
-    require("telescope").load_extension "ui-select"
-end)
+lvim.builtin.telescope.on_config_done = function(telescope)
+    pcall(telescope.load_extension, "env")
+    pcall(telescope.load_extension, "ui-select")
+    pcall(telescope.load_extension, "frecency")
+    pcall(telescope.load_extension, "neoclip")
+    -- any other extensions loading
+end
 
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)

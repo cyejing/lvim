@@ -80,12 +80,6 @@ M.bqf_setup = function()
     require("bqf").setup({
         auto_enable = true,
         auto_resize_height = true,
-        preview = {
-            win_height = 20,
-            win_vheight = 20,
-            delay_syntax = 50,
-            border_chars = { "┃", "┃", "━", "━", "┏", "┓", "┗", "┛", "█" },
-        },
         func_map = {
             -- vsplit = "",
             ptogglemode = "z,",
@@ -162,17 +156,7 @@ end
 
 
 M.fidget_setup = function()
-    require("fidget").setup({
-        text = {
-            spinner = "zip",         -- animation shown when tasks are ongoing
-            done = "✔",            -- character shown when all tasks are complete
-            commenced = "Started",   -- message shown when task starts
-            completed = "Completed", -- message shown when task completes
-        },
-        sources = {
-
-        },
-    })
+    require("fidget").setup({})
 end
 
 M.lastplace_setup = function()
@@ -249,6 +233,34 @@ M.diffview_steup = function()
         keymaps = {
             file_panel = {
                 { "n", "s", actions.toggle_stage_entry, { desc = "Stage / unstage the selected entry" } },
+            }
+        }
+    })
+end
+
+M.neoclip_setup = function()
+    require('neoclip').setup({
+        enable_persistent_history = true,
+        keys = {
+            telescope = {
+                i = {
+                    select = '<cr>',
+                    paste = '<c-p>',
+                    paste_behind = '<c-k>',
+                    replay = '<c-r>', -- replay a macro
+                    delete = '<c-d>', -- delete an entry
+                    edit = '<c-e>',   -- edit an entry
+                    custom = {},
+                },
+                n = {
+                    select = '<cr>',
+                    paste = '<c-p>',
+                    paste_behind = '<c-k>',
+                    replay = '<c-r>',
+                    delete = '<c-d>',
+                    edit = '<c-e>',
+                    custom = {},
+                },
             }
         }
     })
