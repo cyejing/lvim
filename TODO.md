@@ -1,3 +1,3 @@
-- [ ] 跳转到terminal时候不要自动变成输入模式
+- [x] 跳转到terminal时候不要自动变成输入模式
 - [ ] neotree st 打开时没有跳转到行
-- [ ] Telescope 文省略目录太多
+- [x] Telescope 文省略目录太多
