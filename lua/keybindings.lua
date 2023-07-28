@@ -8,7 +8,7 @@ lvim.keys.normal_mode = {
     ["<C-e>"] = "$",
     ["<C-a>"] = "^",
     ["<CR>"] = "<CMD>noh<CR>",
-    -- ["r"] = "<C-r>",
+    ["F"] = "f",
 
     -- move
     ["<C-j>"] = "8j",
