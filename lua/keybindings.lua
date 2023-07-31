@@ -4,7 +4,7 @@ lvim.leader = "space"
 lvim.keys.normal_mode = {
     -- basic
     -- ["s"] = "",
-    ["g"] = "",
+    -- ["g"] = "",
     ["<C-e>"] = "$",
     ["<C-a>"] = "^",
     ["<CR>"] = "<CMD>noh<CR>",
