@@ -12,7 +12,9 @@ mappings["ss"] = { "<CMD>Telescope oldfiles<CR>", "Recently files" }
 mappings["h"]  = { "<CMD>edit ~/.cache/lvim/project_nvim/project_history<CR>", "Edit Projects" }
 mappings["h"]  = { "<CMD>SymbolsOutline<CR>", "SymbolsOutline" }
 mappings["x"]  = { "<CMD>only<CR>", "Close All Windows" }
-mappings["S"]  = { "<CMD>lua require('spectre').open()<CR>", "Open Spectre" }
+mappings["sw"]  = { "<CMD>lua require('spectre').open()<CR>", "Open Spectre" }
+mappings["sv"]  = { "<CMD>lua require('spectre').open_visual()<CR>", "Open Spectre Visual" }
+mappings["sp"]  = { "<CMD>lua require('spectre').open_file_search({select_word=true})<CR>", "Open Spectre Current File" }
 mappings["c"]  = {}
 
 --  <leader>+b
