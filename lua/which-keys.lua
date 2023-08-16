@@ -22,9 +22,10 @@ mappings["bx"] = { "<CMD>:BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", "Cl
 mappings["bs"] = { ":e ~/buffer<cr>", "Open Scribble" }
 mappings["bd"] = { ":e ~/buffer.md<cr>", "Open Scribble Markdown" }
 mappings["br"] = { ":e ~/reuqest.http<cr>", "Open Reuqest" }
+mappings["bw"] = { ":e ~/ddpweek.md<cr>", "Open Week" }
 mappings["bc"] = { "<CMD>new<CR>", "Buffer Create" }
 mappings["bv"] = { "<CMD>vnew<CR>", "Buffer Create vertical" }
-mappings["bm"] = { "<CMD>Neotree toggle buffers<cr>", "Open Scribble Markdown" }
+mappings["bm"] = { "<CMD>Neotree toggle buffers<cr>", "Open Neotree Buffers" }
 
 
 -- <leader>+g
@@ -34,7 +35,7 @@ mappings["gh"] = { "<CMD>DiffviewFileHistory<CR>", "Diffview History" }
 mappings["gf"] = { "<CMD>DiffviewFileHistory %<CR>", "Diffview File" }
 mappings["gi"] = { "<CMD>DiffviewOpen<CR>", "Diffview Open" }
 mappings["gx"] = { "<CMD>DiffviewClose<CR>", "Diffview Close" }
-mappings["gm"] = { "<CMD>Neotree toggle git_status<CR>", "Diffview Close" }
+mappings["gm"] = { "<CMD>Neotree toggle git_status<CR>", "Open Neotree Gits" }
 
 -- <leader>+n
 mappings["nn"] = { "<CMD>tab term<CR>", "New Tab Term" }
@@ -84,8 +85,8 @@ local function which_key_mappings()
         K = { vim.lsp.buf.hover, "Show hover" },
         g = {
             name = "Goto",
-            a = { "<CMD>CodeActionMenu<CR>", "Code Action" },
-            -- a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+            -- a = { "<CMD>CodeActionMenu<CR>", "Code Action" },
+            a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
             D = { vim.lsp.buf.declaration, "Goto declaration" },
             s = { vim.lsp.buf.signature_help, "Show signature help" },
             f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },

@@ -15,7 +15,6 @@ lvim.lsp.installer.setup.ensure_installed = {
     "lua_ls",
     "cssls",
     "html",
-    "jsonls",
     "yamlls",
     "volar",
     "tailwindcss",
@@ -28,7 +27,9 @@ lvim.lsp.installer.setup.ensure_installed = {
 lvim.lsp.automatic_servers_installation = false
 
 -- ---configure a server manually. !!Requires `:LvimCacheReset` to take effect!!
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust_analyzer", "jdtls", "tsserver", "sumneko_lua" })
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, {
+    "rust_analyzer", "jdtls", "tsserver", "sumneko_lua", "jsonls"
+})
 -- local opts = {} -- check the lspconfig documentation for a list of all possible options
 -- require("lvim.lsp.manager").setup("pyright", opts)
 

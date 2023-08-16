@@ -37,11 +37,9 @@ lvim.keys.normal_mode = {
     ["]q"] = ":cnext<CR>",
     ["[q"] = ":cprev<CR>",
     ["<C-q>"] = "<CMD>lua vim.lsp.buf.format()<CR>",
-    ["<C-,>"] = ":call QuickFixToggle()<CR>",
 
-    -- ["<C-m>"] = "<CMD>NvimTreeToggle<CR>",
+    ["<C-,>"] = ":call QuickFixToggle()<CR>",
     ["<C-m>"] = "<CMD>Neotree reveal_force_cwd toggle<CR>",
-    -- ["<C-m>"] = "<CMD>lua require'lir.float'.toggle()<CR>",
     -- Move current line / block with Alt-j/k a la vscode.
     ["<A-j>"] = ":m .+1<CR>==",
     ["<A-k>"] = ":m .-2<CR>==",

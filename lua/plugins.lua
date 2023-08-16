@@ -64,6 +64,7 @@ lvim.plugins = {
     {
         'weilbith/nvim-code-action-menu', -- code action menu beautiful view
         cmd = 'CodeActionMenu',
+        enabled = false
     },
     {
         "ray-x/lsp_signature.nvim", -- signature tip
