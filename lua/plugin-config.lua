@@ -121,6 +121,9 @@ M.rust_tools_setup = function()
                     cargo = {
                         features = "all"
                     },
+                    procMacro = {
+                        enable = true
+                    },
                     checkOnSave = true,
                     check = {
                         allTargets = true

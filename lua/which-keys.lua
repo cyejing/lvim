@@ -188,7 +188,7 @@ function M.neotree_key_mappings()
             ["C"] = "",
             ["/"] = "",
             ["c"] = "copy_to_clipboard",
-            ["s"] = "open_split",
+            ["s"] = "",
             ["<C-s>"] = "open_split",
             ["v"] = "open_vsplit",
             ["<C-v>"] = "open_vsplit",
