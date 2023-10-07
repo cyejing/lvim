@@ -76,6 +76,8 @@ vim.opt.showtabline = 2
 vim.opt.showmode = false
 ---- 配置剪切板
 vim.opt.clipboard = "unnamedplus"
+vim.opt.spelllang = 'en_us'
+vim.opt.spell = true
 
 ---- neovide config
 vim.g.neovide_cursor_vfx_mode = "torpedo"

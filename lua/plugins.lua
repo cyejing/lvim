@@ -14,17 +14,6 @@ lvim.plugins = {
     { "nvim-telescope/telescope-project.nvim" },
     { "nvim-telescope/telescope-ui-select.nvim" },
     { "LinArcX/telescope-env.nvim" },
-    {
-        "nvim-telescope/telescope-frecency.nvim",
-        dependencies = { "kkharji/sqlite.lua" }
-    },
-    {
-        "AckslD/nvim-neoclip.lua",
-        config = function()
-            require("plugin-config").neoclip_setup()
-        end,
-        dependencies = { "kkharji/sqlite.lua" }
-    },
 
     -- file explorer
     {
@@ -76,7 +65,9 @@ lvim.plugins = {
     {
         "simrat39/symbols-outline.nvim", -- symbols hierarchy
         config = function()
-            require('symbols-outline').setup()
+            require('symbols-outline').setup({
+                width = 20,
+            })
         end
     },
     -- #lsp
