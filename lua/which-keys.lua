@@ -12,20 +12,34 @@ mappings["ss"] = { "<CMD>Telescope oldfiles<CR>", "Recently files" }
 mappings["h"]  = { "<CMD>edit ~/.cache/lvim/project_nvim/project_history<CR>", "Edit Projects" }
 mappings["h"]  = { "<CMD>SymbolsOutline<CR>", "SymbolsOutline" }
 mappings["x"]  = { "<CMD>only<CR>", "Close All Windows" }
-mappings["sw"]  = { "<CMD>lua require('spectre').open()<CR>", "Open Spectre" }
-mappings["sv"]  = { "<CMD>lua require('spectre').open_visual()<CR>", "Open Spectre Visual" }
-mappings["sp"]  = { "<CMD>lua require('spectre').open_file_search({select_word=true})<CR>", "Open Spectre Current File" }
+mappings["sw"] = { "<CMD>lua require('spectre').open()<CR>", "Open Spectre" }
+mappings["sv"] = { "<CMD>lua require('spectre').open_visual()<CR>", "Open Spectre Visual" }
+mappings["sp"] = { "<CMD>lua require('spectre').open_file_search({select_word=true})<CR>", "Open Spectre Current File" }
 mappings["c"]  = {}
 
 --  <leader>+b
-mappings["bx"] = { "<CMD>:BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", "Close All Buffer" }
-mappings["bs"] = { ":e ~/buffer<cr>", "Open Scribble" }
-mappings["bd"] = { ":e ~/buffer.md<cr>", "Open Scribble Markdown" }
-mappings["br"] = { ":e ~/reuqest.http<cr>", "Open Reuqest" }
-mappings["bw"] = { ":e ~/ddpweek.md<cr>", "Open Week" }
-mappings["bc"] = { "<CMD>new<CR>", "Buffer Create" }
-mappings["bv"] = { "<CMD>vnew<CR>", "Buffer Create vertical" }
-mappings["bm"] = { "<CMD>Neotree toggle buffers<cr>", "Open Neotree Buffers" }
+
+mappings["b"]  = {
+    name = "Buffers",
+    j = { "<cmd>BufferLinePick<cr>", "Jump" },
+    f = { "<cmd>Telescope buffers previewer=false<cr>", "Find" },
+    e = { "<cmd>BufferLinePickClose<cr>", "Pick which buffer to close", },
+    h = { "<cmd>BufferLineCloseLeft<cr>", "Close all to the left" },
+    l = { "<cmd>BufferLineCloseRight<cr>", "Close all to the right", },
+    D = { "<cmd>BufferLineSortByDirectory<cr>", "Sort by directory", },
+    L = { "<cmd>BufferLineSortByExtension<cr>", "Sort by language", },
+
+    x = { "<CMD>:BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", "Close All Buffer" },
+    b = { ":e ~/buffer<cr>", "Open Scribble" },
+    M = { ":e ~/buffer.md<cr>", "Open Scribble Markdown" },
+    r = { ":e ~/http/reuqest.http<cr>", "Open Reuqest" },
+    w = { ":e ~/ddpweek.md<cr>", "Open Week" },
+    n = { "<CMD>enew<CR>", "Buffer New" },
+    s = { "<CMD>new<CR>", "Buffer New horizontal" },
+    v = { "<CMD>vnew<CR>", "Buffer New vertical" },
+    m = { "<CMD>Neotree toggle buffers<cr>", "Open Neotree Buffers" },
+
+}
 
 
 -- <leader>+g

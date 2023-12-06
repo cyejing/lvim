@@ -42,7 +42,6 @@ lvim.plugins = {
     },
     {
         'saecki/crates.nvim', -- rust crate info
-        version = 'v0.2.1',
         config = function()
             require('crates').setup()
         end,
@@ -135,19 +134,12 @@ lvim.plugins = {
         end,
     },
     {
-        "iamcco/markdown-preview.nvim", -- markdown
+        "iamcco/markdown-preview.nvim",
         build = "cd app && npm install",
-        ft = { "markdown" },
+        ft = "markdown",
         config = function()
-            vim.g.mkdp_filetypes = { "markdown" }
+            vim.g.mkdp_auto_start = 1
         end,
-    },
-    {
-        "ellisonleao/glow.nvim",
-        ft = { "markdown" },
-        config = function()
-            require("glow").setup()
-        end
     },
     {
         -- command :DiffviewFileHistory :DiffviewOpen
