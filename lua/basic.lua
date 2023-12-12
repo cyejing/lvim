@@ -1,5 +1,5 @@
-vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h17"
--- utf8
+vim.opt.guifont = "JetBrainsMono Nerd Font:h15"
+-- utf
 vim.g.encoding = "UTF-8"
 vim.opt.fileencoding = "utf-8"
 -- jkhl 移动时光标周围保留8行
@@ -77,7 +77,7 @@ vim.opt.showmode = false
 ---- 配置剪切板
 vim.opt.clipboard = "unnamedplus"
 vim.opt.spelllang = 'en_us,cjk'
-vim.opt.spell = true
+vim.opt.spell = false
 
 ---- neovide config
 vim.g.neovide_cursor_vfx_mode = "torpedo"
