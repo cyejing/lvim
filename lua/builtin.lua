@@ -13,7 +13,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 
-lvim.builtin.project.patterns = { ".git", ".svn", "Makefile", "package.json" }
+lvim.builtin.project.patterns = { ".git", ".svn", "Makefile" }
 lvim.builtin.project.exclude_dirs = { "*/node_modules/*" }
 
 -- lvim.builtin.comment.toggler.block = "gcb"
