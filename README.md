@@ -11,7 +11,7 @@
 
 #### rust-tools
 1. `rust-analyzer` install cmd `rustup component add rust-analyzer` or `rustup component add rust-analysis`
-2. `dot` from `graphviz` (only for crate graph)
+2. `brew install graphviz` from `dot` (only for crate graph)
 
 ### jdtls 
 1. `jdtls` at dir `~/.jdtls/jdtls-1.9.0`
