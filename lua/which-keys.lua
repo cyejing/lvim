@@ -30,10 +30,10 @@ mappings["b"]  = {
     L = { "<cmd>BufferLineSortByExtension<cr>", "Sort by language", },
 
     x = { "<CMD>:BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", "Close All Buffer" },
-    b = { ":e ~/buffer<cr>", "Open Scribble" },
-    M = { ":e ~/buffer.md<cr>", "Open Scribble Markdown" },
+    b = { ":e ~/buffers/buffer<cr>", "Open Scribble" },
+    B = { ":e ~/buffers/buffer.md<cr>", "Open Scribble Markdown" },
     r = { ":e ~/http/reuqest.http<cr>", "Open Reuqest" },
-    w = { ":e ~/ddpweek.md<cr>", "Open Week" },
+    w = { ":e ~/buffers/ddpweek.md<cr>", "Open Week" },
     n = { "<CMD>enew<CR>", "Buffer New" },
     s = { "<CMD>new<CR>", "Buffer New horizontal" },
     v = { "<CMD>vnew<CR>", "Buffer New vertical" },

@@ -59,7 +59,7 @@ lvim.builtin.lualine.options.theme = "auto"
 lvim.builtin.lualine.options.globalstatus = true
 lvim.builtin.lualine.sections.lualine_a = { "mode" }
 lvim.builtin.lualine.sections.lualine_b = { components.branch, components.diff }
-lvim.builtin.lualine.sections.lualine_c = { components.python_env, components.filename }
+lvim.builtin.lualine.sections.lualine_c = { components.python_env, { "filename", path = 3 } }
 lvim.builtin.lualine.sections.lualine_y = { "hostname" }
 lvim.builtin.lualine.sections.lualine_z = { components.location, components.progress }
 

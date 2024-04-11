@@ -16,9 +16,6 @@ lvim.lsp.installer.setup.ensure_installed = {
     "cssls",
     "html",
     "yamlls",
-    "volar",
-    "tailwindcss",
-    "gopls",
     "lemminx",
     "zk",
 }
@@ -28,7 +25,7 @@ lvim.lsp.automatic_servers_installation = false
 
 -- ---configure a server manually. !!Requires `:LvimCacheReset` to take effect!!
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, {
-    "rust_analyzer", "jdtls", "tsserver", "sumneko_lua", "jsonls"
+    "rust_analyzer", "jdtls", "sumneko_lua", "jsonls", "java_language_server", "volar"
 })
 -- local opts = {} -- check the lspconfig documentation for a list of all possible options
 -- require("lvim.lsp.manager").setup("pyright", opts)
@@ -36,9 +33,9 @@ vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, {
 
 
 --- lspconfig setup
-require 'lspconfig'.volar.setup {
-    filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }
-}
+-- require 'lspconfig'.volar.setup {
+-- filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }
+-- }
 
 require 'lspconfig'.lua_ls.setup {
     settings = {
