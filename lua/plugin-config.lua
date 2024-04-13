@@ -99,6 +99,42 @@ M.bqf_setup = function()
     })
 end
 
+vim.g.rustaceanvim = {
+    -- Plugin configuration
+    tools = {
+    },
+    -- LSP configuration
+    server = {
+        on_attach = function(client, bufnr)
+            -- you can also put keymaps in here
+            local mappings = require("which-keys").rust_key_mappings()
+
+            for key, remap in pairs(mappings) do
+                local opts = { buffer = bufnr, desc = remap[2], noremap = true, silent = true }
+                vim.keymap.set("n", key, remap[1], opts)
+            end
+
+            require("lvim.lsp").common_on_attach(client, bufnr)
+        end,
+        on_init = require("lvim.lsp").common_on_init,
+        standalone = true,
+
+        default_settings = {
+            -- rust-analyzer language server configuration
+            ['rust-analyzer'] = {
+                completion = {
+                    postfix = {
+                        enable = false
+                    }
+                }
+            },
+        },
+    },
+    -- DAP configuration
+    dap = {
+    },
+}
+
 M.rust_tools_setup = function()
     local rt = require("rust-tools")
     rt.setup({
@@ -227,6 +263,14 @@ M.rest_setup = function()
         env_file = '.env',
         custom_dynamic_variables = {},
         yank_dry_run = true,
+        keybinds = {
+            {
+                "<leader>rr", "<cmd>Rest run<cr>", "Run request under the cursor",
+            },
+            {
+                "<leader>rl", "<cmd>Rest run last<cr>", "Re-run latest request",
+            },
+        }
     })
 end
 

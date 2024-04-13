@@ -33,12 +33,17 @@ lvim.plugins = {
     { "moll/vim-bbye" },
 
     --lsp
+    -- {
+    -- require: rust-analyzer graphviz
+    -- "simrat39/rust-tools.nvim", -- rust
+    -- config = function()
+    -- require("plugin-config").rust_tools_setup()
+    -- end,
+    -- },
     {
-        -- require: rust-analyzer graphviz
-        "simrat39/rust-tools.nvim", -- rust
-        config = function()
-            require("plugin-config").rust_tools_setup()
-        end,
+        'mrcjkb/rustaceanvim',
+        version = '^4', -- Recommended
+        ft = { 'rust' },
     },
     {
         'saecki/crates.nvim', -- rust crate info
@@ -149,12 +154,16 @@ lvim.plugins = {
             require("plugin-config").diffview_steup()
         end
     },
-    -- rest http
     {
-        -- keymapping: <leader>rr
-        "NTBBloodbath/rest.nvim",
-        event = "BufRead",
-        ft = { "http" },
+        "vhyrro/luarocks.nvim",
+        priority = 1000,
+        config = true,
+    },
+    {
+        "rest-nvim/rest.nvim",
+        ft = "http",
+        dependencies = { "luarocks.nvim" },
+        version = "v1.2.1",
         config = function()
             require("plugin-config").rest_setup()
         end

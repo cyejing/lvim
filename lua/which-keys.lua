@@ -296,13 +296,14 @@ end
 -- rust mappings
 function M.rust_key_mappings()
     return {
-        ["<leader>rr"] = { "<CMD>lua require('rust-tools').runnables.runnables()<CR>", "RustRunnables" },
-        ["<leader>rd"] = { "<CMD>RustDebuggables<CR>", "RustDebuggables" },
-        ["<leader>rm"] = { "<CMD>lua require'rust-tools'.expand_macro.expand_macro()<CR>", "RustExpandMacro" },
-        ["<leader>rj"] = { "<CMD>lua require'rust-tools'.move_item.move_item(false)<CR>", "RustMoveItemDown" },
-        ["<leader>rk"] = { "<CMD>lua require'rust-tools'.move_item.move_item(true)<CR>", "RustMoveItemUp" },
-        ["<leader>rp"] = { "<CMD>lua require'rust-tools'.parent_module.parent_module()<CR>", "RustParentModule" },
-        ["<leader>rw"] = { "<CMD>RustReloadWorkspace<CR>", "RustReloadWorkspace" },
+        ["<leader>rr"] = { "<CMD>RustLsp runnables<CR>", "RustRunnables" },
+        ["<leader>rt"] = { "<CMD>RustLsp testables<CR>", "RustTestables" },
+        ["<leader>rd"] = { "<CMD>RustLsp debuggables<CR>", "RustDebuggables" },
+        ["<leader>rm"] = { "<CMD>RustLsp expandMacro<CR>", "RustExpandMacro" },
+        ["<leader>rj"] = { "<CMD>RustLsp moveItem down<CR>", "RustMoveItemDown" },
+        ["<leader>rk"] = { "<CMD>RustLsp moveItem down<CR>", "RustMoveItemUp" },
+        ["<leader>rp"] = { "<CMD>RustLsp parentModule<CR>", "RustParentModule" },
+        ["<leader>rw"] = { "<CMD>RustLsp reloadWorkspace<CR>", "RustReloadWorkspace" },
     }
 end
 

@@ -1,11 +1,9 @@
 -- treesitter
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
-    "bash", "c", "javascript",
-    "json", "lua", "python",
-    "typescript", "tsx", "css",
-    "rust", "java", "yaml",
-    "html", "http", "vue", "sql",
+    "bash", "lua", "python", "rust", "java",
+    "javascript", "typescript", "json", "tsx", "css", "html",
+    "http", "vue", "sql", "graphql", "yaml",
 }
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
@@ -64,8 +62,7 @@ require 'lspconfig'.lua_ls.setup {
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-    -- { name = "black", filetypes = { "python" } },
-    -- { name = "isort", filetypes = { "python" } },
+    { name = "black" },
     {
         -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
         name = "prettier",
