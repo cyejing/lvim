@@ -8,6 +8,8 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
+lvim.builtin.treesitter.matchup.enable = true
+
 -- generic LSP settings
 lvim.lsp.installer.setup.ensure_installed = {
     "lua_ls",
@@ -69,12 +71,12 @@ formatters.setup {
         ---@usage arguments to pass to the formatter
         -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
         -- args = {
-        "--print-width",
-        "120",
-        "--no-semi",
-        "--single-quote",
-        "--tab-width",
-        "2",
+        --     "--print-width",
+        --     "80",
+        --     "--tab-width",
+        --     "2",
+        --     "--no-semi",
+        --     "--single-quote",
         --     "--trailing-comma", "none",
         --     "--prose-wrap", "always",
         -- },

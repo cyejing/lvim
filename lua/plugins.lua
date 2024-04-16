@@ -33,18 +33,18 @@ lvim.plugins = {
     { "moll/vim-bbye" },
 
     --lsp
-    -- {
-    -- require: rust-analyzer graphviz
-    -- "simrat39/rust-tools.nvim", -- rust
-    -- config = function()
-    -- require("plugin-config").rust_tools_setup()
-    -- end,
-    -- },
     {
-        'mrcjkb/rustaceanvim',
-        version = '^4', -- Recommended
-        ft = { 'rust' },
+        -- require: rust-analyzer graphviz
+        "simrat39/rust-tools.nvim",
+        config = function()
+            require("plugin-config").rust_tools_setup()
+        end,
     },
+    -- {
+    --     'mrcjkb/rustaceanvim',
+    --     version = '^4', -- Recommended
+    --     ft = { 'rust' },
+    -- },
     {
         'saecki/crates.nvim', -- rust crate info
         config = function()
@@ -187,5 +187,5 @@ lvim.plugins = {
         config = function()
             require("spectre").setup()
         end,
-    },
+    }
 }
