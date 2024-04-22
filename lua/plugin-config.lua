@@ -34,6 +34,10 @@ M.neotree_setup = function()
             },
             window = {
                 mappings = neotree_wk.fs.mappings,
+                fuzzy_finder_mappings = {
+                    ["<C-j>"] = "move_cursor_down",
+                    ["<C-k>"] = "move_cursor_up",
+                },
             },
             commands = neotree_wk.fs.commands,
         },

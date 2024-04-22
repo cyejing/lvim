@@ -1,13 +1,11 @@
 local M        = {}
 
 local mappings = lvim.builtin.which_key.mappings
-mappings["e"]  = { "<cmd>Neotree reveal_force_cwd<CR>", "Explorer Reveal" }
--- mappings["m"]  = { "<cmd>NvimTreeToggle<CR>", "Explorer Toggle" }
-mappings["m"]  = { "<cmd>NeoTreeFocusToggle<CR>", "Explorer Toggle" }
+mappings["e"]  = { "<cmd>Neotree left reveal_force_cwd toggle<CR>", "Explorer Reveal" }
+mappings["m"]  = { "<cmd>Neotree float reveal_force_cwd toggle<CR>", "Explorer Toggle" }
 -- mappings["m"]  = { "<cmd>lua require'lir.float'.toggle()<CR>", "Explorer Toggle" }
 mappings["p"]  = { "<CMD>Telescope projects layout_config={width=0.6}<CR>", "Projects" }
--- mappings["o"]  = { "<CMD>Telescope oldfiles<CR>", "Recently files" }
---
+
 mappings["ss"] = { "<CMD>Telescope oldfiles<CR>", "Recently files" }
 mappings["h"]  = { "<CMD>edit ~/.cache/lvim/project_nvim/project_history<CR>", "Edit Projects" }
 mappings["h"]  = { "<CMD>SymbolsOutline<CR>", "SymbolsOutline" }
@@ -235,7 +233,8 @@ function M.neotree_key_mappings()
                 ["y"] = "copy_filename",
                 ["Y"] = "copy_absolute_path",
                 ["h"] = "parent_node",
-                ["<space>e"] = "focus_node",
+                ["e"] = "focus_node",
+                ["f"] = "fuzzy_sorter",
             },
             commands = {
                 telescope_find = function(state)
@@ -305,6 +304,7 @@ function M.rust_key_mappings()
         ["<leader>rw"] = { "<CMD>RustReloadWorkspace<CR>", "RustReloadWorkspace" },
     }
 end
+
 function M.rustn_key_mappings()
     return {
         ["<leader>rr"] = { "<CMD>RustLsp runnables<CR>", "RustRunnables" },
@@ -317,7 +317,6 @@ function M.rustn_key_mappings()
         ["<leader>rw"] = { "<CMD>RustLsp reloadWorkspace<CR>", "RustReloadWorkspace" },
     }
 end
-
 
 -- sqls mappings
 function M.sqls_key_mappings()
