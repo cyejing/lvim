@@ -63,7 +63,7 @@ local function which_key_mappings()
             f = { "<cmd>Telescope git_files<cr>", "Find File" }, -- create a binding with label
             s = { "<cmd>Telescope oldfiles<CR>", "Recently files" },
             r = { "<cmd>Telescope frecency<cr>", "Find Frecency" },
-            c = { "<cmd>Telescope neoclip<cr>", "Find Neoclip" },
+            -- c = { "<cmd>Telescope neoclip<cr>", "Find Neoclip" },
             t = { function()
                 local word = vim.fn.expand "<cword>";
                 require('telescope.builtin').live_grep({
