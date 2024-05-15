@@ -102,11 +102,11 @@ local function which_key_mappings()
             D = { vim.lsp.buf.declaration, "Goto declaration" },
             s = { vim.lsp.buf.signature_help, "Show signature help" },
             f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
-            e = { "<cmd>Telescope diagnostics theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
-                "Diagnostics" },
-            b = {
+            w = { "<cmd>Telescope diagnostics theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
+                "Wordspace Diagnostics" },
+            e = {
                 "<cmd>Telescope diagnostics bufnr=0 theme=get_dropdown layout_config={width=0.80} initial_mode=normal<CR>",
-                "Buffer Diagnostics" },
+                "Document Diagnostics" },
             d = { "<cmd>Telescope lsp_definitions<CR>", "Goto Definition" },
             -- v = { "<cmd>:vertical resize +80<cr>:vsp<cr>:Telescope lsp_definitions<cr>:vertical resize 120<cr>",
             -- "Goto Definition Split" },
@@ -120,7 +120,7 @@ local function which_key_mappings()
             i = { "<cmd>Telescope lsp_implementations<CR>", "Implementation" },
             j = { vim.diagnostic.goto_next, "Next Diagnostic" },
             k = { vim.diagnostic.goto_prev, "Prev Diagnostic" },
-            n = { "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>j", "Comment line" },
+            -- n = { "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>j", "Comment line" },
             l = {
                 function()
                     local float = vim.diagnostic.config().float
