@@ -205,6 +205,7 @@ function M.neotree_key_mappings()
             ["v"] = "open_vsplit",
             ["<C-v>"] = "open_vsplit",
             ["H"] = "close_node",
+            ['Z'] = 'close_all_subnodes',
             ["i"] = "toggle_hidden",
             ["a"] = {
                 "add",
