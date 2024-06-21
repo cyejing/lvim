@@ -120,7 +120,7 @@ local function which_key_mappings()
             i = { "<cmd>Telescope lsp_implementations<CR>", "Implementation" },
             j = { vim.diagnostic.goto_next, "Next Diagnostic" },
             k = { vim.diagnostic.goto_prev, "Prev Diagnostic" },
-            -- n = { "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>j", "Comment line" },
+            n = { "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>j", "Comment line" },
             l = {
                 function()
                     local float = vim.diagnostic.config().float
