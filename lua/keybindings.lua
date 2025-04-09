@@ -86,13 +86,11 @@ lvim.keys.visual_mode = {
     ["<C-q>"] = "<ESC>",
     ["<C-j>"] = "8j",
     ["<C-k>"] = "8k",
-    ["<C-n>"] = "<CMD>ToggleTermToggleAll<CR>",
     ["<A-j>"] = ":m '>+1<CR>gv-gv",
     ["<A-k>"] = ":m '<-2<CR>gv-gv",
 }
 
 lvim.keys.term_mode = {
-    ["<C-n>"] = "<CMD>ToggleTermToggleAll<CR>",
     ["<C-q>"] = "<C-\\><C-N>",
     ["<C-j>"] = "<CR>",
     ["<C-k>"] = "<C-\\><C-N>8k",
