@@ -74,6 +74,7 @@ lvim.builtin.terminal = {
     persist_mode = true,
     direction = "float",
     size = 22,
+    direction = 'float',
     execs = {
         { vim.o.shell, "<leader>nf", "Tab Terminal", "tab", 120 },
     },
