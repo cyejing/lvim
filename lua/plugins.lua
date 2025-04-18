@@ -183,7 +183,7 @@ lvim.plugins = {
     {
         -- keymapping: <leader>S
         -- command: :Spectre
-        "windwp/nvim-spectre", -- search and replace
+        "nvim-pack/nvim-spectre", -- search and replace
         event = "BufRead",
         config = function()
             require("spectre").setup()

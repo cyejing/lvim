@@ -49,7 +49,7 @@ end
 -- ui
 M.onedark_setup = function()
     require('onedark').setup {
-        style = 'light',
+        style = 'dark',
         toggle_style_key = '<leader>t',            -- Default keybinding to toggle
         toggle_style_list = { 'light', 'darker' }, -- List of styles to toggle between
     }
