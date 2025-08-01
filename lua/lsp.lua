@@ -67,7 +67,8 @@ formatters.setup {
     { name = "black" },
     {
         -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
-        name = "prettierd",
+        name = "prettier",
+        args = { "--print-width", "100" },
         ---@usage arguments to pass to the formatter
         -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
         -- args = {
